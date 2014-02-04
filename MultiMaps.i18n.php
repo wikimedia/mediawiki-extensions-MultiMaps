@@ -234,6 +234,7 @@ $messages['fa'] = array(
 	'multimaps-mapservices-must-not-empty-array' => 'متغیر "$1" نباید یک آرایهٔ خالی باشد',
 	'multimaps-element-illegal-value' => 'برای پارامتر "$1" مقدار غیرقانونی "$2" تعیین شده‌ بود. مقادیر معتبر عبارتند از: $3',
 	'multimaps-element-parameters-not-processed' => 'پارامترهای زیر پردازش نشده بودند: $1',
+	'multimaps-circle-radius-not-defined' => 'برای دایره، شعاع باید معنی شود',
 	'multimaps-marker-incorrect-icon' => 'نام پوشهٔ‌ نادرست "$1" برای نماد شاخص ارائه شده بود.',
 	'multimaps-marker-incorrect-icon-url' => 'یوآرال نادرست "$1" برای نماد شاخص ارائه شده بود.',
 	'multimaps-marker-incorrect-icon-size' => 'اندازهٔ نادرست "$1" برای نماد شاخص "$2" ارائه شده بود.',
