@@ -167,13 +167,13 @@ abstract class BaseMapService {
 				'div',
 				array(
 					'id' => 'multimaps_map' . $mapid++,
-					'style' => 'width:'.htmlspecialchars($this->width).'; height:'.htmlspecialchars($this->height).';',
+					'style' => 'width:'.htmlspecialchars($this->width).'; height:'.htmlspecialchars($this->height).'; background-color: #cccccc; overflow: hidden;',
 					'class' => 'multimaps-map' . ($this->classname != '' ? " multimaps-map-$this->classname" : ''),
 					),
 				\Html::element( 'p', array(), \wfMessage('multimaps-loading-map')->escaped() ) .
 				\Html::rawElement(
 						'div',
-						array( 'class' => 'multimaps-mapdata' ),
+						array( 'class' => 'multimaps-mapdata', 'style' => 'display: none;' ),
 						\FormatJson::encode( $this->getMapData() )
 						)
 				);

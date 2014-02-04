@@ -54,10 +54,10 @@ mediaWiki.MultiMapsLeaflet = {
 		}
 
 		if (properties.title !== undefined && properties.text !== undefined) {
-			options.title = properties.title;
+			options.title = properties.title.replace(/<\/?[^>]+>/gi, '');
 			text = '<strong>' + properties.title + '</strong><hr />' + properties.text;
 		} else if (properties.title !== undefined) {
-			options.title = properties.title;
+			options.title = properties.title.replace(/<\/?[^>]+>/gi, '');
 			text = '<strong>' + properties.title + '</strong>';
 		} else if (properties.text  !== undefined) {
 			text = properties.text;

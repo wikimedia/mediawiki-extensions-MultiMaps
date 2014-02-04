@@ -54,10 +54,10 @@ mediaWiki.MultiMapsYandex = {
 		}
 
 		if (properties.title !== undefined && properties.text !== undefined) {
-			prop.hintContent = properties.title;
+			prop.hintContent = properties.title.replace(/<\/?[^>]+>/gi, '');
 			prop.balloonContent = '<strong>' + properties.title + '</strong><hr />' + properties.text;
 		} else if (properties.title !== undefined) {
-			prop.hintContent = properties.title;
+			prop.hintContent = properties.title.replace(/<\/?[^>]+>/gi, '');
 			prop.balloonContent = '<strong>' + properties.title + '</strong>';
 		} else if (properties.text  !== undefined) {
 			prop.balloonContent = properties.text;

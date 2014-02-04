@@ -105,7 +105,13 @@ abstract class BaseMapElement {
 			return false;
 		}
 
-		if ( is_string($value) ) {
+		if ( $name == 'title' || $name == 'text' ) {
+			$parser = clone $GLOBALS['wgParser'];
+			$title = $parser->getTitle();
+			if ( $title === null ) { $title = new \Title(); }
+
+			$this->properties[$name] = $parser->parse( trim( $value ), $title, new \ParserOptions() )->getText();
+		} elseif ( is_string($value) ) {
 			$value = trim( $value );
 			$this->properties[$name] = htmlspecialchars( $value, ENT_NOQUOTES );
 		} else {

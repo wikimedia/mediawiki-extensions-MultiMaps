@@ -15,7 +15,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'This file is an extension to MediaWiki and thus not a valid entry point.' );
 }
 
-define( 'MultiMaps_VERSION' , '0.5.2' );
+define( 'MultiMaps_VERSION' , '0.6.0' );
 
 // Register this extension on Special:Version
 $wgExtensionCredits['parserhook'][] = array(
@@ -68,7 +68,6 @@ $wgAutoloadClasses['MultiMaps\\Circle'] =			$dir . '/includes/mapelements/Circle
 
 //define modules that can later be loaded during the output
 $wgResourceModules['ext.MultiMaps'] = array(
-	'styles' => array('multimaps.css'),
 	'scripts' => array('multimaps.js'),
 	'localBasePath' => $dir . '/resources',
 	'remoteExtPath' => 'MultiMaps/resources',
