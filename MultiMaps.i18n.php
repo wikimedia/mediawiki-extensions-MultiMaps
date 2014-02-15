@@ -494,6 +494,13 @@ $messages['nl'] = array(
 	'multimaps-method-error-unexpected-result' => '$1: een functie heeft een onverwacht resultaat teruggegeven',
 );
 
+/** Polish (polski)
+ * @author Chrumps
+ */
+$messages['pl'] = array(
+	'multimaps-unknown-parameter' => 'Nieznany parametr: „$1”',
+);
+
 /** tarandíne (tarandíne)
  * @author Joetaras
  */
