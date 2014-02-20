@@ -230,11 +230,15 @@ $messages['es'] = array(
  * @author Armin1392
  */
 $messages['fa'] = array(
+	'multimaps-desc' => 'اجازه به کاربران برای نمایش نقشه‌ها و اطلاعات مختصات با استفاده از چندین سرویس‌های نقشه‌برداری',
 	'multimaps-loading-map' => 'در حال بارگذاری نقشه...',
 	'multimaps-mapservices-must-not-empty-array' => 'متغیر "$1" نباید یک آرایهٔ خالی باشد',
+	'multimaps-had-following-errors' => 'هنگامی که تجزیه از پارامترها عبور کرد، خطاهای زیر را داشت:',
 	'multimaps-element-illegal-value' => 'برای پارامتر "$1" مقدار غیرقانونی "$2" تعیین شده‌ بود. مقادیر معتبر عبارتند از: $3',
+	'multimaps-element-more-parameters' => 'برای این عنصر نقشه "$1" پارامترهای بیشتر از انتظاری عبور کردند:',
 	'multimaps-element-parameters-not-processed' => 'پارامترهای زیر پردازش نشده بودند: $1',
 	'multimaps-circle-radius-not-defined' => 'برای دایره، شعاع باید معنی شود',
+	'multimaps-circle-wrong-number-parameters' => 'برای دایره، فقط دو پارامتر باید تعریف شود، مختصات مرکز و شعاع. اما {{PLURAL:$1|یک پارامتر|$1 پارامترها}} تعیین شده',
 	'multimaps-marker-incorrect-icon' => 'نام پوشهٔ‌ نادرست "$1" برای نماد شاخص ارائه شده بود.',
 	'multimaps-marker-incorrect-icon-url' => 'یوآرال نادرست "$1" برای نماد شاخص ارائه شده بود.',
 	'multimaps-marker-incorrect-icon-size' => 'اندازهٔ نادرست "$1" برای نماد شاخص "$2" ارائه شده بود.',
