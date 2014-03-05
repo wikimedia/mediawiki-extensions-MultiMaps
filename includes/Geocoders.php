@@ -143,8 +143,6 @@ class Geocoders {
 								$p = new Point($value[1], $value[0]);
 								if( $p->isValid() ) {
 									$points[] = $p;
-								} else {
-									break;
 								}
 							}
 							if( count($points) > 1 ) {

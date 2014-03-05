@@ -60,7 +60,7 @@ class GeoCoordinate {
 			$lon = false;
 			$doubt = false;
 			$matches = array();
-			if ( preg_match('/^[NSWE]|[NSWE]$/i', $array[0], &$matches) ) {
+			if ( preg_match('/^[NSWE]|[NSWE]$/i', $array[0], $matches) ) {
 				$string = preg_replace('/[NSWE]/i', '', $array[0], 1);
 				switch ( strtoupper($matches[0]) ) {
 					case 'N':
@@ -81,11 +81,11 @@ class GeoCoordinate {
 				$lat = self::getFloatFromString($array[0]);
 			}
 
-			if( !$lat && !$lon ) {
+			if( $lat === false && $lon === false ) {
 				return false;
 			}
 
-			if ( preg_match('/^[NSWE]|[NSWE]$/i', $array[1], &$matches) ) {
+			if ( preg_match('/^[NSWE]|[NSWE]$/i', $array[1], $matches) ) {
 				$string = preg_replace('/[NSWE]/i', '', $array[1], 1);
 				switch ( strtoupper($matches[0]) ) {
 					case 'N':
@@ -116,14 +116,14 @@ class GeoCoordinate {
 						break;
 				 }
 			} else {
-				if( $lat ) {
+				if( $lat !== false ) {
 					$lon = self::getFloatFromString($array[1]);
 				} else {
 					$lat = self::getFloatFromString($array[1]);
 				}
 			}
 
-			if( $lat && $lon ) {
+			if( $lat !== false && $lon !== false ) {
 				return array ('lat'=>$lat, 'lon'=>$lon);
 			}
 		}
@@ -145,11 +145,11 @@ class GeoCoordinate {
 	private static function getFloatFromString( $string ) {
 		$matches = array();
 		// String contain float
-		if( preg_match( '/^((?:-)?\d{1,3}(?:\.\d{1,20})?)(?:°)?$/', $string, &$matches ) ) {
+		if( preg_match( '/^((?:-)?\d{1,3}(?:\.\d{1,20})?)(?:°)?$/', $string, $matches ) ) {
 			return (float)$matches[1];
 		}
 		// String contain DMS
-		if( preg_match( '/^((?:-)?\d{1,3})°(\d{1,2}(?:\.\d{1,20})?)(?:\′|\')(?:(\d{1,2}(?:\.\d{1,20})?)(?:″|"))?$/', $string, &$matches ) ) {
+		if( preg_match( '/^((?:-)?\d{1,3})°(\d{1,2}(?:\.\d{1,20})?)(?:\′|\')(?:(\d{1,2}(?:\.\d{1,20})?)(?:″|"))?$/', $string, $matches ) ) {
 			return (float)(abs($matches[1])== $matches[1] ? 1 : -1) * (abs($matches[1]) + (isset($matches[2]) ? $matches[2] / 60 : 0) + (isset($matches[3]) ? $matches[3] / 3600 : 0));
 		}
 		return false;

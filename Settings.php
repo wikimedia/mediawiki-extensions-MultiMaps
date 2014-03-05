@@ -42,3 +42,12 @@ $egMultiMaps_CoordinatesSeparator = ':';
 // only be used when the user does not provide them.
 $egMultiMaps_Width = 'auto';
 $egMultiMaps_Height = '350px';
+
+// Boolean. If true, allow specify an icon for the marker from the directory
+$egMultiMaps_IconAllowFromDirectory = false;
+// String. The URL base path to the directory containing icons for markers
+$egMultiMaps_IconPath = "$wgScriptPath/mapicons";
+
+//TODO
+//$egMultiMaps_GoogleApiKey = false;
+//$egMultiMaps_YandexApiKey = false;

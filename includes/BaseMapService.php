@@ -58,31 +58,31 @@ abstract class BaseMapService {
 
 	/**
 	 * Array of elements map marker
-	 * @var array
+	 * @var Marker[]
 	 */
 	protected $markers;
 
 	/**
 	 * Array of elements map line
-	 * @var array
+	 * @var Line[]
 	 */
 	protected $lines;
 
 	/**
 	 * Array of elements map polygon
-	 * @var array
+	 * @var Polygon[]
 	 */
 	protected $polygons;
 
 	/**
 	 * Array of elements map rectangle
-	 * @var array
+	 * @var Rectangle[]
 	 */
 	protected $rectangles;
 
 	/**
 	 * Array of elements map circle
-	 * @var array
+	 * @var Circle[]
 	 */
 	protected $circles;
 
@@ -167,13 +167,13 @@ abstract class BaseMapService {
 				'div',
 				array(
 					'id' => 'multimaps_map' . $mapid++,
-					'style' => 'width:'.htmlspecialchars($this->width).'; height:'.htmlspecialchars($this->height).';',
+					'style' => 'width:'.htmlspecialchars($this->width).'; height:'.htmlspecialchars($this->height).'; background-color: #cccccc; overflow: hidden;',
 					'class' => 'multimaps-map' . ($this->classname != '' ? " multimaps-map-$this->classname" : ''),
 					),
-				\wfMessage( 'multimaps-loading-map' )->escaped() .
+				\Html::element( 'p', array(), \wfMessage('multimaps-loading-map')->escaped() ) .
 				\Html::rawElement(
 						'div',
-						array( 'class' => 'multimaps-mapdata' ),
+						array( 'class' => 'multimaps-mapdata', 'style' => 'display: none;' ),
 						\FormatJson::encode( $this->getMapData() )
 						)
 				);
@@ -261,7 +261,7 @@ abstract class BaseMapService {
 
 		$matches = array();
 		foreach ($param as $value) {
-			if( preg_match('/^\s*(\w+)\s*=\s*(.+)\s*$/s', $value, &$matches) ) {
+			if( preg_match('/^\s*(\w+)\s*=\s*(.+)\s*$/s', $value, $matches) ) {
 				$name = strtolower($matches[1]);
 				if( array_search($name, $this->availableMapElements) !== false ) {
 					$this->addMapElement($name, $matches[2]);
@@ -475,8 +475,25 @@ abstract class BaseMapService {
 				break;
 			case 'icon':
 				$marker = new Marker();
-				if( $marker->setProperty('icon', $value) ) {
-					$this->properties['icon'] = $marker->icon;
+				if ( $marker->setProperty('icon', $value) ) {
+					if ( $marker->icon !== null ) {
+						$this->properties['icon'] = $marker->icon;
+					}
+					if ( $marker->size !== null ) {
+						$this->properties['icon_size'] = $marker->size;
+					}
+					if ( $marker->anchor !== null ) {
+						$this->properties['icon_anchor'] = $marker->anchor;
+					}
+					if ( $marker->shadow !== null ) {
+						$this->properties['icon_shadow'] = $marker->shadow;
+					}
+					if ( $marker->sh_size !== null ) {
+						$this->properties['icon_sh_size'] = $marker->sh_size;
+					}
+					if ( $marker->sh_anchor !== null ) {
+						$this->properties['icon_sh_anchor'] = $marker->sh_anchor;
+					}
 				} else {
 					$this->errormessages = array_merge( $this->errormessages, $marker->getErrorMessages() );
 				}

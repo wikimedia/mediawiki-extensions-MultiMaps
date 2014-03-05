@@ -44,7 +44,7 @@ class YandexTest extends \PHPUnit_Framework_TestCase {
 
 	public function testParseGeocoderRectangles() {
 		$this->assertRegExp(
-				'{"rectangles":\[{"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+},{"lat":[0-9\.]+,"lon":[0-9\.]+}\]},{"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+},{"lat":[-0-9\.]+,"lon":[-0-9\.]+}]}],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[-0-9\.]+}}}',
+				'/\{"rectangles":\[\{"pos":\[\{"lat":[-0-9\.]+,"lon":[-0-9\.]+\},\{"lat":[-0-9\.]+,"lon":[-0-9\.]+\}\]\},\{"pos":\[\{"lat":[-0-9\.]+,"lon":[-0-9\.]+\},\{"lat":[-0-9\.]+,"lon":[-0-9\.]+\}\]\}\],"bounds":\{"ne":\{"lat":[-0-9\.]+,"lon":[-0-9\.]+\},"sw":\{"lat":[-0-9\.]+,"lon":[-0-9\.]+\}\}\}/',
 				\FormatJson::encode( $this->object->getMapData( array('rectangle=Moscow;London', 'service=yandex') ) )
 				);
 	}

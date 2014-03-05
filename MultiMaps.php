@@ -15,16 +15,16 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'This file is an extension to MediaWiki and thus not a valid entry point.' );
 }
 
-define( 'MultiMaps_VERSION' , '0.4' );
+define( 'MultiMaps_VERSION' , '0.6.0' );
 
 // Register this extension on Special:Version
 $wgExtensionCredits['parserhook'][] = array(
-	'path'		   => __FILE__,
-	'name'		   => 'MultiMaps',
-	'version'		=> MultiMaps_VERSION,
-	'url'			=> 'https://www.mediawiki.org/wiki/Extension:MultiMaps',
-	'author'		 => array( '[[mw:User:Pastakhov|Pavel Astakhov]]' ),
-	'descriptionmsg' => 'multimaps-desc'
+	'path'				=> __FILE__,
+	'name'				=> 'MultiMaps',
+	'version'			=> MultiMaps_VERSION,
+	'url'				=> 'https://www.mediawiki.org/wiki/Extension:MultiMaps',
+	'author'			=> array( '[[mw:User:Pastakhov|Pavel Astakhov]]' ),
+	'descriptionmsg'	=> 'multimaps-desc'
 );
 
 // Tell the whereabouts of files
@@ -43,7 +43,7 @@ require_once $dir . '/Settings.php';
  * @codeCoverageIgnore
  */
 $wgHooks['ParserFirstCallInit'][] = function( Parser &$parser ) {
-   $parser->setFunctionHook( 'MAG_MULTIMAPS', 'MultiMaps::renderParserFunction_showmap' );
+   $parser->setFunctionHook( 'multimaps', 'MultiMaps::renderParserFunction_showmap' );
    return true;
 };
 
@@ -68,11 +68,9 @@ $wgAutoloadClasses['MultiMaps\\Circle'] =			$dir . '/includes/mapelements/Circle
 
 //define modules that can later be loaded during the output
 $wgResourceModules['ext.MultiMaps'] = array(
-	'styles' => array('resources/multimaps.css'),
-	'scripts' => array('resources/multimaps.js'),
-	'localBasePath' => $dir,
-	'remoteExtPath' => 'MultiMaps',
-	'group' => 'ext.MultiMaps',
+	'scripts' => array('multimaps.js'),
+	'localBasePath' => $dir . '/resources',
+	'remoteExtPath' => 'MultiMaps/resources',
 	);
 
 // Leaflet service
@@ -81,7 +79,6 @@ $wgResourceModules['ext.MultiMaps.Leaflet'] = array(
 	'scripts' => array( 'ext.leaflet.js' ),
 	'localBasePath' => $dir . '/services/Leaflet',
 	'remoteExtPath' => 'MultiMaps/services/Leaflet',
-	'group' => 'ext.MultiMaps',
 	);
 
 // Google service
@@ -90,7 +87,6 @@ $wgResourceModules['ext.MultiMaps.Google'] = array(
 	'scripts' => array( 'ext.google.js' ),
 	'localBasePath' => $dir . '/services/Google',
 	'remoteExtPath' => 'MultiMaps/services/Google',
-	'group' => 'ext.MultiMaps',
 	);
 
 // Yandex service
@@ -99,7 +95,6 @@ $wgResourceModules['ext.MultiMaps.Yandex'] = array(
 	'scripts' => array( 'ext.yandex.js' ),
 	'localBasePath' => $dir . '/services/Yandex',
 	'remoteExtPath' => 'MultiMaps/services/Yandex',
-	'group' => 'ext.MultiMaps',
 	);
 
 /**

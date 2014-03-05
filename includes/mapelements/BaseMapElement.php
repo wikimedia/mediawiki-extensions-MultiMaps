@@ -16,7 +16,7 @@ abstract class BaseMapElement {
 
 	/**
 	 * Geographic coordinates
-	 * @var array Array of Point
+	 * @var Point[]
 	 */
 	protected $coordinates;
 
@@ -99,16 +99,22 @@ abstract class BaseMapElement {
 	 * @return boolean
 	 */
 	public function setProperty($name, $value) {
-		$name = strtolower($name);
-		$value = trim($value);
+		$name = strtolower( $name );
 
-		if( array_search($name, $this->availableProperties) === false ) {
+		if ( array_search($name, $this->availableProperties) === false ) {
 			return false;
 		}
 
-		if( is_string($value) ) {
-			$this->properties[$name] = htmlspecialchars($value, ENT_NOQUOTES);
-		}else{
+		if ( $name == 'title' || $name == 'text' ) {
+			$parser = clone $GLOBALS['wgParser'];
+			$title = $parser->getTitle();
+			if ( $title === null ) { $title = new \Title(); }
+
+			$this->properties[$name] = $parser->parse( trim( $value ), $title, new \ParserOptions() )->getText();
+		} elseif ( is_string($value) ) {
+			$value = trim( $value );
+			$this->properties[$name] = htmlspecialchars( $value, ENT_NOQUOTES );
+		} else {
 			$this->properties[$name] = $value;
 		}
 		return true;
@@ -185,7 +191,7 @@ abstract class BaseMapElement {
 		$matches = array();
 		$properties = implode( '|', $this->availableProperties );
 		foreach ($param as $key => $paramvalue) {
-			if( preg_match("/^\s*($properties)\s*=(.+)$/si", $paramvalue, &$matches) ) {
+			if( preg_match("/^\s*($properties)\s*=(.+)$/si", $paramvalue, $matches) ) {
 				if ( !$this->setProperty($matches[1], $matches[2]) ) {
 					$return = false;
 				}

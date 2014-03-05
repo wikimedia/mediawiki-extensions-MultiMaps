@@ -23,7 +23,7 @@ class MultiMaps {
 		$nameService = null;
 		$matches = array();
 		foreach ($params as $value) {
-			if( preg_match('/^\s*service\s*=\s*(.+)\s*$/si', $value, &$matches) ) {
+			if( preg_match('/^\s*service\s*=\s*(.+)\s*$/si', $value, $matches) ) {
 				$nameService = $matches[1];
 				break;
 			}
@@ -31,7 +31,7 @@ class MultiMaps {
 		$service = \MultiMaps\MapServices::getServiceInstance( $nameService );
 
 		if( !($service instanceof \MultiMaps\BaseMapService) ) {
-				return "<span class=\"error\">" . $service . "</span>";
+				return "<span class=\"error\"> $service </span>";
 		}
 
 		$service->parse($params, false);
