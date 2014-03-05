@@ -16,7 +16,24 @@ mediaWiki.MultiMapsGoogle = {
 		var options = {}, text = false;
 
 		if (properties.icon !== undefined) {
-			options.icon = properties.icon;
+			var iconOptions = { url: properties.icon };
+			if (properties.size !== undefined) {
+				iconOptions.scaledSize = new google.maps.Size(properties.size[0], properties.size[1]);
+			}
+			if (properties.anchor !== undefined) {
+				iconOptions.anchor = new google.maps.Point(properties.anchor[0], properties.anchor[1]);
+			}
+			options.icon = iconOptions;
+			if (properties.shadow !== undefined) {
+				var shadowOptions = { url: properties.shadow };
+				if (properties.sh_size !== undefined) {
+					shadowOptions.scaledSize = new google.maps.Size(properties.sh_size[0], properties.sh_size[1]);
+				}
+				if (properties.sh_anchor !== undefined) {
+					shadowOptions.anchor = new google.maps.Point(properties.sh_anchor[0], properties.sh_anchor[1]);
+				}
+				options.shadow = shadowOptions;
+			}
 		}
 		if (properties.color !== undefined) {
 			options.strokeColor = properties.color;
@@ -38,10 +55,10 @@ mediaWiki.MultiMapsGoogle = {
 		}
 
 		if (properties.title !== undefined && properties.text !== undefined) {
-			options.title = properties.title;
+			options.title = properties.title.replace(/<\/?[^>]+>/gi, '');
 			text = '<strong>' + properties.title + '</strong><hr />' + properties.text;
 		} else if (properties.title !== undefined) {
-			options.title = properties.title;
+			options.title = properties.title.replace(/<\/?[^>]+>/gi, '');
 			text = '<strong>' + properties.title + '</strong>';
 		} else if (properties.text  !== undefined) {
 			text = properties.text;
@@ -201,9 +218,9 @@ mediaWiki.MultiMapsGoogle = {
 		} else {
 			if (options.center) {
 				map.setCenter(new google.maps.LatLng(options.center.lat, options.center.lon));
-				map.setZoom(options.zoom);
+				map.setZoom(parseInt(options.zoom,10));
 			} else if (options.zoom) {
-				map.setZoom(options.zoom);
+				map.setZoom(parseInt(options.zoom,10));
 			}
 		}
 	}

@@ -16,9 +16,23 @@ mediaWiki.MultiMapsLeaflet = {
 		var options = {}, text = false;
 
 		if (properties.icon !== undefined) {
-			options.icon = new L.Icon({
-				iconUrl: properties.icon
-			});
+			var iconOptions = {	iconUrl: properties.icon };
+			if (properties.size !== undefined) {
+				iconOptions.iconSize = properties.size;
+			}
+			if (properties.anchor !== undefined) {
+				iconOptions.iconAnchor = properties.anchor;
+			}
+			if (properties.shadow !== undefined) {
+				iconOptions.shadowUrl = properties.shadow;
+			}
+			if (properties.sh_size !== undefined) {
+				iconOptions.shadowSize = properties.sh_size;
+			}
+			if (properties.sh_anchor !== undefined) {
+				iconOptions.shadowAnchor = properties.sh_anchor;
+			}
+			options.icon = new L.Icon( iconOptions );
 		}
 		if (properties.color !== undefined) {
 			options.color = properties.color;
@@ -40,10 +54,10 @@ mediaWiki.MultiMapsLeaflet = {
 		}
 
 		if (properties.title !== undefined && properties.text !== undefined) {
-			options.title = properties.title;
+			options.title = properties.title.replace(/<\/?[^>]+>/gi, '');
 			text = '<strong>' + properties.title + '</strong><hr />' + properties.text;
 		} else if (properties.title !== undefined) {
-			options.title = properties.title;
+			options.title = properties.title.replace(/<\/?[^>]+>/gi, '');
 			text = '<strong>' + properties.title + '</strong>';
 		} else if (properties.text  !== undefined) {
 			text = properties.text;

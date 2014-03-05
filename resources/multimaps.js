@@ -20,6 +20,21 @@ mediaWiki.MultiMaps = {
 			if (globalOptions.icon && !elementoptions.icon) {
 				elementoptions.icon = globalOptions.icon;
 			}
+			if (globalOptions.icon_size && !elementoptions.size) {
+				elementoptions.size = globalOptions.icon_size;
+			}
+			if (globalOptions.icon_anchor && !elementoptions.anchor) {
+				elementoptions.anchor = globalOptions.icon_anchor;
+			}
+			if (globalOptions.icon_shadow && !elementoptions.shadow) {
+				elementoptions.shadow = globalOptions.icon_shadow;
+			}
+			if (globalOptions.icon_sh_size && !elementoptions.sh_size) {
+				elementoptions.sh_size = globalOptions.icon_sh_size;
+			}
+			if (globalOptions.icon_sh_anchor && !elementoptions.sh_anchor) {
+				elementoptions.sh_anchor = globalOptions.icon_sh_anchor;
+			}
 			break;
 		case 'polygon':
 		case 'circle':

@@ -17,6 +17,22 @@ mediaWiki.MultiMapsYandex = {
 
 		if (properties.icon !== undefined) {
 			options.iconImageHref = properties.icon;
+			if (properties.size !== undefined) {
+				options.iconImageSize = properties.size;
+			}
+			if (properties.anchor !== undefined) {
+				options.iconImageOffset = [ -properties.anchor[0], -properties.anchor[1] ];
+			}
+			if (properties.shadow !== undefined) {
+				options.iconShadow = true;
+				options.iconShadowImageHref = properties.shadow;
+			}
+			if (properties.sh_size !== undefined) {
+				options.iconShadowImageSize = properties.sh_size;
+			}
+			if (properties.sh_anchor !== undefined) {
+				options.iconShadowImageOffset = [ -properties.sh_anchor[0], -properties.sh_anchor[1] ];
+			}
 		}
 		if (properties.color !== undefined) {
 			options.strokeColor = properties.color;
@@ -38,10 +54,10 @@ mediaWiki.MultiMapsYandex = {
 		}
 
 		if (properties.title !== undefined && properties.text !== undefined) {
-			prop.hintContent = properties.title;
+			prop.hintContent = properties.title.replace(/<\/?[^>]+>/gi, '');
 			prop.balloonContent = '<strong>' + properties.title + '</strong><hr />' + properties.text;
 		} else if (properties.title !== undefined) {
-			prop.hintContent = properties.title;
+			prop.hintContent = properties.title.replace(/<\/?[^>]+>/gi, '');
 			prop.balloonContent = '<strong>' + properties.title + '</strong>';
 		} else if (properties.text  !== undefined) {
 			prop.balloonContent = properties.text;
