@@ -51,7 +51,7 @@ class Marker extends BaseMapElement {
 		if ( !empty($properties[0]) ) {
 			$v = $properties[0];
 			if ( $v[0] == '/' && $GLOBALS['egMultiMaps_IconAllowFromDirectory'] === true ) {
-				if ( preg_match('#[^0-9a-zA-Zа-яА-Я./_=\+\-]#', $v) || preg_match('#/../#', $v) ) {
+				if ( preg_match('#[^0-9a-zA-Zа-яА-Я/_=\.\+\-]#', $v) || mb_strpos($v, '/../') !== false ) {
 					$this->errormessages[] = \wfMessage( 'multimaps-marker-incorrect-icon-url', $v )->escaped();
 					return false;
 				}

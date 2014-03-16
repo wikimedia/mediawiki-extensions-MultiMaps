@@ -16,6 +16,7 @@
 if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'This file is an extension to MediaWiki and thus not a valid entry point.' );
 }
+$egMultiMaps_AllowGeocoderTests = false;
 
 // Default settings
 

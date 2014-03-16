@@ -15,7 +15,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'This file is an extension to MediaWiki and thus not a valid entry point.' );
 }
 
-define( 'MultiMaps_VERSION' , '0.6.0' );
+define( 'MultiMaps_VERSION' , '0.6.1' );
 
 // Register this extension on Special:Version
 $wgExtensionCredits['parserhook'][] = array(
