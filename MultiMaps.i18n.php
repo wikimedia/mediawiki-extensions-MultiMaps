@@ -224,6 +224,10 @@ $messages['es'] = array(
 	'multimaps-mapservices-must-not-empty-array' => 'La variable «$1» no debe ser una matriz vacía',
 	'multimaps-marker-incorrect-icon-url' => 'Una dirección URL incorrecta "$1" fue proporcionada por el icono de marcador.',
 	'multimaps-marker-incorrect-icon-anchor' => 'Un ancla incorrecto " $1 "fue proporcionado por el icono marcador" $2 ".',
+	'multimaps-unknown-parameter' => 'Parámetro desconocido: «$1»',
+	'multimaps-error-incorrect-class-for-service' => 'No se puede utilizar la clase «$1» definida para el servicio.',
+	'multimaps-method-error-unknown-action' => '$1: acción desconocida',
+	'multimaps-method-error-unexpected-result' => '$1: resultado de función inesperado',
 );
 
 /** Persian (فارسی)
