@@ -15,7 +15,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'This file is an extension to MediaWiki and thus not a valid entry point.' );
 }
 
-define( 'MultiMaps_VERSION' , '0.6.1' );
+define( 'MultiMaps_VERSION' , '0.7.0' );
 
 // Register this extension on Special:Version
 $wgExtensionCredits['parserhook'][] = array(
@@ -32,6 +32,7 @@ $dir = __DIR__;
 $egMultiMapsScriptPath = ( $wgExtensionAssetsPath === false ? $wgScriptPath . '/extensions' : $wgExtensionAssetsPath ) . '/MultiMaps';
 
 // Allow translations for this extension
+$wgMessagesDirs['MultiMaps'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['MultiMaps'] =		$dir . '/MultiMaps.i18n.php';
 $wgExtensionMessagesFiles['MultiMapsMagic'] =	$dir . '/MultiMaps.i18n.magic.php';
 
