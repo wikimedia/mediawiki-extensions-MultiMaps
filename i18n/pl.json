@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Chrumps"
-        ]
-    },
-    "multimaps-unknown-parameter": "Nieznany parametr: „$1”"
+	"@metadata": {
+		"authors": [
+			"Chrumps"
+		]
+	},
+	"multimaps-unknown-parameter": "Nieznany parametr: „$1”"
 }
