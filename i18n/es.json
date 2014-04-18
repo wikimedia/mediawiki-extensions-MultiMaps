@@ -10,6 +10,7 @@
 	"multimaps-marker-incorrect-icon-url": "Una dirección URL incorrecta \"$1\" fue proporcionada por el icono de marcador.",
 	"multimaps-marker-incorrect-icon-anchor": "Un ancla incorrecto \" $1 \"fue proporcionado por el icono marcador\" $2 \".",
 	"multimaps-unable-create-element": "No se puede crear el elemento del mapa «$1»",
+	"multimaps-unknown-class-for-service": "No se pudo encontrar la clase «$1» que se definió para el servicio.",
 	"multimaps-unknown-parameter": "Parámetro desconocido: «$1»",
 	"multimaps-error-incorrect-class-for-service": "No se puede utilizar la clase «$1» definida para el servicio.",
 	"multimaps-method-error-unknown-action": "$1: acción desconocida",
