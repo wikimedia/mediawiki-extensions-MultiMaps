@@ -22,7 +22,7 @@
 	"multimaps-marker-incorrect-shadow-url": "정확하지 않은 URL \"$1\"이 아이콘 섀도우에 입력됐습니다.",
 	"multimaps-marker-incorrect-shadow-size": "정확하지 않은 크기 \"$1\"가 아이콘 섀도우 \"$2\" 값에 입력됐습니다.",
 	"multimaps-marker-incorrect-shadow-anchor": "정확하지 않은 앵커 \"$1\"이 아이콘 섀도 \"$2\"에 입력됐습니다.",
-	"multimaps-passed-unavailable-service": "서비스 이름 \"$1\"을 사용할 수 있는 서비스($2) 목록에서 찾을 수 없습니다. 기본 값 \"$3\"을 사용함",
+	"multimaps-passed-unavailable-service": "\"$1\" 서비스 이름을 사용할 수 있는 서비스($2) 목록에서 찾을 수 없습니다. \"$3\" 기본 서비스가 사용됩니다",
 	"multimaps-square-wrong-number-points": "사각형의 좌표는 단 두 개의 점을 포함해야 하지만 {{PLURAL:$1|한 점|$1개의 점}}을 지정했습니다.",
 	"multimaps-unable-create-element": "지도 요소 \"$1\"을 찾을 수 없습니다",
 	"multimaps-unable-parse-coordinates": "지리 좌표 \"$1\"을 구문 분석할 수 없습니다",
