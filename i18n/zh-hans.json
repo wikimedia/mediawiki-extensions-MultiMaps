@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Yfdyh000",
-			"乌拉跨氪"
+			"乌拉跨氪",
+			"Liuxinyu970226"
 		]
 	},
 	"multimaps-desc": "允许用户使用多个地图服务显示地图和坐标数据",
@@ -14,6 +15,7 @@
 	"multimaps-element-parameters-not-processed": "未处理以下参数：$1",
 	"multimaps-circle-radius-not-defined": "圆必须定义半径。",
 	"multimaps-marker-incorrect-icon": "图标标记提供了不正确的文件名称“$1 ”",
+	"multimaps-marker-incorrect-icon-url": "提供标记图标的URL“$1”不正确。",
 	"multimaps-passed-unavailable-service": "服务名“$1”在可用服务列表 ($2) 中未找到。已采用默认的服务“$3”",
 	"multimaps-square-wrong-number-points": "方形应该只有两个坐标，但却指定了{{PLURAL:$1|一个点|$1个点}}",
 	"multimaps-unable-create-element": "无法创建地图元素“$1”",
