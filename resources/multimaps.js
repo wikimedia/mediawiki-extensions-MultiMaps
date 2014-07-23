@@ -20,20 +20,20 @@ mediaWiki.MultiMaps = {
 			if (globalOptions.icon && !elementoptions.icon) {
 				elementoptions.icon = globalOptions.icon;
 			}
-			if (globalOptions.icon_size && !elementoptions.size) {
-				elementoptions.size = globalOptions.icon_size;
+			if (globalOptions.iconSize && !elementoptions.size) {
+				elementoptions.size = globalOptions.iconSize;
 			}
-			if (globalOptions.icon_anchor && !elementoptions.anchor) {
-				elementoptions.anchor = globalOptions.icon_anchor;
+			if (globalOptions.iconAnchor && !elementoptions.anchor) {
+				elementoptions.anchor = globalOptions.iconAnchor;
 			}
-			if (globalOptions.icon_shadow && !elementoptions.shadow) {
-				elementoptions.shadow = globalOptions.icon_shadow;
+			if (globalOptions.iconShadow && !elementoptions.shadow) {
+				elementoptions.shadow = globalOptions.iconShadow;
 			}
-			if (globalOptions.icon_sh_size && !elementoptions.sh_size) {
-				elementoptions.sh_size = globalOptions.icon_sh_size;
+			if (globalOptions.iconShSize && !elementoptions.shSize) {
+				elementoptions.shSize = globalOptions.iconShSize;
 			}
-			if (globalOptions.icon_sh_anchor && !elementoptions.sh_anchor) {
-				elementoptions.sh_anchor = globalOptions.icon_sh_anchor;
+			if (globalOptions.iconShAnchor && !elementoptions.shAnchor) {
+				elementoptions.shAnchor = globalOptions.iconShAnchor;
 			}
 			break;
 		case 'polygon':

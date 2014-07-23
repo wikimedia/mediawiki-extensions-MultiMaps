@@ -26,11 +26,11 @@ mediaWiki.MultiMapsGoogle = {
 			options.icon = iconOptions;
 			if (properties.shadow !== undefined) {
 				var shadowOptions = { url: properties.shadow };
-				if (properties.sh_size !== undefined) {
-					shadowOptions.scaledSize = new google.maps.Size(properties.sh_size[0], properties.sh_size[1]);
+				if (properties.shSize !== undefined) {
+					shadowOptions.scaledSize = new google.maps.Size(properties.shSize[0], properties.shSize[1]);
 				}
-				if (properties.sh_anchor !== undefined) {
-					shadowOptions.anchor = new google.maps.Point(properties.sh_anchor[0], properties.sh_anchor[1]);
+				if (properties.shAnchor !== undefined) {
+					shadowOptions.anchor = new google.maps.Point(properties.shAnchor[0], properties.shAnchor[1]);
 				}
 				options.shadow = shadowOptions;
 			}

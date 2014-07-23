@@ -12,8 +12,8 @@ namespace MultiMaps;
  * @property array $size Size of icon
  * @property array $anchor Anchor of icon
  * @property string $shadow Shadow of icon
- * @property array $sh_size Size of shadow
- * @property array $sh_anchor Anchor of shadow
+ * @property array $shSize Size of shadow
+ * @property array $shAnchor Anchor of shadow
  */
 class Marker extends BaseMapElement {
 
@@ -41,7 +41,7 @@ class Marker extends BaseMapElement {
 			return parent::setProperty( $name, $value );
 		}
 
-		// Explode icon, it containt 'icon', 'size', 'anchor', 'shadow', 'sh_size', 'sh_anchor'
+		// Explode icon, it containt 'icon', 'size', 'anchor', 'shadow', 'shSize', 'shAnchor'
 		$properties = array_map(
 				'trim',
 				explode( $egMultiMaps_CoordinatesSeparator, $value )
@@ -127,7 +127,7 @@ class Marker extends BaseMapElement {
 				$this->errormessages[] = \wfMessage( 'multimaps-marker-incorrect-shadow-size', $v, $value )->escaped();
 				return false;
 			}
-			$this->properties['sh_size'] = $v;
+			$this->properties['shSize'] = $v;
 		}
 
 		// Shadow anchor
@@ -140,7 +140,7 @@ class Marker extends BaseMapElement {
 				$this->errormessages[] = \wfMessage( 'multimaps-marker-incorrect-shadow-anchor', $v, $value )->escaped();
 				return false;
 			}
-			$this->properties['sh_anchor'] = $v;
+			$this->properties['shAnchor'] = $v;
 		}
 
 		return true;

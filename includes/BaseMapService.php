@@ -480,19 +480,19 @@ abstract class BaseMapService {
 						$this->properties['icon'] = $marker->icon;
 					}
 					if ( $marker->size !== null ) {
-						$this->properties['icon_size'] = $marker->size;
+						$this->properties['iconSize'] = $marker->size;
 					}
 					if ( $marker->anchor !== null ) {
-						$this->properties['icon_anchor'] = $marker->anchor;
+						$this->properties['iconAnchor'] = $marker->anchor;
 					}
 					if ( $marker->shadow !== null ) {
-						$this->properties['icon_shadow'] = $marker->shadow;
+						$this->properties['iconShadow'] = $marker->shadow;
 					}
-					if ( $marker->sh_size !== null ) {
-						$this->properties['icon_sh_size'] = $marker->sh_size;
+					if ( $marker->shSize !== null ) {
+						$this->properties['iconShSize'] = $marker->shSize;
 					}
-					if ( $marker->sh_anchor !== null ) {
-						$this->properties['icon_sh_anchor'] = $marker->sh_anchor;
+					if ( $marker->shAnchor !== null ) {
+						$this->properties['iconShAnchor'] = $marker->shAnchor;
 					}
 				} else {
 					$this->errormessages = array_merge( $this->errormessages, $marker->getErrorMessages() );

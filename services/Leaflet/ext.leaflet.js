@@ -26,11 +26,11 @@ mediaWiki.MultiMapsLeaflet = {
 			if (properties.shadow !== undefined) {
 				iconOptions.shadowUrl = properties.shadow;
 			}
-			if (properties.sh_size !== undefined) {
-				iconOptions.shadowSize = properties.sh_size;
+			if (properties.shSize !== undefined) {
+				iconOptions.shadowSize = properties.shSize;
 			}
-			if (properties.sh_anchor !== undefined) {
-				iconOptions.shadowAnchor = properties.sh_anchor;
+			if (properties.shAnchor !== undefined) {
+				iconOptions.shadowAnchor = properties.shAnchor;
 			}
 			options.icon = new L.Icon( iconOptions );
 		}

@@ -27,11 +27,11 @@ mediaWiki.MultiMapsYandex = {
 				options.iconShadow = true;
 				options.iconShadowImageHref = properties.shadow;
 			}
-			if (properties.sh_size !== undefined) {
-				options.iconShadowImageSize = properties.sh_size;
+			if (properties.shSize !== undefined) {
+				options.iconShadowImageSize = properties.shSize;
 			}
-			if (properties.sh_anchor !== undefined) {
-				options.iconShadowImageOffset = [ -properties.sh_anchor[0], -properties.sh_anchor[1] ];
+			if (properties.shAnchor !== undefined) {
+				options.iconShadowImageOffset = [ -properties.shAnchor[0], -properties.shAnchor[1] ];
 			}
 		}
 		if (properties.color !== undefined) {
