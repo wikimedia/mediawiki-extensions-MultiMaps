@@ -18,14 +18,7 @@ class YandexTest extends \PHPUnit_Framework_TestCase {
 	 */
 	protected function setUp() {
 		$this->object = new Yandex;
-	}
-
-	/**
-	 * Tears down the fixture, for example, closes a network connection.
-	 * This method is called after a test is executed.
-	 */
-	protected function tearDown() {
-
+		parent::setUp();
 	}
 
 	public function testParseGeocoderMarker() {
