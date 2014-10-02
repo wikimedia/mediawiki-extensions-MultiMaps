@@ -49,7 +49,6 @@ class Line extends BaseMapElement {
 		if( $service == 'leaflet' && count($array) == 1 ) {
 			$value = $array[0];
 			$coord = Geocoders::getCoordinates( $value, $service, array('polygon'=>true) );
-			\MWDebug::log( var_export($coord, true));
 			if( $coord !== false && is_array($coord['polygon']) ) {
 				$this->coordinates = $coord['polygon'];
 			} else {

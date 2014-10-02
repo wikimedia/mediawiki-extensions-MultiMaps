@@ -21,14 +21,6 @@ class LeafletTest extends \MediaWikiTestCase {
 		parent::setUp();
 	}
 
-	/**
-	 * Tears down the fixture, for example, closes a network connection.
-	 * This method is called after a test is executed.
-	 */
-	protected function tearDown() {
-
-	}
-
 	public function testParseMarkerInZerro() {
 		$this->assertEquals(
 				\FormatJson::encode( $this->object->getMapData( array('0,0', 'service=leaflet') ) ),

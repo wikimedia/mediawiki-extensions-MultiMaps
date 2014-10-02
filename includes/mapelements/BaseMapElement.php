@@ -100,7 +100,6 @@ abstract class BaseMapElement {
 	 */
 	public function setProperty($name, $value) {
 		$name = strtolower( $name );
-
 		if ( array_search($name, $this->availableProperties) === false ) {
 			return false;
 		}
@@ -109,8 +108,11 @@ abstract class BaseMapElement {
 			$parser = clone $GLOBALS['wgParser'];
 			$title = $parser->getTitle();
 			if ( $title === null ) { $title = new \Title(); }
-
-			$this->properties[$name] = $parser->parse( trim( $value ), $title, new \ParserOptions() )->getText();
+			$value = trim( $value );
+			if ( defined( 'LINGO_VERSION') === true ) { // Do not allow Lingo extension to process value
+				$value .= "\n__NOGLOSSARY__";
+			}
+			$this->properties[$name] = $parser->parse( $value, $title, new \ParserOptions() )->getText();
 		} elseif ( is_string($value) ) {
 			$value = trim( $value );
 			$this->properties[$name] = htmlspecialchars( $value, ENT_NOQUOTES );
