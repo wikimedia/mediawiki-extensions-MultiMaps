@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Shirayuki",
-			"pastakhov"
+			"pastakhov",
+			"Nemo bis"
 		]
 	},
 	"multimaps-desc": "{{desc|name=Multi Maps|url=http://www.mediawiki.org/wiki/Extension:MultiMaps}}",
@@ -13,7 +14,7 @@
 	"multimaps-element-more-parameters": "Error message, Parameters:\n* $1 - name of map element",
 	"multimaps-element-parameters-not-processed": "This message goes after \"multimaps-element-more-parameters\", Parameters:\n* $1 - comma separated list of user-specified values",
 	"multimaps-circle-radius-not-defined": "Error message, when for circle (map element) not defined radius",
-	"multimaps-circle-wrong-number-parameters": "Error message, when for circle defined too many parameters. Parameters:\n* $1 - number of passed parameters (always more than two)",
+	"multimaps-circle-wrong-number-parameters": "Error message, when for circle defined too many parameters. Parameters:\n* $1 – number of passed parameters (always more than two)",
 	"multimaps-marker-incorrect-icon": "Error message. Parameters:\n* $1 - user-specified value\n{{Related|Multimaps-marker-incorrect}}",
 	"multimaps-marker-incorrect-icon-url": "Error message. Parameters:\n* $1 - user-specified value\n{{Related|Multimaps-marker-incorrect}}",
 	"multimaps-marker-incorrect-icon-size": "Error message. Parameters:\n* $1 - user-specified size of the icon\n* $2 - user-specified value\n{{Related|Multimaps-marker-incorrect}}",
