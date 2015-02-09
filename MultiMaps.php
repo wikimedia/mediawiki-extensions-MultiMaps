@@ -24,7 +24,8 @@ $wgExtensionCredits['parserhook'][] = array(
 	'version'			=> MultiMaps_VERSION,
 	'url'				=> 'https://www.mediawiki.org/wiki/Extension:MultiMaps',
 	'author'			=> '[https://www.mediawiki.org/wiki/User:Pastakhov Pavel Astakhov]',
-	'descriptionmsg'	=> 'multimaps-desc'
+	'descriptionmsg'	=> 'multimaps-desc',
+	'license-name'		=> 'GPL-2.0+'
 );
 
 // Tell the whereabouts of files
