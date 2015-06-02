@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Kippenvlees1",
-			"Siebrand"
+			"Siebrand",
+			"Esketti"
 		]
 	},
 	"multimaps-desc": "Gebruikers toestaan om kaarten en coördinaten weer te geven met behulp van meerdere kaartdiensten",
@@ -15,6 +16,13 @@
 	"multimaps-circle-radius-not-defined": "voor cirkels moet een straal worden opgegeven",
 	"multimaps-circle-wrong-number-parameters": "voor cirkels moeten twee parameters worden opgegeven; de coördinaten van het middelpunt en de straal. Hier {{PLURAL:$1|is één parameter|zijn $1 parameters}} opgegeven",
 	"multimaps-marker-incorrect-icon": "voor de pictogrammarkering is een onjuiste bestandsnaam \"$1\" opgegeven",
+	"multimaps-marker-incorrect-icon-url": "Een verkeerde URL \"$1\" is voorzien voor de marker pictogram.",
+	"multimaps-marker-incorrect-icon-size": "Een onjuiste grootte \"$1\" is voorzien voor de marker pictogram \"$2\".",
+	"multimaps-marker-incorrect-icon-anchor": "Een onjuiste anker \"$1\" is voorzien voor de marker pictogram \"$2\".",
+	"multimaps-marker-incorrect-shadow-file": "Een onjuiste bestandsnaam \"$1\" werd voorzien voor het pictogram schaduw.",
+	"multimaps-marker-incorrect-shadow-url": "Een verkeerde URL \"$1\" werd voorzien voor het pictogram schaduw.",
+	"multimaps-marker-incorrect-shadow-size": "Een onjuiste grootte \"$1\" werd voorzien voor het pictogram schaduw \"$2\".",
+	"multimaps-marker-incorrect-shadow-anchor": "Een onjuiste anker \"$1\" werd voorzien voor het pictogram schaduw \"$2\".",
 	"multimaps-passed-unavailable-service": "De dienst \"$1\" is niet gevonden in de lijst met beschikbare diensten ($2). De standaard dienst \"$3\" wordt gebruikt",
 	"multimaps-square-wrong-number-points": "coördinaten voor de rechthoek moeten twee punten bevatten, maar er {{PLURAL:$1|is één punt|zijn $1 punten}} opgegeven",
 	"multimaps-unable-create-element": "Kaartelement \"$1\" kan niet worden aangemaakt",
