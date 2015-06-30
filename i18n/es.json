@@ -2,15 +2,16 @@
 	"@metadata": {
 		"authors": [
 			"Fitoschido",
-			"Salvador alc"
+			"Salvador alc",
+			"Macofe"
 		]
 	},
 	"multimaps-loading-map": "Cargando el mapa…",
 	"multimaps-mapservices-must-not-empty-array": "La variable «$1» no debe ser una matriz vacía",
 	"multimaps-had-following-errors": "Ocurrieron los errores siguientes al analizar los parámetros:",
 	"multimaps-element-parameters-not-processed": "no se procesaron los parámetros siguientes: $1",
-	"multimaps-marker-incorrect-icon-url": "Una dirección URL incorrecta \"$1\" fue proporcionada por el icono de marcador.",
-	"multimaps-marker-incorrect-icon-anchor": "Un ancla incorrecto \" $1 \"fue proporcionado por el icono marcador\" $2 \".",
+	"multimaps-marker-incorrect-icon-url": "Se proporcionó un URL incorrecto \"$1\" para el icono del marcador.",
+	"multimaps-marker-incorrect-icon-anchor": "Se proporcionó un ancla incorrecta \"$1\" para el icono del marcador \"$2\".",
 	"multimaps-marker-incorrect-shadow-url": "Se proporcionó un URL incorrecto «$1» para la sombra del icono.",
 	"multimaps-passed-unavailable-service": "No se encontró el nombre de servicio «$1» en la lista de servicios disponibles ($2). Se usó el servicio predeterminado «$3».",
 	"multimaps-unable-create-element": "No se puede crear el elemento del mapa «$1»",
