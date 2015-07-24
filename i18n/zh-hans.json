@@ -25,7 +25,9 @@
 	"multimaps-unable-parse-coordinates": "无法解析地理坐标“$1”",
 	"multimaps-unable-parse-parameter": "无法解析值为$2的参数$1",
 	"multimaps-unable-parse-radius": "圆的半径必须是一个数值，但却指定了“$1”",
+	"multimaps-unknown-class-for-service": "找不到为服务定义的级别“$1”。",
 	"multimaps-unknown-parameter": "未知参数：“$1”",
+	"multimaps-error-incorrect-class-for-service": "为服务定义的级别“$1”不能被使用。",
 	"multimaps-method-error-unknown-action": "$1：未知的操作",
 	"multimaps-method-error-unexpected-result": "$1：函数出现意外的结果"
 }
