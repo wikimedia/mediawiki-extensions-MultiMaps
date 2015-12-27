@@ -2,14 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Andriykopanytsia",
-			"Base"
+			"Base",
+			"Piramidion"
 		]
 	},
 	"multimaps-desc": "Дозволяє користувачам відображати карти і дані координат, використовуючи декілька картографічних сервісів",
 	"multimaps-loading-map": "Завантаження карти…",
 	"multimaps-mapservices-must-not-empty-array": "Змінна \"$1\" не може бути порожнім масивом",
 	"multimaps-had-following-errors": "При обробці переданих параметрів виникли наступні помилки:",
-	"multimaps-element-illegal-value": "для параметру «$1» було передано недопустиме значення «$2». Допустимими значеннями є: $3",
+	"multimaps-element-illegal-value": "для параметра «$1» було передано недопустиме значення «$2». Допустимими значеннями є: $3",
 	"multimaps-element-more-parameters": "Для цього елементу карти «$1» передано більше параметрів, ніж очікувалось:",
 	"multimaps-element-parameters-not-processed": "наступні параметри не було оброблено: $1",
 	"multimaps-circle-radius-not-defined": "для кола повинен бути визначений радіус",
