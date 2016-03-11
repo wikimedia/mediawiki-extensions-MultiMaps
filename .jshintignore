@@ -1,2 +1,4 @@
 # upstream libs
 services/Leaflet/leaflet/leaflet.js
+
+node_modules/**
