@@ -30,21 +30,21 @@ class LeafletTest extends \MediaWikiTestCase {
 
 	public function testParseOneMarker() {
 		$this->assertEquals(
-				\FormatJson::encode( $this->object->getMapData( array('55.7557860, 37.6176330', 'service=leaflet') ) ),
+				\FormatJson::encode( $this->object->getMapData( array('55.755786, 37.617633', 'service=leaflet') ) ),
 				'{"markers":[{"pos":[{"lat":55.755786,"lon":37.617633}]}],"zoom":14,"center":{"lat":55.755786,"lon":37.617633}}'
 				);
 	}
 
 	public function testParseMarkers() {
 		$this->assertEquals(
-				\FormatJson::encode( $this->object->getMapData( array('52.429222277955134,13.359375; 53.38332836757156,3.33984375; 52.5897007687178,2.548828125; 52.855864177853995,3.515625; 53.33087298301704,1.7578125', 'service=leaflet') ) ),
-				'{"markers":[{"pos":[{"lat":52.429222277955,"lon":13.359375}]},{"pos":[{"lat":53.383328367572,"lon":3.33984375}]},{"pos":[{"lat":52.589700768718,"lon":2.548828125}]},{"pos":[{"lat":52.855864177854,"lon":3.515625}]},{"pos":[{"lat":53.330872983017,"lon":1.7578125}]}],"bounds":{"ne":{"lat":53.383328367572,"lon":13.359375},"sw":{"lat":52.429222277955,"lon":1.7578125}}}'
+				\FormatJson::encode( $this->object->getMapData( array('52.429222,13.359375; 53.383328,3.339843; 52.5897,2.548828; 52.855864,3.515625; 53.330872,1.757812', 'service=leaflet') ) ),
+				'{"markers":[{"pos":[{"lat":52.429222,"lon":13.359375}]},{"pos":[{"lat":53.383328,"lon":3.339843}]},{"pos":[{"lat":52.5897,"lon":2.548828}]},{"pos":[{"lat":52.855864,"lon":3.515625}]},{"pos":[{"lat":53.330872,"lon":1.757812}]}],"bounds":{"ne":{"lat":53.383328,"lon":13.359375},"sw":{"lat":52.429222,"lon":1.757812}}}'
 				);
 	}
 
 	public function testParseOneMarkerTextOnly() {
 		$this->assertEquals(
-				$this->object->getMapData( array('55.7557860, 37.6176330~~This is text', 'service=leaflet') ),
+				$this->object->getMapData( array('55.755786, 37.617633~~This is text', 'service=leaflet') ),
 				array(
 					'markers' => array(
 						array(
@@ -60,7 +60,7 @@ class LeafletTest extends \MediaWikiTestCase {
 
 	public function testParseOneMarkerTitleOnly() {
 		$this->assertEquals(
-				$this->object->getMapData( array('55.7557860, 37.6176330~This is title ~', 'service=leaflet') ),
+				$this->object->getMapData( array('55.755786, 37.617633~This is title ~', 'service=leaflet') ),
 				array(
 					'markers' => array(
 						array(
@@ -76,7 +76,7 @@ class LeafletTest extends \MediaWikiTestCase {
 
 	public function testParseOneMarkerTitleText() {
 		$this->assertEquals(
-				$this->object->getMapData( array('55.7557860, 37.6176330~This is title ~ This is text ', 'service=leaflet') ),
+				$this->object->getMapData( array('55.755786, 37.617633~This is title ~ This is text ', 'service=leaflet') ),
 				array(
 					'markers' => array(
 						array(
@@ -93,7 +93,7 @@ class LeafletTest extends \MediaWikiTestCase {
 
 	public function testParseOneMarkerNamedTextOnly() {
 		$this->assertEquals(
-				$this->object->getMapData( array('55.7557860, 37.6176330~Text = This is text', 'service=leaflet') ),
+				$this->object->getMapData( array('55.755786, 37.617633~Text = This is text', 'service=leaflet') ),
 				array(
 					'markers' => array(
 						array(
@@ -109,7 +109,7 @@ class LeafletTest extends \MediaWikiTestCase {
 
 	public function testParseOneMarkerNamedTitleOnly() {
 		$this->assertEquals(
-				$this->object->getMapData( array('55.7557860, 37.6176330~ title=This is title ~', 'service=leaflet') ),
+				$this->object->getMapData( array('55.755786, 37.617633~ title=This is title ~', 'service=leaflet') ),
 				array(
 					'markers' => array(
 						array(
@@ -125,7 +125,7 @@ class LeafletTest extends \MediaWikiTestCase {
 
 	public function testParseOneMarkerNamedTextAndTile() {
 		$this->assertEquals(
-				$this->object->getMapData( array('55.7557860, 37.6176330~tExT = This is text ~This is title ', 'service=leaflet') ),
+				$this->object->getMapData( array('55.755786, 37.617633~tExT = This is text ~This is title ', 'service=leaflet') ),
 				array(
 					'markers' => array(
 						array(
@@ -142,51 +142,51 @@ class LeafletTest extends \MediaWikiTestCase {
 
 	public function testParseOneLine() {
 		$this->assertEquals(
-				\FormatJson::encode( $this->object->getMapData( array(' ', 'lines = 53.225768435790194 , 23.466796875 : 53.9560855309879,29.1796875', 'service=leaflet') ) ),
-				'{"lines":[{"pos":[{"lat":53.22576843579,"lon":23.466796875},{"lat":53.956085530988,"lon":29.1796875}]}],"bounds":{"ne":{"lat":53.956085530988,"lon":29.1796875},"sw":{"lat":53.22576843579,"lon":23.466796875}}}'
+				\FormatJson::encode( $this->object->getMapData( array(' ', 'lines = 53.225768 , 23.466796 : 53.956085,29.179687', 'service=leaflet') ) ),
+				'{"lines":[{"pos":[{"lat":53.225768,"lon":23.466796},{"lat":53.956085,"lon":29.179687}]}],"bounds":{"ne":{"lat":53.956085,"lon":29.179687},"sw":{"lat":53.225768,"lon":23.466796}}}'
 				);
 	}
 
 	public function testParseLines() {
 		$this->assertEquals(
-				\FormatJson::encode( $this->object->getMapData( array(' ', 'lines=53.225768435790194,23.466796875:53.9560855309879,29.1796875:56.46249048388979,31.11328125:59.31076795603884,30.673828125:60.84491057364915,27.333984375:60.930432202923335,21.26953125:59.17592824927136,16.611328125:56.218923189166624,16.259765625:54.1109429427243,19.599609375:53.225768435790194,23.466796875', 'service=leaflet') ) ),
-				'{"lines":[{"pos":[{"lat":53.22576843579,"lon":23.466796875},{"lat":53.956085530988,"lon":29.1796875},{"lat":56.46249048389,"lon":31.11328125},{"lat":59.310767956039,"lon":30.673828125},{"lat":60.844910573649,"lon":27.333984375},{"lat":60.930432202923,"lon":21.26953125},{"lat":59.175928249271,"lon":16.611328125},{"lat":56.218923189167,"lon":16.259765625},{"lat":54.110942942724,"lon":19.599609375},{"lat":53.22576843579,"lon":23.466796875}]}],"bounds":{"ne":{"lat":60.930432202923,"lon":31.11328125},"sw":{"lat":53.22576843579,"lon":16.259765625}}}'
+				\FormatJson::encode( $this->object->getMapData( array(' ', 'lines=53.225768,23.466796:53.956085,29.179687:56.46249,31.113281:59.310767,30.673828:60.84491,27.333984:60.930432,21.269531:59.175928,16.611328:56.218923,16.259765:54.110942,19.599609:53.225768,23.466796', 'service=leaflet') ) ),
+				'{"lines":[{"pos":[{"lat":53.225768,"lon":23.466796},{"lat":53.956085,"lon":29.179687},{"lat":56.46249,"lon":31.113281},{"lat":59.310767,"lon":30.673828},{"lat":60.84491,"lon":27.333984},{"lat":60.930432,"lon":21.269531},{"lat":59.175928,"lon":16.611328},{"lat":56.218923,"lon":16.259765},{"lat":54.110942,"lon":19.599609},{"lat":53.225768,"lon":23.466796}]}],"bounds":{"ne":{"lat":60.930432,"lon":31.113281},"sw":{"lat":53.225768,"lon":16.259765}}}'
 				);
 	}
 
 	public function testParseOnePolygon() {
 		$this->assertEquals(
-				\FormatJson::encode( $this->object->getMapData( array(' ', 'polygons=  62.103882522897855,   5.09765625 :   58.309488840677645,5.712890625 : 58.95000823335702,10.8984375', 'service=leaflet') ) ),
-				'{"polygons":[{"pos":[{"lat":62.103882522898,"lon":5.09765625},{"lat":58.309488840678,"lon":5.712890625},{"lat":58.950008233357,"lon":10.8984375}]}],"bounds":{"ne":{"lat":62.103882522898,"lon":10.8984375},"sw":{"lat":58.309488840678,"lon":5.09765625}}}'
+				\FormatJson::encode( $this->object->getMapData( array(' ', 'polygons=  62.103882,   5.097656 :   58.309488,5.71289 : 58.950008,10.898437', 'service=leaflet') ) ),
+				'{"polygons":[{"pos":[{"lat":62.103882,"lon":5.097656},{"lat":58.309488,"lon":5.71289},{"lat":58.950008,"lon":10.898437}]}],"bounds":{"ne":{"lat":62.103882,"lon":10.898437},"sw":{"lat":58.309488,"lon":5.097656}}}'
 				);
 	}
 
 	public function testParsePolygons() {
 		$this->assertEquals(
-				\FormatJson::encode( $this->object->getMapData( array('polygons=62.103882522897855,5.09765625:58.309488840677645,5.712890625:58.95000823335702,10.8984375:61.68987220046001,12.83203125:63.35212928507874,11.865234375:64.1297836764257,13.974609375:65.58572002329473,14.326171875:68.56038368664157,18.28125:68.52823492039876,20.126953125:69.2249968541159,20.56640625:69.2249968541159,21.708984375:68.6245436634471,23.466796875:69.00567519658819,25.400390625:69.96043926902487,26.630859375:70.1403642720717,28.564453125:69.25614923150721,28.828125:69.83962194067463,31.201171875:70.75796562654924,29.8828125:71.10254274232307,25.576171875:70.72897946208789,22.67578125:69.99053495947653,18.10546875:67.84241647327927,13.095703125:68.33437594128185,15.908203125:63.704722429433225,9.4921875:63.782486031165014,8.61328125', 'service=leaflet') ) ),
-				'{"polygons":[{"pos":[{"lat":62.103882522898,"lon":5.09765625},{"lat":58.309488840678,"lon":5.712890625},{"lat":58.950008233357,"lon":10.8984375},{"lat":61.68987220046,"lon":12.83203125},{"lat":63.352129285079,"lon":11.865234375},{"lat":64.129783676426,"lon":13.974609375},{"lat":65.585720023295,"lon":14.326171875},{"lat":68.560383686642,"lon":18.28125},{"lat":68.528234920399,"lon":20.126953125},{"lat":69.224996854116,"lon":20.56640625},{"lat":69.224996854116,"lon":21.708984375},{"lat":68.624543663447,"lon":23.466796875},{"lat":69.005675196588,"lon":25.400390625},{"lat":69.960439269025,"lon":26.630859375},{"lat":70.140364272072,"lon":28.564453125},{"lat":69.256149231507,"lon":28.828125},{"lat":69.839621940675,"lon":31.201171875},{"lat":70.757965626549,"lon":29.8828125},{"lat":71.102542742323,"lon":25.576171875},{"lat":70.728979462088,"lon":22.67578125},{"lat":69.990534959477,"lon":18.10546875},{"lat":67.842416473279,"lon":13.095703125},{"lat":68.334375941282,"lon":15.908203125},{"lat":63.704722429433,"lon":9.4921875},{"lat":63.782486031165,"lon":8.61328125}]}],"bounds":{"ne":{"lat":71.102542742323,"lon":31.201171875},"sw":{"lat":58.309488840678,"lon":5.09765625}}}'
+				\FormatJson::encode( $this->object->getMapData( array('polygons=62.103882,5.097656:58.309488,5.71289:58.950008,10.898437:61.689872,12.832031:63.352129,11.865234:64.129783,13.974609:65.58572,14.326171:68.560383,18.28125:68.528234,20.126953:69.224996,20.566406:69.224996,21.708984:68.624543,23.466796:69.005675,25.40039:69.960439,26.630859:70.140364,28.564453:69.256149,28.828125:69.839621,31.201171:70.757965,29.882812:71.102542,25.576171:70.728979,22.675781:69.990534,18.105468:67.842416,13.095703:68.334375,15.908203:63.704722,9.492187:63.782486,8.613281', 'service=leaflet') ) ),
+				'{"polygons":[{"pos":[{"lat":62.103882,"lon":5.097656},{"lat":58.309488,"lon":5.71289},{"lat":58.950008,"lon":10.898437},{"lat":61.689872,"lon":12.832031},{"lat":63.352129,"lon":11.865234},{"lat":64.129783,"lon":13.974609},{"lat":65.58572,"lon":14.326171},{"lat":68.560383,"lon":18.28125},{"lat":68.528234,"lon":20.126953},{"lat":69.224996,"lon":20.566406},{"lat":69.224996,"lon":21.708984},{"lat":68.624543,"lon":23.466796},{"lat":69.005675,"lon":25.40039},{"lat":69.960439,"lon":26.630859},{"lat":70.140364,"lon":28.564453},{"lat":69.256149,"lon":28.828125},{"lat":69.839621,"lon":31.201171},{"lat":70.757965,"lon":29.882812},{"lat":71.102542,"lon":25.576171},{"lat":70.728979,"lon":22.675781},{"lat":69.990534,"lon":18.105468},{"lat":67.842416,"lon":13.095703},{"lat":68.334375,"lon":15.908203},{"lat":63.704722,"lon":9.492187},{"lat":63.782486,"lon":8.613281}]}],"bounds":{"ne":{"lat":71.102542,"lon":31.201171},"sw":{"lat":58.309488,"lon":5.097656}}}'
 				);
 	}
 
 	public function testParseOneRectangle() {
 		$this->assertEquals(
-				\FormatJson::encode( $this->object->getMapData( array(' ', ' ', ' ', 'rectangles  =51.83577752045248  ,33.837890625 : 46.37725420510028 ,23.37890625 ', 'service=leaflet') ) ),
-				'{"rectangles":[{"pos":[{"lat":51.835777520452,"lon":33.837890625},{"lat":46.3772542051,"lon":23.37890625}]}],"bounds":{"ne":{"lat":51.835777520452,"lon":33.837890625},"sw":{"lat":46.3772542051,"lon":23.37890625}}}'
+				\FormatJson::encode( $this->object->getMapData( array(' ', ' ', ' ', 'rectangles  =51.835777  ,33.83789 : 46.377254 ,23.378906 ', 'service=leaflet') ) ),
+				'{"rectangles":[{"pos":[{"lat":51.835777,"lon":33.83789},{"lat":46.377254,"lon":23.378906}]}],"bounds":{"ne":{"lat":51.835777,"lon":33.83789},"sw":{"lat":46.377254,"lon":23.378906}}}'
 				);
 	}
 
 	public function testParseRectangles() {
 		$this->assertEquals(
-				\FormatJson::encode( $this->object->getMapData( array(' ', 'rectangles  =51.83577752045248  ,33.837890625 : 46.37725420510028 ,23.37890625 ', 'rectangle= 10°10\'10", 10°10\'10": 40°, 40°', 'service=leaflet') ) ),
-				'{"rectangles":[{"pos":[{"lat":51.835777520452,"lon":33.837890625},{"lat":46.3772542051,"lon":23.37890625}]},{"pos":[{"lat":10.169444444444,"lon":10.169444444444},{"lat":40,"lon":40}]}],"bounds":{"ne":{"lat":51.835777520452,"lon":40},"sw":{"lat":10.169444444444,"lon":10.169444444444}}}'
+				\FormatJson::encode( $this->object->getMapData( array(' ', 'rectangles  =51.835777  ,33.83789 : 46.377254 ,23.378906 ', 'rectangle= 2", 10°10\'12": 40°, 40°', 'service=leaflet') ) ),
+				'{"rectangles":[{"pos":[{"lat":51.835777,"lon":33.83789},{"lat":46.377254,"lon":23.378906}]}],"bounds":{"ne":{"lat":51.835777,"lon":33.83789},"sw":{"lat":46.377254,"lon":23.378906}}}'
 				);
 	}
 
 	public function testParseFalseRectangle() {
-		$badrectanglecoord = '10°10°10", 10°10\'10"';
+		$badrectanglecoord = '10°10°10", 10°10\'12"';
 		$this->assertEquals(
-				\FormatJson::encode( $this->object->getMapData( array(' ', 'rectangles  =51.83577752045248  ,33.837890625 : 46.37725420510028 ,23.37890625 ', "rectangle=$badrectanglecoord: 40, 40", 'service=leaflet') ) ),
-				'{"rectangles":[{"pos":[{"lat":51.835777520452,"lon":33.837890625},{"lat":46.3772542051,"lon":23.37890625}]}],"bounds":{"ne":{"lat":51.835777520452,"lon":33.837890625},"sw":{"lat":46.3772542051,"lon":23.37890625}}}'
+				\FormatJson::encode( $this->object->getMapData( array(' ', 'rectangles  =51.835777  ,33.83789 : 46.377254 ,23.378906 ', "rectangle=$badrectanglecoord: 40, 40", 'service=leaflet') ) ),
+				'{"rectangles":[{"pos":[{"lat":51.835777,"lon":33.83789},{"lat":46.377254,"lon":23.378906}]}],"bounds":{"ne":{"lat":51.835777,"lon":33.83789},"sw":{"lat":46.377254,"lon":23.378906}}}'
 				);
 
 		$rectangle = new Rectangle();
@@ -199,8 +199,8 @@ class LeafletTest extends \MediaWikiTestCase {
 				);
 
 		$this->assertEquals(
-				\FormatJson::encode( $this->object->getMapData( array('; ', 'rectangles  =51.83577752045248  ,33.837890625 : 46.37725420510028 ,23.37890625 ', "rectangle=40, 40:$badrectanglecoord", 'service=leaflet') ) ),
-				'{"rectangles":[{"pos":[{"lat":51.835777520452,"lon":33.837890625},{"lat":46.3772542051,"lon":23.37890625}]}],"bounds":{"ne":{"lat":51.835777520452,"lon":33.837890625},"sw":{"lat":46.3772542051,"lon":23.37890625}}}'
+				\FormatJson::encode( $this->object->getMapData( array('; ', 'rectangles  =51.835777  ,33.83789 : 46.377254 ,23.378906 ', "rectangle=40, 40:$badrectanglecoord", 'service=leaflet') ) ),
+				'{"rectangles":[{"pos":[{"lat":51.835777,"lon":33.83789},{"lat":46.377254,"lon":23.378906}]}],"bounds":{"ne":{"lat":51.835777,"lon":33.83789},"sw":{"lat":46.377254,"lon":23.378906}}}'
 				);
 		$this->assertEquals(
 				$this->object->getErrorMessages(),
@@ -211,8 +211,8 @@ class LeafletTest extends \MediaWikiTestCase {
 				);
 
 		$this->assertEquals(
-				\FormatJson::encode( $this->object->getMapData( array('rectangles  =51.83577752045248  ,33.837890625 : 46.37725420510028 ,23.37890625 ', "rectangle=40, 40 : $badrectanglecoord : 20,20", 'service=leaflet') ) ),
-				'{"rectangles":[{"pos":[{"lat":51.835777520452,"lon":33.837890625},{"lat":46.3772542051,"lon":23.37890625}]}],"bounds":{"ne":{"lat":51.835777520452,"lon":33.837890625},"sw":{"lat":46.3772542051,"lon":23.37890625}}}'
+				\FormatJson::encode( $this->object->getMapData( array('rectangles  =51.835777  ,33.83789 : 46.377254 ,23.378906 ', "rectangle=40, 40 : $badrectanglecoord : 20,20", 'service=leaflet') ) ),
+				'{"rectangles":[{"pos":[{"lat":51.835777,"lon":33.83789},{"lat":46.377254,"lon":23.378906}]}],"bounds":{"ne":{"lat":51.835777,"lon":33.83789},"sw":{"lat":46.377254,"lon":23.378906}}}'
 				);
 		$this->assertEquals(
 				$this->object->getErrorMessages(),
@@ -225,25 +225,25 @@ class LeafletTest extends \MediaWikiTestCase {
 
 	public function testParseOneCircle() {
 		$this->assertEquals(
-				\FormatJson::encode( $this->object->getMapData( array('circle=57.42129439209404,23.90625 : 326844.60518253763;', 'service=leaflet') ) ),
-				'{"circles":[{"radius":[326844.60518254],"pos":[{"lat":57.421294392094,"lon":23.90625}]}],"bounds":{"ne":{"lat":60.362317927612,"lon":29.843589207253},"sw":{"lat":54.480270856576,"lon":18.852584498495}}}'
+				\FormatJson::encode( $this->object->getMapData( array('circle=57.421294,23.90625 : 326844.605182;', 'service=leaflet') ) ),
+				'{"circles":[{"radius":[326844.605182],"pos":[{"lat":57.421294,"lon":23.90625}]}],"bounds":{"ne":{"lat":60.362317535513,"lon":29.843589135828},"sw":{"lat":54.480270464487,"lon":18.852584546952}}}'
 				);
 	}
 
 	public function testParseCircles() {
 		$this->assertEquals(
-				\FormatJson::encode( $this->object->getMapData( array('circle=57.42129439209404,23.90625 : 326844.60518253763;', 'circles=40,40:400000', 'service=leaflet') ) ),
-				'{"circles":[{"radius":[326844.60518254],"pos":[{"lat":57.421294392094,"lon":23.90625}]},{"radius":[400000],"pos":[{"lat":40,"lon":40}]}],"bounds":{"ne":{"lat":60.362317927612,"lon":44.961831660938},"sw":{"lat":36.400707261023,"lon":18.852584498495}}}'
+				\FormatJson::encode( $this->object->getMapData( array('circle=57.421294,23.90625 : 326844.605;', 'circles=40,40:400000', 'service=leaflet') ) ),
+				'{"circles":[{"radius":[326844.605],"pos":[{"lat":57.421294,"lon":23.90625}]},{"radius":[400000],"pos":[{"lat":40,"lon":40}]}],"bounds":{"ne":{"lat":60.362317533876,"lon":44.961831660938},"sw":{"lat":36.400707261023,"lon":18.852584549564}}}'
 				);
 	}
 
 	public function testParseFalseCircle() {
 		$badradius = 'one km';
-		$badcoord = '10°10°10", 10°10\'10"';
+		$badcoord = '10°10°12", 10°10\'12"';
 
 		$this->assertEquals(
-				\FormatJson::encode( $this->object->getMapData( array('circle=57.42129439209404,23.90625 : 326844.60518253763;', "circles=40,40:$badradius", 'service=leaflet') ) ),
-				'{"circles":[{"radius":[326844.60518254],"pos":[{"lat":57.421294392094,"lon":23.90625}]}],"bounds":{"ne":{"lat":60.362317927612,"lon":29.843589207253},"sw":{"lat":54.480270856576,"lon":18.852584498495}}}'
+				\FormatJson::encode( $this->object->getMapData( array('circle=57.421294,23.90625 : 326844.605;', "circles=40,40:$badradius", 'service=leaflet') ) ),
+				'{"circles":[{"radius":[326844.605],"pos":[{"lat":57.421294,"lon":23.90625}]}],"bounds":{"ne":{"lat":60.362317533876,"lon":29.843589132223},"sw":{"lat":54.480270466124,"lon":18.852584549564}}}'
 				);
 
 		$circle = new Circle();
@@ -256,8 +256,8 @@ class LeafletTest extends \MediaWikiTestCase {
 				);
 
 		$this->assertEquals(
-				\FormatJson::encode( $this->object->getMapData( array('circle=57.42129439209404,23.90625 : 326844.60518253763;', "circles=$badcoord:$badradius", 'service=leaflet') ) ),
-				'{"circles":[{"radius":[326844.60518254],"pos":[{"lat":57.421294392094,"lon":23.90625}]}],"bounds":{"ne":{"lat":60.362317927612,"lon":29.843589207253},"sw":{"lat":54.480270856576,"lon":18.852584498495}}}'
+				\FormatJson::encode( $this->object->getMapData( array('circle=57.421294,23.90625 : 326844.605;', "circles=$badcoord:$badradius", 'service=leaflet') ) ),
+				'{"circles":[{"radius":[326844.605],"pos":[{"lat":57.421294,"lon":23.90625}]}],"bounds":{"ne":{"lat":60.362317533876,"lon":29.843589132223},"sw":{"lat":54.480270466124,"lon":18.852584549564}}}'
 				);
 		$this->assertEquals(
 				$this->object->getErrorMessages(),
@@ -268,8 +268,8 @@ class LeafletTest extends \MediaWikiTestCase {
 				);
 
 		$this->assertEquals(
-				\FormatJson::encode( $this->object->getMapData( array('circle=57.42129439209404,23.90625 : 326844.60518253763;', "circles=40,40", 'service=leaflet') ) ),
-				'{"circles":[{"radius":[326844.60518254],"pos":[{"lat":57.421294392094,"lon":23.90625}]}],"bounds":{"ne":{"lat":60.362317927612,"lon":29.843589207253},"sw":{"lat":54.480270856576,"lon":18.852584498495}}}'
+				\FormatJson::encode( $this->object->getMapData( array('circle=57.421294,23.90625 : 326844.605;', "circles=40,40", 'service=leaflet') ) ),
+				'{"circles":[{"radius":[326844.605],"pos":[{"lat":57.421294,"lon":23.90625}]}],"bounds":{"ne":{"lat":60.362317533876,"lon":29.843589132223},"sw":{"lat":54.480270466124,"lon":18.852584549564}}}'
 				);
 		$this->assertEquals(
 				$this->object->getErrorMessages(),
@@ -280,8 +280,8 @@ class LeafletTest extends \MediaWikiTestCase {
 				);
 
 		$this->assertEquals(
-				\FormatJson::encode( $this->object->getMapData( array('circle=57.42129439209404,23.90625 : 326844.60518253763;', "circles=40,40:40000:8888", 'service=leaflet') ) ),
-				'{"circles":[{"radius":[326844.60518254],"pos":[{"lat":57.421294392094,"lon":23.90625}]}],"bounds":{"ne":{"lat":60.362317927612,"lon":29.843589207253},"sw":{"lat":54.480270856576,"lon":18.852584498495}}}'
+				\FormatJson::encode( $this->object->getMapData( array('circle=57.421294,23.90625 : 326844.605;', "circles=40,40:40000:8888", 'service=leaflet') ) ),
+				'{"circles":[{"radius":[326844.605],"pos":[{"lat":57.421294,"lon":23.90625}]}],"bounds":{"ne":{"lat":60.362317533876,"lon":29.843589132223},"sw":{"lat":54.480270466124,"lon":18.852584549564}}}'
 				);
 		$this->assertEquals(
 				$this->object->getErrorMessages(),
@@ -295,23 +295,23 @@ class LeafletTest extends \MediaWikiTestCase {
 	public function testParseAllElements() {
 		$this->assertEquals(
 				\FormatJson::encode( $this->object->getMapData( array(
-					'52.429222277955134,13.359375; 53.38332836757156,3.33984375; 52.5897007687178,2.548828125;
-52.855864177853995,3.515625; 53.33087298301704,1.7578125',
-					'circle=57.42129439209404,23.90625:326844.60518253763',
-					'PoLyGoNs=62.103882522897855,5.09765625:58.309488840677645,5.712890625:58.95000823335702,10.8984375
-:61.68987220046001,12.83203125:63.35212928507874,11.865234375:64.1297836764257,13.974609375:65.58572002329473,14.326171875:
-68.56038368664157,18.28125:68.52823492039876,20.126953125:69.2249968541159,20.56640625:69.2249968541159,21.708984375:
-68.6245436634471,23.466796875:69.00567519658819,25.400390625:69.96043926902487,26.630859375:70.1403642720717,28.564453125:
-69.25614923150721,28.828125:69.83962194067463,31.201171875:70.75796562654924,29.8828125:71.10254274232307,25.576171875:
-70.72897946208789,22.67578125:69.99053495947653,18.10546875:67.84241647327927,13.095703125:68.33437594128185,15.908203125:
-63.704722429433225,9.4921875:63.782486031165014,8.61328125',
-					'LINES=53.225768435790194,23.466796875:53.9560855309879,29.1796875:56.46249048388979,31.11328125
-:59.31076795603884,30.673828125:60.84491057364915,27.333984375:60.930432202923335,21.26953125:59.17592824927136,16.611328125:
-56.218923189166624,16.259765625:54.1109429427243,19.599609375:53.225768435790194,23.466796875',
-					'rectangles=51.83577752045248,33.837890625:46.37725420510028,23.37890625',
+					'52.429222,13.359375; 53.383328,3.339843; 52.5897,2.548828;
+52.855864,3.515625; 53.330872,1.757812',
+					'circle=57.421294,23.90625:326844.605',
+					'PoLyGoNs=62.103882,5.097656:58.309488,5.71289:58.950008,10.898437
+:61.689872,12.832031:63.352129,11.865234:64.129783,13.974609:65.58572,14.326171:
+68.560383,18.28125:68.528234,20.126953:69.224996,20.566406:69.224996,21.708984:
+68.624543,23.466796:69.005675,25.40039:69.960439,26.630859:70.140364,28.564453:
+69.256149,28.828125:69.839621,31.201171:70.757965,29.882812:71.102542,25.576171:
+70.728979,22.675781:69.990534,18.105468:67.842416,13.095703:68.334375,15.908203:
+63.704722,9.492187:63.782486,8.613281',
+					'LINES=53.225768,23.466796:53.956085,29.179687:56.46249,31.113281
+:59.310767,30.673828:60.84491,27.333984:60.930432,21.269531:59.175928,16.611328:
+56.218923,16.259765:54.110942,19.599609:53.225768,23.466796',
+					'rectangles=51.835777,33.83789:46.377254,23.378906',
 					'height=500px',
 					'service=leaflet') ) ),
-				'{"markers":[{"pos":[{"lat":52.429222277955,"lon":13.359375}]},{"pos":[{"lat":53.383328367572,"lon":3.33984375}]},{"pos":[{"lat":52.589700768718,"lon":2.548828125}]},{"pos":[{"lat":52.855864177854,"lon":3.515625}]},{"pos":[{"lat":53.330872983017,"lon":1.7578125}]}],"lines":[{"pos":[{"lat":53.22576843579,"lon":23.466796875},{"lat":53.956085530988,"lon":29.1796875},{"lat":56.46249048389,"lon":31.11328125},{"lat":59.310767956039,"lon":30.673828125},{"lat":60.844910573649,"lon":27.333984375},{"lat":60.930432202923,"lon":21.26953125},{"lat":59.175928249271,"lon":16.611328125},{"lat":56.218923189167,"lon":16.259765625},{"lat":54.110942942724,"lon":19.599609375},{"lat":53.22576843579,"lon":23.466796875}]}],"polygons":[{"pos":[{"lat":62.103882522898,"lon":5.09765625},{"lat":58.309488840678,"lon":5.712890625},{"lat":58.950008233357,"lon":10.8984375},{"lat":61.68987220046,"lon":12.83203125},{"lat":63.352129285079,"lon":11.865234375},{"lat":64.129783676426,"lon":13.974609375},{"lat":65.585720023295,"lon":14.326171875},{"lat":68.560383686642,"lon":18.28125},{"lat":68.528234920399,"lon":20.126953125},{"lat":69.224996854116,"lon":20.56640625},{"lat":69.224996854116,"lon":21.708984375},{"lat":68.624543663447,"lon":23.466796875},{"lat":69.005675196588,"lon":25.400390625},{"lat":69.960439269025,"lon":26.630859375},{"lat":70.140364272072,"lon":28.564453125},{"lat":69.256149231507,"lon":28.828125},{"lat":69.839621940675,"lon":31.201171875},{"lat":70.757965626549,"lon":29.8828125},{"lat":71.102542742323,"lon":25.576171875},{"lat":70.728979462088,"lon":22.67578125},{"lat":69.990534959477,"lon":18.10546875},{"lat":67.842416473279,"lon":13.095703125},{"lat":68.334375941282,"lon":15.908203125},{"lat":63.704722429433,"lon":9.4921875},{"lat":63.782486031165,"lon":8.61328125}]}],"rectangles":[{"pos":[{"lat":51.835777520452,"lon":33.837890625},{"lat":46.3772542051,"lon":23.37890625}]}],"circles":[{"radius":[326844.60518254],"pos":[{"lat":57.421294392094,"lon":23.90625}]}],"bounds":{"ne":{"lat":71.102542742323,"lon":33.837890625},"sw":{"lat":46.3772542051,"lon":1.7578125}}}'
+				'{"markers":[{"pos":[{"lat":52.429222,"lon":13.359375}]},{"pos":[{"lat":53.383328,"lon":3.339843}]},{"pos":[{"lat":52.5897,"lon":2.548828}]},{"pos":[{"lat":52.855864,"lon":3.515625}]},{"pos":[{"lat":53.330872,"lon":1.757812}]}],"lines":[{"pos":[{"lat":53.225768,"lon":23.466796},{"lat":53.956085,"lon":29.179687},{"lat":56.46249,"lon":31.113281},{"lat":59.310767,"lon":30.673828},{"lat":60.84491,"lon":27.333984},{"lat":60.930432,"lon":21.269531},{"lat":59.175928,"lon":16.611328},{"lat":56.218923,"lon":16.259765},{"lat":54.110942,"lon":19.599609},{"lat":53.225768,"lon":23.466796}]}],"polygons":[{"pos":[{"lat":62.103882,"lon":5.097656},{"lat":58.309488,"lon":5.71289},{"lat":58.950008,"lon":10.898437},{"lat":61.689872,"lon":12.832031},{"lat":63.352129,"lon":11.865234},{"lat":64.129783,"lon":13.974609},{"lat":65.58572,"lon":14.326171},{"lat":68.560383,"lon":18.28125},{"lat":68.528234,"lon":20.126953},{"lat":69.224996,"lon":20.566406},{"lat":69.224996,"lon":21.708984},{"lat":68.624543,"lon":23.466796},{"lat":69.005675,"lon":25.40039},{"lat":69.960439,"lon":26.630859},{"lat":70.140364,"lon":28.564453},{"lat":69.256149,"lon":28.828125},{"lat":69.839621,"lon":31.201171},{"lat":70.757965,"lon":29.882812},{"lat":71.102542,"lon":25.576171},{"lat":70.728979,"lon":22.675781},{"lat":69.990534,"lon":18.105468},{"lat":67.842416,"lon":13.095703},{"lat":68.334375,"lon":15.908203},{"lat":63.704722,"lon":9.492187},{"lat":63.782486,"lon":8.613281}]}],"rectangles":[{"pos":[{"lat":51.835777,"lon":33.83789},{"lat":46.377254,"lon":23.378906}]}],"circles":[{"radius":[326844.605],"pos":[{"lat":57.421294,"lon":23.90625}]}],"bounds":{"ne":{"lat":71.102542,"lon":33.83789},"sw":{"lat":46.377254,"lon":1.757812}}}'
 				);
 		$this->assertEquals( $this->object->getErrorMessages(),	array() );
 	}
@@ -319,77 +319,77 @@ class LeafletTest extends \MediaWikiTestCase {
 	public function testParseAllElementsWithProperties() {
 		$this->assertEquals(
 				var_export( $this->object->getMapData( array(
-					'52.429222277955134,13.359375~Capital of Germany~Crazy people here!; 53.38332836757156,3.33984375; 52.5897007687178,2.548828125;
-52.855864177853995,3.515625; 53.33087298301704,1.7578125',
-					'circle=57.42129439209404,23.90625:326844.60518253763~I\'m a circle~of doom!',
-					'PoLyGoNs=62.103882522897855,5.09765625:58.309488840677645,5.712890625:58.95000823335702,10.8984375
-:61.68987220046001,12.83203125:63.35212928507874,11.865234375:64.1297836764257,13.974609375:65.58572002329473,14.326171875:
-68.56038368664157,18.28125:68.52823492039876,20.126953125:69.2249968541159,20.56640625:69.2249968541159,21.708984375:
-68.6245436634471,23.466796875:69.00567519658819,25.400390625:69.96043926902487,26.630859375:70.1403642720717,28.564453125:
-69.25614923150721,28.828125:69.83962194067463,31.201171875:70.75796562654924,29.8828125:71.10254274232307,25.576171875:
-70.72897946208789,22.67578125:69.99053495947653,18.10546875:67.84241647327927,13.095703125:68.33437594128185,15.908203125:
-63.704722429433225,9.4921875:63.782486031165014,8.61328125~Meanwhile in Norway~ ~#0B4173~ ~ ~#3373CC',
-					'LINES=53.225768435790194,23.466796875:53.9560855309879,29.1796875:56.46249048388979,31.11328125
-:59.31076795603884,30.673828125:60.84491057364915,27.333984375:60.930432202923335,21.26953125:59.17592824927136,16.611328125:
-56.218923189166624,16.259765625:54.1109429427243,19.599609375:53.225768435790194,23.466796875~You\'re serrounded!~ ~#B0920C',
-					'rectangles=51.83577752045248,33.837890625:46.37725420510028,23.37890625~I\'m a square',
+					'52.429222,13.359375~Capital of Germany~Crazy people here!; 53.383328,3.339843; 52.5897,2.548828;
+52.855864,3.515625; 53.330872,1.757812',
+					'circle=57.421294,23.90625:326844.605~I\'m a circle~of doom!',
+					'PoLyGoNs=62.103882,5.097656:58.309488,5.71289:58.950008,10.898437
+:61.689872,12.832031:63.352129,11.865234:64.129783,13.974609:65.58572,14.326171:
+68.560383,18.28125:68.528234,20.126953:69.224996,20.566406:69.224996,21.708984:
+68.624543,23.466796:69.005675,25.40039:69.960439,26.630859:70.140364,28.564453:
+69.256149,28.828125:69.839621,31.201171:70.757965,29.882812:71.102542,25.576171:
+70.728979,22.675781:69.990534,18.105468:67.842416,13.095703:68.334375,15.908203:
+63.704722,9.492187:63.782486,8.613281~Meanwhile in Norway~ ~#0B4173~ ~ ~#3373CC',
+					'LINES=53.225768,23.466796:53.956085,29.179687:56.46249,31.113281
+:59.310767,30.673828:60.84491,27.333984:60.930432,21.269531:59.175928,16.611328:
+56.218923,16.259765:54.110942,19.599609:53.225768,23.466796~You\'re serrounded!~ ~#B0920C',
+					'rectangles=51.835777,33.83789:46.377254,23.378906~I\'m a square',
 					'height=500px',
 					'service=leaflet') ), true),
 				var_export( Array(
 					'markers' => Array(
 						Array(
-							'pos' => Array( Array('lat' => 52.429222277955, 'lon' => 13.359375) ),
+							'pos' => Array( Array('lat' => 52.429222, 'lon' => 13.359375) ),
 							'title' => "<p>Capital of Germany\n</p>",
 							'text' => "<p>Crazy people here!\n</p>",
 						),
-						Array( 'pos' => Array( Array( 'lat' => 53.383328367572, 'lon' => 3.33984375 ) ) ),
-						Array( 'pos' => Array( Array( 'lat' => 52.589700768718, 'lon' => 2.548828125) ) ),
-						Array( 'pos' => Array( Array( 'lat' => 52.855864177854, 'lon' => 3.515625 ) ) ),
-						Array( 'pos' => Array( Array( 'lat' => 53.330872983017, 'lon' => 1.7578125 ) ) ),
+						Array( 'pos' => Array( Array( 'lat' => 53.383328, 'lon' => 3.339843 ) ) ),
+						Array( 'pos' => Array( Array( 'lat' => 52.5897, 'lon' => 2.548828) ) ),
+						Array( 'pos' => Array( Array( 'lat' => 52.855864, 'lon' => 3.515625 ) ) ),
+						Array( 'pos' => Array( Array( 'lat' => 53.330872, 'lon' => 1.757812 ) ) ),
 					),
 					'lines' => Array( Array(
 						'pos' => Array(
-							Array( 'lat' => 53.22576843579, 'lon' => 23.466796875 ),
-							Array( 'lat' => 53.956085530988, 'lon' => 29.1796875 ),
-							Array( 'lat' => 56.46249048389, 'lon' => 31.11328125 ),
-							Array( 'lat' => 59.310767956039, 'lon' => 30.673828125 ),
-							Array( 'lat' => 60.844910573649, 'lon' => 27.333984375 ),
-							Array( 'lat' => 60.930432202923, 'lon' => 21.26953125 ),
-							Array( 'lat' => 59.175928249271, 'lon' => 16.611328125 ),
-							Array( 'lat' => 56.218923189167, 'lon' => 16.259765625 ),
-							Array( 'lat' => 54.110942942724, 'lon' => 19.599609375 ),
-							Array( 'lat' => 53.22576843579, 'lon' => 23.466796875 ),
+							Array( 'lat' => 53.225768, 'lon' => 23.466796 ),
+							Array( 'lat' => 53.956085, 'lon' => 29.179687 ),
+							Array( 'lat' => 56.46249, 'lon' => 31.113281 ),
+							Array( 'lat' => 59.310767, 'lon' => 30.673828 ),
+							Array( 'lat' => 60.84491, 'lon' => 27.333984 ),
+							Array( 'lat' => 60.930432, 'lon' => 21.269531 ),
+							Array( 'lat' => 59.175928, 'lon' => 16.611328 ),
+							Array( 'lat' => 56.218923, 'lon' => 16.259765 ),
+							Array( 'lat' => 54.110942, 'lon' => 19.599609 ),
+							Array( 'lat' => 53.225768, 'lon' => 23.466796 ),
 						),
 						'title' => "<p>You're serrounded!\n</p>",
 						'color' => '#B0920C',
 					) ),
 					'polygons' => Array( Array(
 						'pos' => Array(
-                            Array( 'lat' => 62.103882522898, 'lon' => 5.09765625 ),
-							Array( 'lat' => 58.309488840678, 'lon' => 5.712890625 ),
-							Array( 'lat' => 58.950008233357, 'lon' => 10.8984375 ),
-							Array( 'lat' => 61.68987220046, 'lon' => 12.83203125 ),
-							Array( 'lat' => 63.352129285079, 'lon' => 11.865234375 ),
-							Array( 'lat' => 64.129783676426, 'lon' => 13.974609375 ),
-							Array( 'lat' => 65.585720023295, 'lon' => 14.326171875 ),
-							Array( 'lat' => 68.560383686642, 'lon' => 18.28125 ),
-							Array( 'lat' => 68.528234920399, 'lon' => 20.126953125 ),
-							Array( 'lat' => 69.224996854116, 'lon' => 20.56640625 ),
-							Array( 'lat' => 69.224996854116, 'lon' => 21.708984375 ),
-							Array( 'lat' => 68.624543663447, 'lon' => 23.466796875 ),
-							Array( 'lat' => 69.005675196588, 'lon' => 25.400390625 ),
-							Array( 'lat' => 69.960439269025, 'lon' => 26.630859375 ),
-							Array( 'lat' => 70.140364272072, 'lon' => 28.564453125 ),
-							Array( 'lat' => 69.256149231507, 'lon' => 28.828125 ),
-							Array( 'lat' => 69.839621940675, 'lon' => 31.201171875 ),
-							Array( 'lat' => 70.757965626549, 'lon' => 29.8828125 ),
-							Array( 'lat' => 71.102542742323, 'lon' => 25.576171875 ),
-							Array( 'lat' => 70.728979462088, 'lon' => 22.67578125 ),
-							Array( 'lat' => 69.990534959477, 'lon' => 18.10546875 ),
-							Array( 'lat' => 67.842416473279, 'lon' => 13.095703125 ),
-							Array( 'lat' => 68.334375941282, 'lon' => 15.908203125 ),
-							Array( 'lat' => 63.704722429433, 'lon' => 9.4921875 ),
-							Array( 'lat' => 63.782486031165, 'lon' => 8.61328125 ),
+                            Array( 'lat' => 62.103882, 'lon' => 5.097656 ),
+							Array( 'lat' => 58.309488, 'lon' => 5.71289 ),
+							Array( 'lat' => 58.950008, 'lon' => 10.898437 ),
+							Array( 'lat' => 61.689872, 'lon' => 12.832031 ),
+							Array( 'lat' => 63.352129, 'lon' => 11.865234 ),
+							Array( 'lat' => 64.129783, 'lon' => 13.974609 ),
+							Array( 'lat' => 65.58572, 'lon' => 14.326171 ),
+							Array( 'lat' => 68.560383, 'lon' => 18.28125 ),
+							Array( 'lat' => 68.528234, 'lon' => 20.126953 ),
+							Array( 'lat' => 69.224996, 'lon' => 20.566406 ),
+							Array( 'lat' => 69.224996, 'lon' => 21.708984 ),
+							Array( 'lat' => 68.624543, 'lon' => 23.466796 ),
+							Array( 'lat' => 69.005675, 'lon' => 25.40039 ),
+							Array( 'lat' => 69.960439, 'lon' => 26.630859 ),
+							Array( 'lat' => 70.140364, 'lon' => 28.564453 ),
+							Array( 'lat' => 69.256149, 'lon' => 28.828125 ),
+							Array( 'lat' => 69.839621, 'lon' => 31.201171 ),
+							Array( 'lat' => 70.757965, 'lon' => 29.882812 ),
+							Array( 'lat' => 71.102542, 'lon' => 25.576171 ),
+							Array( 'lat' => 70.728979, 'lon' => 22.675781 ),
+							Array( 'lat' => 69.990534, 'lon' => 18.105468 ),
+							Array( 'lat' => 67.842416, 'lon' => 13.095703 ),
+							Array( 'lat' => 68.334375, 'lon' => 15.908203 ),
+							Array( 'lat' => 63.704722, 'lon' => 9.492187 ),
+							Array( 'lat' => 63.782486, 'lon' => 8.613281 ),
                         ),
 						'title' => "<p>Meanwhile in Norway\n</p>",
 						'color' => '#0B4173',
@@ -398,20 +398,20 @@ class LeafletTest extends \MediaWikiTestCase {
 					) ),
 					'rectangles' => Array( Array(
 						'pos' => Array(
-							Array( 'lat' => 51.835777520452, 'lon' => 33.837890625 ),
-							Array( 'lat' => 46.3772542051, 'lon' => 23.37890625 ),
+							Array( 'lat' => 51.835777, 'lon' => 33.83789 ),
+							Array( 'lat' => 46.377254, 'lon' => 23.378906 ),
 						),
 	                    'title' => "<p>I'm a square\n</p>",
 					) ),
 					'circles' => Array( Array(
-						'radius' => Array( 326844.60518254 ),
-						'pos' => Array( Array( 'lat' => 57.421294392094, 'lon' => 23.90625 ) ),
+						'radius' => Array( 326844.605 ),
+						'pos' => Array( Array( 'lat' => 57.421294, 'lon' => 23.90625 ) ),
 						'title' => "<p>I'm a circle\n</p>",
 						'text' => "<p>of doom!\n</p>",
 					) ),
 					'bounds' => Array(
-						'ne' => Array( 'lat' => 71.102542742323, 'lon' => 33.837890625 ),
-						'sw' => Array( 'lat' => 46.3772542051, 'lon' => 1.7578125 ),
+						'ne' => Array( 'lat' => 71.102542, 'lon' => 33.83789 ),
+						'sw' => Array( 'lat' => 46.377254, 'lon' => 1.757812 ),
 					)
 				), true )
 			);
@@ -423,7 +423,7 @@ class LeafletTest extends \MediaWikiTestCase {
 		$badvalue = 'thisisabadvalue';
 
 		$this->assertEquals(
-				\FormatJson::encode( $this->object->getMapData( array('55.7557860, 37.6176330', "$badparam=$badvalue",'service=leaflet') ) ),
+				\FormatJson::encode( $this->object->getMapData( array('55.755786, 37.617633', "$badparam=$badvalue",'service=leaflet') ) ),
 				'{"markers":[{"pos":[{"lat":55.755786,"lon":37.617633}]}],"zoom":14,"center":{"lat":55.755786,"lon":37.617633}}'
 				);
 
@@ -437,17 +437,17 @@ class LeafletTest extends \MediaWikiTestCase {
 		$marker = new Marker();
 
 		$this->assertEquals(
-				$this->object->getMapData( array('52.429222277955134,13.359375~Capital of Germany~Crazy people here!~ ~ ~Berlin;', 'service=leaflet') ),
+				$this->object->getMapData( array('52.429222,13.359375~Capital of Germany~Crazy people here!~ ~ ~Berlin;', 'service=leaflet') ),
 				array(
 					'markers' => array(
 						array(
-							'pos'=> array( array('lat'=>52.429222277955,'lon'=>13.359375) ),
+							'pos'=> array( array('lat'=>52.429222,'lon'=>13.359375) ),
 							'title' => "<p>Capital of Germany\n</p>",
 							'text' => "<p>Crazy people here!\n</p>",
 						),
 					),
 					'zoom' => 14,
-					'center' => array( 'lat' => 52.429222277955, 'lon' => 13.359375 ),
+					'center' => array( 'lat' => 52.429222, 'lon' => 13.359375 ),
 				)
 			);
 
@@ -464,7 +464,7 @@ class LeafletTest extends \MediaWikiTestCase {
 		$badicon = 'this is a bad icon';
 
 		$this->assertEquals(
-				\FormatJson::encode( $this->object->getMapData( array("55.7557860, 37.6176330~icon=$badicon", 'service=leaflet') ) ),
+				\FormatJson::encode( $this->object->getMapData( array("55.755786, 37.617633~icon=$badicon", 'service=leaflet') ) ),
 				'{"markers":[{"pos":[{"lat":55.755786,"lon":37.617633}]}],"zoom":14,"center":{"lat":55.755786,"lon":37.617633}}'
 				);
 
@@ -532,17 +532,17 @@ class LeafletTest extends \MediaWikiTestCase {
 	public function testParseWikitext() {
 		global $wgParser;
 		$this->assertEquals(
-				var_export( $this->object->getMapData( array('52.429222277955134,13.359375~Capital of [[Germany]]~Crazy [[people|germans]] here!', 'service=leaflet') ), true),
+				var_export( $this->object->getMapData( array('52.429222,13.359375~Capital of [[Germany]]~Crazy [[people|germans]] here!', 'service=leaflet') ), true),
 				var_export( array(
 					'markers' => array(
 						array(
-							'pos'=> array( array('lat'=>52.429222277955,'lon'=>13.359375) ),
+							'pos'=> array( array('lat'=>52.429222,'lon'=>13.359375) ),
 							'title' => $wgParser->parse( 'Capital of [[Germany]]', new \Title(), new \ParserOptions() )->getText(),
 							'text' => $wgParser->parse( 'Crazy [[people|germans]] here!', new \Title(), new \ParserOptions() )->getText(),
 						),
 					),
 					'zoom' => 14,
-					'center' => array( 'lat' => 52.429222277955, 'lon' => 13.359375 ),
+					'center' => array( 'lat' => 52.429222, 'lon' => 13.359375 ),
 				), true )
 			);
 	}
