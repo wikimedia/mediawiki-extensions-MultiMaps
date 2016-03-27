@@ -14,6 +14,7 @@
 	"multimaps-element-more-parameters": "此地图元素“$1”传递了比预期更多的参数：",
 	"multimaps-element-parameters-not-processed": "未处理以下参数：$1",
 	"multimaps-circle-radius-not-defined": "圆必须定义半径。",
+	"multimaps-circle-wrong-number-parameters": "对于圆形，只应定义两个参数：圆心的坐标及半径。但却指定了$1个参数",
 	"multimaps-marker-incorrect-icon": "提供标记图标的文件名“$1”不正确。",
 	"multimaps-marker-incorrect-icon-url": "提供标记图标的URL“$1”不正确。",
 	"multimaps-marker-incorrect-icon-size": "为标记图标“$2”提供了不正确的大小“$1”。",
