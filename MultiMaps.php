@@ -103,12 +103,15 @@ $wgResourceModules['ext.MultiMaps.Yandex'] = array(
  * @codeCoverageIgnore
  */
 $wgHooks['UnitTestsList'][] = function ( &$files ) {
-		$testDir = __DIR__ . '/tests/phpunit';
-		$files = array_merge( $files, glob( "$testDir/includes/*Test.php" ) );
-		$files = array_merge( $files, glob( "$testDir/includes/mapelements/*Test.php" ) );
-		$files = array_merge( $files, glob( "$testDir/services/*Test.php" ) );
-		$files = array_merge( $files, glob( "$testDir/services/Google/*Test.php" ) );
-		$files = array_merge( $files, glob( "$testDir/services/Leaflet/*Test.php" ) );
-		$files = array_merge( $files, glob( "$testDir/services/Yandex/*Test.php" ) );
+		$files[] = __DIR__ . '/tests/phpunit/includes/BoundsTest.php';
+		$files[] = __DIR__ . '/tests/phpunit/includes/GeoCoordinateTest.php';
+		$files[] = __DIR__ . '/tests/phpunit/includes/GeocodersTest.php';
+		$files[] = __DIR__ . '/tests/phpunit/includes/MapServicesTest.php';
+		$files[] = __DIR__ . '/tests/phpunit/includes/PointTest.php';
+		$files[] = __DIR__ . '/tests/phpunit/includes/mapelements/PolygonTest.php';
+		$files[] = __DIR__ . '/tests/phpunit/includes/mapelements/RectangleTest.php';
+		$files[] = __DIR__ . '/tests/phpunit/services/Google/GoogleTest.php';
+		$files[] = __DIR__ . '/tests/phpunit/services/Leaflet/LeafletTest.php';
+		$files[] = __DIR__ . '/tests/phpunit/services/Yandex/YandexTest.php';
 		return true;
 };
