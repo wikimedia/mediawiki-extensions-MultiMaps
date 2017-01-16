@@ -23,7 +23,8 @@ class Leaflet extends BaseMapService {
 		$this->classname="leaflet";
 		$this->resourceModules[] = 'ext.MultiMaps.Leaflet';
 
-		$leafletPath = $GLOBALS['egMultiMapsScriptPath'] . '/services/Leaflet/leaflet';
+		global $egMultiMapsScriptPath;
+		$leafletPath = $egMultiMapsScriptPath . '/services/Leaflet/leaflet';
 		$this->headerItem .= \Html::linkedStyle( "$leafletPath/leaflet.css" ) .
 			'<!--[if lte IE 8]>' . \Html::linkedStyle( "$leafletPath/leaflet.ie.css" ). '<![endif]-->' .
 			\Html::linkedScript( "$leafletPath/leaflet.js" );
