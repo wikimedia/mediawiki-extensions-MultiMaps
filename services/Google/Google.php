@@ -24,8 +24,10 @@ class Google extends BaseMapService {
 		$this->resourceModules[] = 'ext.MultiMaps.Google';
 
 		$urlArgs = array();
-		$urlArgs['sensor'] = 'false';
-		$urlArgs['v'] = '3.10';
+		global $egMultiMapsGoogleApiKey;
+		if ( $egMultiMapsGoogleApiKey ) {
+			$urlArgs['key'] = $egMultiMapsGoogleApiKey;
+		}
 		$this->headerItem .= \Html::linkedScript( '//maps.googleapis.com/maps/api/js?'.wfArrayToCgi($urlArgs) ) . "\n";
 	}
 
