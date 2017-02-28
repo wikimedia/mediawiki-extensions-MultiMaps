@@ -31,5 +31,5 @@
 	"multimaps-unknown-parameter": "Непознат параметар: „$1“",
 	"multimaps-error-incorrect-class-for-service": "Не може да се употреби класата „$1“ зададена на службата.",
 	"multimaps-method-error-unknown-action": "$1: Непознато дејство",
-	"multimaps-method-error-unexpected-result": "$1: Неочекуван резултат на функција"
+	"multimaps-method-error-unexpected-result": "$1: Неочекуван исход на функција"
 }
