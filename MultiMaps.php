@@ -34,7 +34,6 @@ $egMultiMapsScriptPath = ( $wgExtensionAssetsPath === false ? $wgScriptPath . '/
 
 // Allow translations for this extension
 $wgMessagesDirs['MultiMaps'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['MultiMaps'] =		$dir . '/MultiMaps.i18n.php';
 $wgExtensionMessagesFiles['MultiMapsMagic'] =	$dir . '/MultiMaps.i18n.magic.php';
 
 // Include the settings file.
