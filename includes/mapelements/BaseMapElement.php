@@ -112,7 +112,11 @@ abstract class BaseMapElement {
 			if ( defined( 'LINGO_VERSION') === true ) { // Do not allow Lingo extension to process value
 				$value .= "\n__NOGLOSSARY__";
 			}
-			$this->properties[$name] = $parser->parse( $value, $title, new \ParserOptions() )->getText();
+			$options = new \ParserOptions();
+			if ( is_callable( [ $options, 'setWrapOutputClass' ] ) ) { // since 1.30
+				$options->setWrapOutputClass( false );
+			}
+			$this->properties[$name] = $parser->parse( $value, $title, $options )->getText();
 		} elseif ( is_string($value) ) {
 			$value = trim( $value );
 			$this->properties[$name] = htmlspecialchars( $value, ENT_NOQUOTES );

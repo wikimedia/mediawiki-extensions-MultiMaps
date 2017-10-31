@@ -531,14 +531,19 @@ class LeafletTest extends \MediaWikiTestCase {
 
 	public function testParseWikitext() {
 		global $wgParser;
+		$title = new \Title();
+		$options = new \ParserOptions();
+		if ( is_callable( [ $options, 'setWrapOutputClass' ] ) ) { // since 1.30
+			$options->setWrapOutputClass( false );
+		}
 		$this->assertEquals(
 				var_export( $this->object->getMapData( array('52.429222,13.359375~Capital of [[Germany]]~Crazy [[people|germans]] here!', 'service=leaflet') ), true),
 				var_export( array(
 					'markers' => array(
 						array(
 							'pos'=> array( array('lat'=>52.429222,'lon'=>13.359375) ),
-							'title' => $wgParser->parse( 'Capital of [[Germany]]', new \Title(), new \ParserOptions() )->getText(),
-							'text' => $wgParser->parse( 'Crazy [[people|germans]] here!', new \Title(), new \ParserOptions() )->getText(),
+							'title' => $wgParser->parse( 'Capital of [[Germany]]', $title, $options )->getText(),
+							'text' => $wgParser->parse( 'Crazy [[people|germans]] here!', $title, $options )->getText(),
 						),
 					),
 					'zoom' => 14,
@@ -546,5 +551,4 @@ class LeafletTest extends \MediaWikiTestCase {
 				), true )
 			);
 	}
-
 }
