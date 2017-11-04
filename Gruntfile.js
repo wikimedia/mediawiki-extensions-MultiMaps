@@ -12,7 +12,8 @@ module.exports = function ( grunt ) {
 			all: [
 				'**/*.js',
 				'!node_modules/**',
-				'!services/Leaflet/leaflet/leaflet.js'
+				'!vendor/**',
+				'!services/Leaflet/leaflet/leaflet.js' // upstream libs
 			]
 		},
 		banana: {
@@ -21,7 +22,8 @@ module.exports = function ( grunt ) {
 		jsonlint: {
 			all: [
 				'**/*.json',
-				'!node_modules/**'
+				'!node_modules/**',
+				'!vendor/**'
 			]
 		}
 	} );
