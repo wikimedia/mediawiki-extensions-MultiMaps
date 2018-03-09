@@ -113,10 +113,7 @@ abstract class BaseMapElement {
 				$value .= "\n__NOGLOSSARY__";
 			}
 			$options = new \ParserOptions();
-			if ( is_callable( [ $options, 'setWrapOutputClass' ] ) ) { // since 1.30
-				$options->setWrapOutputClass( false );
-			}
-			$this->properties[$name] = $parser->parse( $value, $title, $options )->getText();
+			$this->properties[$name] = $parser->parse( $value, $title, $options )->getText( [ 'unwrap' => true ] );
 		} elseif ( is_string($value) ) {
 			$value = trim( $value );
 			$this->properties[$name] = htmlspecialchars( $value, ENT_NOQUOTES );
