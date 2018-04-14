@@ -7,7 +7,7 @@ namespace MultiMaps;
  * @file GeoCoordinate.php
  * @ingroup MultiMaps
  * @author Pavel Astakhov <pastakhov@yandex.ru>
- * @licence GNU General Public Licence 2.0 or later
+ * @license GPL-2.0-or-later
  */
 class GeoCoordinate {
 
@@ -51,18 +51,18 @@ class GeoCoordinate {
 	public static function getLatLonFromString( $coords ) {
 		global $egMultiMaps_OptionsSeparator;
 
-		$matches = array();
-		$subject = preg_replace('/\s+/', '', $coords);
+		$matches = [];
+		$subject = preg_replace( '/\s+/', '', $coords );
 
-		$array = explode($egMultiMaps_OptionsSeparator, $subject);
-		if(count($array) == 2) {
+		$array = explode( $egMultiMaps_OptionsSeparator, $subject );
+		if ( count( $array ) == 2 ) {
 			$lat = false;
 			$lon = false;
 			$doubt = false;
-			$matches = array();
-			if ( preg_match('/^[NSWE]|[NSWE]$/i', $array[0], $matches) ) {
-				$string = preg_replace('/[NSWE]/i', '', $array[0], 1);
-				switch ( strtoupper($matches[0]) ) {
+			$matches = [];
+			if ( preg_match( '/^[NSWE]|[NSWE]$/i', $array[0], $matches ) ) {
+				$string = preg_replace( '/[NSWE]/i', '', $array[0], 1 );
+				switch ( strtoupper( $matches[0] ) ) {
 					case 'N':
 						$lat = self::getFloatFromString( $string );
 						break;
@@ -78,19 +78,19 @@ class GeoCoordinate {
 				}
 			} else {
 				$doubt = true;
-				$lat = self::getFloatFromString($array[0]);
+				$lat = self::getFloatFromString( $array[0] );
 			}
 
-			if( $lat === false && $lon === false ) {
+			if ( $lat === false && $lon === false ) {
 				return false;
 			}
 
-			if ( preg_match('/^[NSWE]|[NSWE]$/i', $array[1], $matches) ) {
-				$string = preg_replace('/[NSWE]/i', '', $array[1], 1);
-				switch ( strtoupper($matches[0]) ) {
+			if ( preg_match( '/^[NSWE]|[NSWE]$/i', $array[1], $matches ) ) {
+				$string = preg_replace( '/[NSWE]/i', '', $array[1], 1 );
+				switch ( strtoupper( $matches[0] ) ) {
 					case 'N':
 						if ( !$lat || $doubt ) {
-							if( $doubt ) {
+							if ( $doubt ) {
 								$lon = $lat;
 							}
 							$lat = self::getFloatFromString( $string );
@@ -98,7 +98,7 @@ class GeoCoordinate {
 						break;
 					case 'S':
 						if ( !$lat || $doubt ) {
-							if( $doubt ) {
+							if ( $doubt ) {
 								$lon = $lat;
 							}
 							$lat = -1 * self::getFloatFromString( $string );
@@ -114,17 +114,17 @@ class GeoCoordinate {
 							$lon = -1 * self::getFloatFromString( $string );
 						}
 						break;
-				 }
+				}
 			} else {
-				if( $lat !== false ) {
-					$lon = self::getFloatFromString($array[1]);
+				if ( $lat !== false ) {
+					$lon = self::getFloatFromString( $array[1] );
 				} else {
-					$lat = self::getFloatFromString($array[1]);
+					$lat = self::getFloatFromString( $array[1] );
 				}
 			}
 
-			if( $lat !== false && $lon !== false ) {
-				return array ('lat'=>$lat, 'lon'=>$lon);
+			if ( $lat !== false && $lon !== false ) {
+				return [ 'lat' => $lat, 'lon' => $lon ];
 			}
 		}
 		return false;
@@ -143,14 +143,14 @@ class GeoCoordinate {
 	 * @return float
 	 */
 	private static function getFloatFromString( $string ) {
-		$matches = array();
+		$matches = [];
 		// String contain float
-		if( preg_match( '/^((?:-)?\d{1,3}(?:\.\d{1,20})?)(?:°)?$/', $string, $matches ) ) {
+		if ( preg_match( '/^((?:-)?\d{1,3}(?:\.\d{1,20})?)(?:°)?$/', $string, $matches ) ) {
 			return (float)$matches[1];
 		}
 		// String contain DMS
-		if( preg_match( '/^((?:-)?\d{1,3})°(\d{1,2}(?:\.\d{1,20})?)(?:\′|\')(?:(\d{1,2}(?:\.\d{1,20})?)(?:″|"))?$/', $string, $matches ) ) {
-			return (float)(abs($matches[1])== $matches[1] ? 1 : -1) * (abs($matches[1]) + (isset($matches[2]) ? $matches[2] / 60 : 0) + (isset($matches[3]) ? $matches[3] / 3600 : 0));
+		if ( preg_match( '/^((?:-)?\d{1,3})°(\d{1,2}(?:\.\d{1,20})?)(?:\′|\')(?:(\d{1,2}(?:\.\d{1,20})?)(?:″|"))?$/', $string, $matches ) ) {
+			return (float)( abs( $matches[1] ) == $matches[1] ? 1 : -1 ) * ( abs( $matches[1] ) + ( isset( $matches[2] ) ? $matches[2] / 60 : 0 ) + ( isset( $matches[3] ) ? $matches[3] / 3600 : 0 ) );
 		}
 		return false;
 	}
@@ -162,9 +162,9 @@ class GeoCoordinate {
 	 * @param float $nord To the north (meters)
 	 * @param float $east To the East (meters)
 	 */
-	public static function moveCoordinatesInMeters(&$lat, &$lon, $nord, $east) {
-		$lat += ($nord / self::MEREDIAN_LENGTH) * 180;
-		$lon += ($east / (self::EQUATOR_LENGTH * cos(M_PI / 180 * $lat))) * 360;
+	public static function moveCoordinatesInMeters( &$lat, &$lon, $nord, $east ) {
+		$lat += ( $nord / self::MEREDIAN_LENGTH ) * 180;
+		$lon += ( $east / ( self::EQUATOR_LENGTH * cos( M_PI / 180 * $lat ) ) ) * 360;
 	}
 
 	/**
@@ -175,12 +175,12 @@ class GeoCoordinate {
 	 * @param float $lon2 Longitude geographical point 2
 	 * @return float Distance, in meters
 	 */
-	public static function getDistanceInMeters($lat1, $lon1, $lat2, $lon2) {
-		$lat = abs($lat1 - $lat2);
-		$lon = abs($lon1 - $lon2);
-		$distance_lat = ($lat / 180) * self::MEREDIAN_LENGTH;
-		$distance_lon = ($lon / 360) * self::EQUATOR_LENGTH * cos(M_PI / 180 * abs(($lat1 + $lat2) / 2));
-		return sqrt( pow($distance_lat, 2) + pow($distance_lon, 2));
+	public static function getDistanceInMeters( $lat1, $lon1, $lat2, $lon2 ) {
+		$lat = abs( $lat1 - $lat2 );
+		$lon = abs( $lon1 - $lon2 );
+		$distance_lat = ( $lat / 180 ) * self::MEREDIAN_LENGTH;
+		$distance_lon = ( $lon / 360 ) * self::EQUATOR_LENGTH * cos( M_PI / 180 * abs( ( $lat1 + $lat2 ) / 2 ) );
+		return sqrt( pow( $distance_lat, 2 ) + pow( $distance_lon, 2 ) );
 	}
 
 }

@@ -23,11 +23,11 @@ $egMultiMaps_AllowGeocoderTests = false;
 // Array of String. Array containing all the mapping services that will be made available to the user.
 // Firs value - default service, which will be used if the service is not in the parameters
 // Values may be a valid name of class based on class BaseMapService
-$egMultiMaps_MapServices = array(
+$egMultiMaps_MapServices = [
 	'Leaflet',
 	'Google',
 	'Yandex',
-);
+];
 
 // Integer. The default zoom of a map. This value will only be used when the
 // user does not provide one.
@@ -49,6 +49,6 @@ $egMultiMaps_IconAllowFromDirectory = false;
 // String. The URL base path to the directory containing icons for markers
 $egMultiMaps_IconPath = "$wgScriptPath/mapicons";
 
-//TODO
-//$egMultiMaps_GoogleApiKey = false;
-//$egMultiMaps_YandexApiKey = false;
+// TODO
+// $egMultiMaps_GoogleApiKey = false;
+// $egMultiMaps_YandexApiKey = false;

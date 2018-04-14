@@ -7,7 +7,7 @@ namespace MultiMaps;
  * @file Bounds.php
  * @ingroup MultiMaps
  * @author Pavel Astakhov <pastakhov@yandex.ru>
- * @licence GNU General Public Licence 2.0 or later
+ * @license GPL-2.0-or-later
  * @property-read Point $ne North East point
  * @property-read Point $sw South West point
  * @property-read Point $center Center point of bounds
@@ -27,52 +27,51 @@ class Bounds {
 	 */
 	protected $southWest = false;
 
-	function __construct( $coordinates = null) {
-		if( !is_null($coordinates) ) {
-			$this->extend($coordinates);
+	function __construct( $coordinates = null ) {
+		if ( !is_null( $coordinates ) ) {
+			$this->extend( $coordinates );
 		}
 	}
-
 
 	/**
 	 * Extend bounds
 	 * @param array $coordinates Array of Point objects
 	 */
 	public function extend( $coordinates ) {
-		if( $coordinates instanceof Point ) {
-			$coordinates = array($coordinates);
+		if ( $coordinates instanceof Point ) {
+			$coordinates = [ $coordinates ];
 		}
-		foreach ($coordinates as $point) {
+		foreach ( $coordinates as $point ) {
 			$bounds = $point->bounds;
-			if( !$this->isValid() ) {
-				if( $bounds ) {
+			if ( !$this->isValid() ) {
+				if ( $bounds ) {
 					$this->northEast = $bounds->ne;
 					$this->southWest = $bounds->sw;
 				} else {
-					$this->northEast = new Point($point->lat, $point->lon);
-					$this->southWest = new Point($point->lat, $point->lon);
+					$this->northEast = new Point( $point->lat, $point->lon );
+					$this->southWest = new Point( $point->lat, $point->lon );
 				}
 			} else {
-				if( $bounds != false) {
-					if( $bounds->sw->lat < $this->southWest->lat ) {
+				if ( $bounds != false ) {
+					if ( $bounds->sw->lat < $this->southWest->lat ) {
 						$this->southWest->lat = $bounds->sw->lat;
 					} elseif ( $bounds->ne->lat > $this->northEast->lat ) {
 						$this->northEast->lat = $bounds->ne->lat;
 					}
 
-					if( $bounds->sw->lon < $this->southWest->lon ) {
+					if ( $bounds->sw->lon < $this->southWest->lon ) {
 						$this->southWest->lon = $bounds->sw->lon;
 					} elseif ( $bounds->ne->lon > $this->northEast->lon ) {
 						$this->northEast->lon = $bounds->ne->lon;
 					}
 				} else {
-					if( $point->lat < $this->southWest->lat ) {
+					if ( $point->lat < $this->southWest->lat ) {
 						$this->southWest->lat = $point->lat;
 					} elseif ( $point->lat > $this->northEast->lat ) {
 						$this->northEast->lat = $point->lat;
 					}
 
-					if( $point->lon < $this->southWest->lon ) {
+					if ( $point->lon < $this->southWest->lon ) {
 						$this->southWest->lon = $point->lon;
 					} elseif ( $point->lon > $this->northEast->lon ) {
 						$this->northEast->lon = $point->lon;
@@ -84,7 +83,7 @@ class Bounds {
 
 	/**
 	 * Returns center of bounds
-	 * @return boolean|\MultiMaps\Point
+	 * @return bool|\MultiMaps\Point
 	 */
 	public function getCenter() {
 		if ( !$this->isValid() ) {
@@ -92,17 +91,17 @@ class Bounds {
 		}
 
 		return new \MultiMaps\Point(
-				($this->southWest->lat + $this->northEast->lat) / 2,
-				($this->southWest->lon + $this->northEast->lon) / 2
+			( $this->southWest->lat + $this->northEast->lat ) / 2,
+			( $this->southWest->lon + $this->northEast->lon ) / 2
 		);
 	}
 
 	/**
 	 * Checks if the object is valid
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isValid() {
-		return ($this->northEast !== false && $this->southWest !== false);
+		return ( $this->northEast !== false && $this->southWest !== false );
 	}
 
 	/**
@@ -110,29 +109,25 @@ class Bounds {
 	 * @return array
 	 */
 	public function getData() {
-		if( $this->isValid() ) {
-			return array(
+		if ( $this->isValid() ) {
+			return [
 				'ne' => $this->northEast->getData(),
 				'sw' => $this->southWest->getData(),
-				);
+			];
 		}
 	}
 
-	public function __get($name) {
-		$name = strtolower($name);
-		switch ($name) {
+	public function __get( $name ) {
+		$name = strtolower( $name );
+		switch ( $name ) {
 			case 'ne':
 				return $this->northEast;
-				break;
 			case 'sw':
 				return $this->southWest;
-				break;
 			case 'center':
 				return $this->getCenter();
-				break;
 			case 'diagonal':
-				return GeoCoordinate::getDistanceInMeters($this->northEast->lat, $this->northEast->lon, $this->southWest->lat, $this->southWest->lon);
-				break;
+				return GeoCoordinate::getDistanceInMeters( $this->northEast->lat, $this->northEast->lon, $this->southWest->lat, $this->southWest->lon );
 		}
 		return null;
 	}

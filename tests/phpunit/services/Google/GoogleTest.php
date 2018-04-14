@@ -27,9 +27,9 @@ class GoogleTest extends \PHPUnit\Framework\TestCase {
 			return;
 		}
 		$this->assertRegExp(
-				'{"markers":[{"pos":[{"lat":[0-9\.]+,"lon":[0-9\.]+}]}],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[0-9\.]+}}}',
-				\FormatJson::encode( $this->object->getMapData( array('Moscow', 'service=google') ) )
-				);
+			'{"markers":[{"pos":[{"lat":[0-9\.]+,"lon":[0-9\.]+}]}],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[0-9\.]+}}}',
+			\FormatJson::encode( $this->object->getMapData( [ 'Moscow', 'service=google' ] ) )
+		);
 	}
 
 	public function testParseGeocoderRectangle() {
@@ -38,9 +38,9 @@ class GoogleTest extends \PHPUnit\Framework\TestCase {
 			return;
 		}
 		$this->assertRegExp(
-				'{"rectangles":\[{"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+},{"lat":[0-9\.]+,"lon":[0-9\.]+}\]}\],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[0-9\.]+}}}',
-				\FormatJson::encode( $this->object->getMapData( array('rectangle=Moscow', 'service=google') ) )
-				);
+			'{"rectangles":\[{"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+},{"lat":[0-9\.]+,"lon":[0-9\.]+}\]}\],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[0-9\.]+}}}',
+			\FormatJson::encode( $this->object->getMapData( [ 'rectangle=Moscow', 'service=google' ] ) )
+		);
 	}
 
 	public function testParseGeocoderRectangles() {
@@ -49,9 +49,9 @@ class GoogleTest extends \PHPUnit\Framework\TestCase {
 			return;
 		}
 		$this->assertRegExp(
-				'{"rectangles":\[{"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+},{"lat":[0-9\.]+,"lon":[0-9\.]+}\]},{"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+},{"lat":[-0-9\.]+,"lon":[-0-9\.]+}]}],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[-0-9\.]+}}}',
-				\FormatJson::encode( $this->object->getMapData( array('rectangle=Moscow;London', 'service=google') ) )
-				);
+			'{"rectangles":\[{"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+},{"lat":[0-9\.]+,"lon":[0-9\.]+}\]},{"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+},{"lat":[-0-9\.]+,"lon":[-0-9\.]+}]}],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[-0-9\.]+}}}',
+			\FormatJson::encode( $this->object->getMapData( [ 'rectangle=Moscow;London', 'service=google' ] ) )
+		);
 	}
 
 	public function testParseGeocoderCircle() {
@@ -60,9 +60,9 @@ class GoogleTest extends \PHPUnit\Framework\TestCase {
 			return;
 		}
 		$this->assertRegExp(
-				'{"circles":\[{"radius":\[[0-9\.]+\],"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+}\]}\],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[0-9\.]+}}}',
-				\FormatJson::encode( $this->object->getMapData( array('circle=Moscow', 'service=google') ) )
-				);
+			'{"circles":\[{"radius":\[[0-9\.]+\],"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+}\]}\],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[0-9\.]+}}}',
+			\FormatJson::encode( $this->object->getMapData( [ 'circle=Moscow', 'service=google' ] ) )
+		);
 	}
 
 }

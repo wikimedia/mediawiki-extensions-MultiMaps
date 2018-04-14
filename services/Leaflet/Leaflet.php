@@ -1,5 +1,6 @@
 <?php
 namespace MultiMaps;
+
 /**
  * This groupe contains all Leaflet related files of the MultiMaps extension.
  *
@@ -13,14 +14,14 @@ namespace MultiMaps;
  * @file Leaflet.php
  * @ingroup Leaflet
  *
- * @licence GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @author Pavel Astakhov < pastakhov@yandex.ru >
  */
 class Leaflet extends BaseMapService {
 
 	function __construct() {
 		parent::__construct();
-		$this->classname="leaflet";
+		$this->classname = "leaflet";
 		$this->resourceModules[] = 'ext.MultiMaps.Leaflet';
 
 		global $egMultiMapsScriptPath;

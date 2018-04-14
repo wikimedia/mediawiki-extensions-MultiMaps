@@ -27,9 +27,9 @@ class PolygonTest extends \PHPUnit\Framework\TestCase {
 	public function testGetElementName() {
 		// Remove the following lines when you implement this test.
 		$this->assertEquals(
-				$this->object->getElementName(),
-				'Polygon'
-				);
+			$this->object->getElementName(),
+			'Polygon'
+		);
 	}
 
 	public function testSetProperty() {
@@ -46,19 +46,19 @@ class PolygonTest extends \PHPUnit\Framework\TestCase {
 		$this->assertNull( $this->object->fillopacity );
 
 		$illegalfillvalue = 'ha-ha-ha';
-		$this->assertFalse( $this->object->setProperty('fill', $illegalfillvalue) );
+		$this->assertFalse( $this->object->setProperty( 'fill', $illegalfillvalue ) );
 
 		$this->assertEquals(
-				$this->object->getErrorMessages(),
-				array( \wfMessage( 'multimaps-element-illegal-value', 'fill', $illegalfillvalue, '"'.implode('", "', $this->object->getPropertyValidValues('fill')).'"' )->escaped() )
-				);
+			$this->object->getErrorMessages(),
+			[ \wfMessage( 'multimaps-element-illegal-value', 'fill', $illegalfillvalue, '"'.implode( '", "', $this->object->getPropertyValidValues( 'fill' ) ).'"' )->escaped() ]
+		);
 	}
 
 	/**
 	 * @covers MultiMaps\Polygon::getPropertyValidValues
 	 */
 	public function testGetPropertyValidValues() {
-		$this->assertNull( Polygon::getPropertyValidValues('poiuygtfcvbnmnbgvfd') );
+		$this->assertNull( Polygon::getPropertyValidValues( 'poiuygtfcvbnmnbgvfd' ) );
 	}
 
 }

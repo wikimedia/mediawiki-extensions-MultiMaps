@@ -30,48 +30,48 @@ class BoundsTest extends \PHPUnit\Framework\TestCase {
 		$this->assertFalse( $this->object->getCenter() );
 		$this->assertNull( $this->object->getData() );
 
-		$point = new Point(10, 2);
+		$point = new Point( 10, 2 );
 		$this->object->extend( $point );
 		$this->assertEquals( $this->object->getCenter(), $point );
 
-		$this->object->extend( array(new Point(20, 1)) );
-		$this->assertEquals( $this->object->getCenter(), new Point(15, 1.5) );
+		$this->object->extend( [ new Point( 20, 1 ) ] );
+		$this->assertEquals( $this->object->getCenter(), new Point( 15, 1.5 ) );
 
 		$this->assertEquals(
-				$this->object->getData(),
-				array(
-					'ne' => array('lat' => 20, 'lon' => 2),
-					'sw' => array('lat' => 10, 'lon' => 1),
-					)
-				);
+			$this->object->getData(),
+			[
+				'ne' => [ 'lat' => 20, 'lon' => 2 ],
+				'sw' => [ 'lat' => 10, 'lon' => 1 ],
+			]
+		);
 
 		$this->assertEquals(
-				"{$this->object->diagonal}",
-				"1116519.1690062"
-				);
+			"{$this->object->diagonal}",
+			"1116519.1690062"
+		);
 
 		$pointWithBounds = new Point();
-		$bounds1 = new Bounds( array(new Point(40, 40), new Point(30, 30)) );
+		$bounds1 = new Bounds( [ new Point( 40, 40 ), new Point( 30, 30 ) ] );
 		$pointWithBounds->bounds = $bounds1;
 		$this->object->extend( $pointWithBounds );
 		$this->assertEquals(
-				$this->object->getData(),
-				array(
-					'ne' => array('lat' => 40, 'lon' => 40),
-					'sw' => array('lat' => 10, 'lon' => 1),
-					)
-				);
+			$this->object->getData(),
+			[
+				'ne' => [ 'lat' => 40, 'lon' => 40 ],
+				'sw' => [ 'lat' => 10, 'lon' => 1 ],
+			]
+		);
 
-		$bounds2 = new Bounds( array(new Point(-40, 0), new Point(0, -30)) );
+		$bounds2 = new Bounds( [ new Point( -40, 0 ), new Point( 0, -30 ) ] );
 		$pointWithBounds->bounds = $bounds2;
 		$this->object->extend( $pointWithBounds );
 		$this->assertEquals(
-				$this->object->getData(),
-				array(
-					'ne' => array('lat' => 40, 'lon' => 40),
-					'sw' => array('lat' => -40, 'lon' =>-30),
-					)
-				);
+			$this->object->getData(),
+			[
+				'ne' => [ 'lat' => 40, 'lon' => 40 ],
+				'sw' => [ 'lat' => -40, 'lon' => -30 ],
+			]
+		);
 	}
 
 	/**
@@ -81,7 +81,7 @@ class BoundsTest extends \PHPUnit\Framework\TestCase {
 	public function testIsValid() {
 		$this->assertFalse( $this->object->isValid(), false );
 
-		$this->object->extend( array(new Point(14, 41)) );
+		$this->object->extend( [ new Point( 14, 41 ) ] );
 
 		$this->assertTrue( $this->object->isValid() );
 	}
@@ -90,12 +90,12 @@ class BoundsTest extends \PHPUnit\Framework\TestCase {
 	 * @covers MultiMaps\Bounds::__get
 	 */
 	public function test__get() {
-		$point = new Point(123, 456);
-		$this->object->extend( array($point) );
+		$point = new Point( 123, 456 );
+		$this->object->extend( [ $point ] );
 
-		$this->assertEquals($this->object->ne, $this->object->sw);
-		$this->assertEquals($this->object->ne, $this->object->center);
-		$this->assertEquals($this->object->ne, $point);
+		$this->assertEquals( $this->object->ne, $this->object->sw );
+		$this->assertEquals( $this->object->ne, $this->object->center );
+		$this->assertEquals( $this->object->ne, $point );
 
 		$this->assertNull( $this->object->tralala );
 	}

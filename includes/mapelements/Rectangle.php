@@ -7,7 +7,7 @@ namespace MultiMaps;
  * @file Rectangle.php
  * @ingroup MultiMaps
  * @author Pavel Astakhov <pastakhov@yandex.ru>
- * @licence GNU General Public Licence 2.0 or later
+ * @license GPL-2.0-or-later
  */
 class Rectangle extends Polygon {
 
@@ -16,7 +16,7 @@ class Rectangle extends Polygon {
 	 * return string Element name
 	 */
 	public function getElementName() {
-		return 'Rectangle'; //TODO i18n?
+		return 'Rectangle'; // TODO i18n?
 	}
 
 	/**
@@ -33,46 +33,45 @@ class Rectangle extends Polygon {
 	 * @global type $egMultiMaps_CoordinatesSeparator
 	 * @param string $coordinates
 	 * @param string $service Name of map service
-	 * @return boolean
+	 * @return bool
 	 */
-	protected function parseCoordinates($coordinates, $service = null) {
+	protected function parseCoordinates( $coordinates, $service = null ) {
 		global $egMultiMaps_CoordinatesSeparator;
 
-		$array = explode( $egMultiMaps_CoordinatesSeparator, $coordinates);
+		$array = explode( $egMultiMaps_CoordinatesSeparator, $coordinates );
 
-		if( count($array) == 2 )
-		{
+		if ( count( $array ) == 2 ) {
 			$point1 = new Point();
 			$point2 = new Point();
-			if( $point1->parse($array[0], $service) ) {
-				if( $point2->parse($array[1], $service) ) {
+			if ( $point1->parse( $array[0], $service ) ) {
+				if ( $point2->parse( $array[1], $service ) ) {
 					$this->coordinates[] = $point1;
 					$this->coordinates[] = $point2;
 				} else {
-					$this->errormessages[] = \wfMessage( 'multimaps-unable-parse-coordinates', $array[1])->escaped();
+					$this->errormessages[] = \wfMessage( 'multimaps-unable-parse-coordinates', $array[1] )->escaped();
 					return false;
 				}
 			} else {
-				$this->errormessages[] = \wfMessage( 'multimaps-unable-parse-coordinates', $array[0])->escaped();
+				$this->errormessages[] = \wfMessage( 'multimaps-unable-parse-coordinates', $array[0] )->escaped();
 				return false;
 			}
-		} else if( count($array) == 1 ) {
+		} elseif ( count( $array ) == 1 ) {
 			$point = new Point();
-			if( $point->parse($array[0], $service) ) {
+			if ( $point->parse( $array[0], $service ) ) {
 				$bounds = $point->bounds;
-				if( $bounds ) {
+				if ( $bounds ) {
 					$this->coordinates[] = $bounds->ne;
 					$this->coordinates[] = $bounds->sw;
 				} else {
-					$this->errormessages[] = \wfMessage( 'multimaps-square-wrong-number-points', count($array) )->escaped();
+					$this->errormessages[] = \wfMessage( 'multimaps-square-wrong-number-points', count( $array ) )->escaped();
 					return false;
 				}
 			} else {
-				$this->errormessages[] = \wfMessage( 'multimaps-unable-parse-coordinates', $array[0])->escaped();
+				$this->errormessages[] = \wfMessage( 'multimaps-unable-parse-coordinates', $array[0] )->escaped();
 				return false;
 			}
 		} else {
-			$this->errormessages[] = \wfMessage( 'multimaps-square-wrong-number-points', count($array) )->escaped();
+			$this->errormessages[] = \wfMessage( 'multimaps-square-wrong-number-points', count( $array ) )->escaped();
 			return false;
 		}
 		return true;

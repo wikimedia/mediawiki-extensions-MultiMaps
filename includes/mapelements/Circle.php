@@ -7,7 +7,7 @@ namespace MultiMaps;
  * @file Circle.php
  * @ingroup Circle
  * @author Pavel Astakhov <pastakhov@yandex.ru>
- * @licence GNU General Public Licence 2.0 or later
+ * @license GPL-2.0-or-later
  * @property-read array $radiuses Radiuses of circles
  */
 class Circle extends Polygon {
@@ -16,14 +16,14 @@ class Circle extends Polygon {
 	 * Array radiuses of circles
 	 * @var array
 	 */
-	protected $radiuses = array();
+	protected $radiuses = [];
 
 	/**
 	 * Returns element name
 	 * return string Element name
 	 */
 	public function getElementName() {
-		return 'Circle'; //TODO i18n?
+		return 'Circle'; // TODO i18n?
 	}
 
 	/**
@@ -31,45 +31,44 @@ class Circle extends Polygon {
 	 * @global string $egMultiMaps_CoordinatesSeparator
 	 * @param string $coordinates
 	 * @param string $service Name of map service
-	 * @return boolean
+	 * @return bool
 	 */
-	protected function parseCoordinates($coordinates, $service = null) {
+	protected function parseCoordinates( $coordinates, $service = null ) {
 		global $egMultiMaps_CoordinatesSeparator;
 
-		$array = explode( $egMultiMaps_CoordinatesSeparator, $coordinates);
+		$array = explode( $egMultiMaps_CoordinatesSeparator, $coordinates );
 
-		if( count($array) == 2 )
-		{
+		if ( count( $array ) == 2 ) {
 			$point = new Point();
-			if( $point->parse($array[0], $service) ) {
-				if(is_numeric($array[1]) ) {
+			if ( $point->parse( $array[0], $service ) ) {
+				if ( is_numeric( $array[1] ) ) {
 					$this->coordinates[] = $point;
 					$this->radiuses[] = (float)$array[1];
 				} else {
-					$this->errormessages[] = \wfMessage( 'multimaps-unable-parse-radius', $array[1])->escaped();
+					$this->errormessages[] = \wfMessage( 'multimaps-unable-parse-radius', $array[1] )->escaped();
 					return false;
 				}
 			} else {
-				$this->errormessages[] = \wfMessage( 'multimaps-unable-parse-coordinates', $array[0])->escaped();
+				$this->errormessages[] = \wfMessage( 'multimaps-unable-parse-coordinates', $array[0] )->escaped();
 				return false;
 			}
-		} else if( count($array) == 1 ) {
+		} elseif ( count( $array ) == 1 ) {
 			$point = new Point();
-			if( $point->parse($array[0], $service) ) {
+			if ( $point->parse( $array[0], $service ) ) {
 				$bounds = $point->bounds;
-				if( $bounds ) {
+				if ( $bounds ) {
 					$this->coordinates[] = $bounds->center;
-					$this->radiuses[] = $bounds->diagonal/2;
+					$this->radiuses[] = $bounds->diagonal / 2;
 				} else {
 					$this->errormessages[] = \wfMessage( 'multimaps-circle-radius-not-defined' )->escaped();
 					return false;
 				}
 			} else {
-				$this->errormessages[] = \wfMessage( 'multimaps-unable-parse-coordinates', $array[0])->escaped();
+				$this->errormessages[] = \wfMessage( 'multimaps-unable-parse-coordinates', $array[0] )->escaped();
 				return false;
 			}
 		} else {
-			$this->errormessages[] = \wfMessage( 'multimaps-circle-wrong-number-parameters', count($array) )->escaped();
+			$this->errormessages[] = \wfMessage( 'multimaps-circle-wrong-number-parameters', count( $array ) )->escaped();
 			return false;
 		}
 		return true;
@@ -80,7 +79,7 @@ class Circle extends Polygon {
 	 */
 	public function reset() {
 		parent::reset();
-		$this->radiuses = array();
+		$this->radiuses = [];
 	}
 
 	/**
@@ -89,19 +88,17 @@ class Circle extends Polygon {
 	 */
 	public function getData() {
 		return array_merge(
-				array( 'radius' => $this->radiuses),
-				parent::getData()
-				);
+			[ 'radius' => $this->radiuses ],
+			parent::getData()
+		);
 	}
 
-	public function getProperty($name) {
-		switch ($name) {
+	public function getProperty( $name ) {
+		switch ( $name ) {
 			case 'radiuses':
 				return $this->radiuses;
-				break;
 			default:
-				return parent::getProperty($name);
-				break;
+				return parent::getProperty( $name );
 		}
 	}
 

@@ -7,7 +7,7 @@ namespace MultiMaps;
  * @file BaseService.php
  * @ingroup MultiMaps
  * @author Pavel Astakhov <pastakhov@yandex.ru>
- * @licence GNU General Public Licence 2.0 or later
+ * @license GPL-2.0-or-later
  * @property-read array $pos Array of geographic coordinates
  * @property string $title Title of element
  * @property string $text Popup text of element
@@ -48,23 +48,19 @@ abstract class BaseMapElement {
 	 * Returns element name
 	 * return string Element name
 	 */
-	public abstract function getElementName();
+	abstract public function getElementName();
 
-	/**
-	 * Constructor
-	 * @param string $string Parse this string if sets
-	 */
-	function __construct( ) {
-		$this->availableProperties = array(
+	function __construct() {
+		$this->availableProperties = [
 			'title',
 			'text',
-		);
+		];
 
 		$this->reset();
 	}
 
-	public function __get($name) {
-		return $this->getProperty($name);
+	public function __get( $name ) {
+		return $this->getProperty( $name );
 	}
 
 	/**
@@ -72,15 +68,15 @@ abstract class BaseMapElement {
 	 * @param string $name
 	 * @return mixed
 	 */
-	public function getProperty($name) {
-		$name = strtolower($name);
+	public function getProperty( $name ) {
+		$name = strtolower( $name );
 
-		switch ($name) {
+		switch ( $name ) {
 			case 'pos':
 				return $this->coordinates;
 				break;
 			default:
-				if ( isset($this->properties[$name]) ) {
+				if ( isset( $this->properties[$name] ) ) {
 					return $this->properties[$name];
 				}
 				break;
@@ -88,33 +84,35 @@ abstract class BaseMapElement {
 		return null;
 	}
 
-	public function __set($name, $value) {
-		$this->setProperty($name, $value);
+	public function __set( $name, $value ) {
+		$this->setProperty( $name, $value );
 	}
 
 	/**
 	 * Set element property by name
 	 * @param string $name
 	 * @param mixed $value
-	 * @return boolean
+	 * @return bool
 	 */
-	public function setProperty($name, $value) {
+	public function setProperty( $name, $value ) {
 		$name = strtolower( $name );
-		if ( array_search($name, $this->availableProperties) === false ) {
+		if ( array_search( $name, $this->availableProperties ) === false ) {
 			return false;
 		}
 
 		if ( $name == 'title' || $name == 'text' ) {
 			$parser = clone $GLOBALS['wgParser'];
 			$title = $parser->getTitle();
-			if ( $title === null ) { $title = new \Title(); }
+			if ( $title === null ) {
+				$title = new \Title();
+			}
 			$value = trim( $value );
-			if ( defined( 'LINGO_VERSION') === true ) { // Do not allow Lingo extension to process value
+			if ( defined( 'LINGO_VERSION' ) === true ) { // Do not allow Lingo extension to process value
 				$value .= "\n__NOGLOSSARY__";
 			}
 			$options = new \ParserOptions();
 			$this->properties[$name] = $parser->parse( $value, $title, $options )->getText( [ 'unwrap' => true ] );
-		} elseif ( is_string($value) ) {
+		} elseif ( is_string( $value ) ) {
 			$value = trim( $value );
 			$this->properties[$name] = htmlspecialchars( $value, ENT_NOQUOTES );
 		} else {
@@ -127,10 +125,10 @@ abstract class BaseMapElement {
 	 * Unset element property by name
 	 * @param string $name
 	 */
-	public function unsetProperty($name) {
-		$name = strtolower($name);
+	public function unsetProperty( $name ) {
+		$name = strtolower( $name );
 
-		if( isset($this->properties[$name]) ) {
+		if ( isset( $this->properties[$name] ) ) {
 			unset( $this->properties[$name] );
 		}
 	}
@@ -140,7 +138,7 @@ abstract class BaseMapElement {
 	 * @global string $egMultiMaps_DelimiterParam
 	 * @param string $param
 	 * @param string $service Name of map service
-	 * @return boolean returns false if there were errors during parsing, it does not mean that the item was not added. Check with isValid()
+	 * @return bool returns false if there were errors during parsing, it does not mean that the item was not added. Check with isValid()
 	 */
 	public function parse( $param, $service = null ) {
 		global $egMultiMaps_DelimiterParam;
@@ -148,16 +146,16 @@ abstract class BaseMapElement {
 
 		$arrayparam = explode( $egMultiMaps_DelimiterParam, $param );
 
-		//The first parameter should always be coordinates
-		$coordinates = array_shift($arrayparam);
-		if( $this->parseCoordinates($coordinates, $service ) === false ) {
+		// The first parameter should always be coordinates
+		$coordinates = array_shift( $arrayparam );
+		if ( $this->parseCoordinates( $coordinates, $service ) === false ) {
 			$this->errormessages[] = \wfMessage( 'multimaps-unable-create-element', $this->getElementName() )->escaped();
 			return false;
 		}
 
-		//These parameters are optional
+		// These parameters are optional
 		$this->isValid = true;
-		return $this->parseProperties($arrayparam);
+		return $this->parseProperties( $arrayparam );
 	}
 
 	/**
@@ -165,18 +163,18 @@ abstract class BaseMapElement {
 	 * @global string $egMultiMaps_CoordinatesSeparator
 	 * @param string $coordinates
 	 * @param string $service Name of map service
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function parseCoordinates( $coordinates, $service = null ) {
 		global $egMultiMaps_CoordinatesSeparator;
 
-		$array = explode( $egMultiMaps_CoordinatesSeparator, $coordinates);
-		foreach ($array as $value) {
+		$array = explode( $egMultiMaps_CoordinatesSeparator, $coordinates );
+		foreach ( $array as $value ) {
 			$point = new Point();
-			if( $point->parse($value, $service) ) {
+			if ( $point->parse( $value, $service ) ) {
 				$this->coordinates[] = $point;
 			} else {
-				$this->errormessages[] = \wfMessage( 'multimaps-unable-parse-coordinates', $value)->escaped();
+				$this->errormessages[] = \wfMessage( 'multimaps-unable-parse-coordinates', $value )->escaped();
 				return false;
 			}
 		}
@@ -186,16 +184,16 @@ abstract class BaseMapElement {
 	/**
 	 *
 	 * @param array $param
-	 * @return boolean false if there were errors during parsing
+	 * @return bool false if there were errors during parsing
 	 */
-	protected function parseProperties(array $param) {
+	protected function parseProperties( array $param ) {
 		$return = true;
 		// filling properties with the names
-		$matches = array();
+		$matches = [];
 		$properties = implode( '|', $this->availableProperties );
-		foreach ($param as $key => $paramvalue) {
-			if( preg_match("/^\s*($properties)\s*=(.+)$/si", $paramvalue, $matches) ) {
-				if ( !$this->setProperty($matches[1], $matches[2]) ) {
+		foreach ( $param as $key => $paramvalue ) {
+			if ( preg_match( "/^\s*($properties)\s*=(.+)$/si", $paramvalue, $matches ) ) {
+				if ( !$this->setProperty( $matches[1], $matches[2] ) ) {
 					$return = false;
 				}
 				unset( $param[$key] );
@@ -205,35 +203,35 @@ abstract class BaseMapElement {
 		// filling properties without the names
 		reset( $param );
 		$value = current( $param );
-		if( $value === false ) {
+		if ( $value === false ) {
 			return $return;
 		}
-		foreach ($this->availableProperties as $name) {
-			if( is_null($this->getProperty($name)) ) {
-				if( preg_match( '/^\s*$/s', $value) == false ) { // Ignore empty values
-					if( !$this->setProperty($name, $value) ) {
+		foreach ( $this->availableProperties as $name ) {
+			if ( is_null( $this->getProperty( $name ) ) ) {
+				if ( preg_match( '/^\s*$/s', $value ) == false ) { // Ignore empty values
+					if ( !$this->setProperty( $name, $value ) ) {
 						$return = false;
 					}
 				}
 				$value = next( $param );
-				if( $value === false ) {
+				if ( $value === false ) {
 					return $return;
 				}
 			}
 		}
 
 		$this->errormessages[] = \wfMessage( 'multimaps-element-more-parameters', $this->getElementName() )->escaped();
-		$notprocessed = array( $value );
-		while( $value = next($param) ) {
+		$notprocessed = [ $value ];
+		while ( $value = next( $param ) ) {
 			$notprocessed[] = $value;
 		}
-		$this->errormessages[] = \wfMessage( 'multimaps-element-parameters-not-processed', '"'.implode('", "', $notprocessed).'"' )->escaped();
+		$this->errormessages[] = \wfMessage( 'multimaps-element-parameters-not-processed', '"'.implode( '", "', $notprocessed ).'"' )->escaped();
 		return false;
 	}
 
 	/**
 	 * Checks if the object is valid
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isValid() {
 		return $this->isValid;
@@ -244,9 +242,9 @@ abstract class BaseMapElement {
 	 */
 	public function reset() {
 		$this->isValid = false;
-		$this->coordinates = array();
-		$this->errormessages = array();
-		$this->properties = array();
+		$this->coordinates = [];
+		$this->errormessages = [];
+		$this->properties = [];
 	}
 
 	/**
@@ -262,12 +260,12 @@ abstract class BaseMapElement {
 	 * @return array
 	 */
 	public function getData() {
-		if( $this->isValid() ) {
-			$ret = array();
-			foreach ($this->coordinates as $pos) {
+		if ( $this->isValid() ) {
+			$ret = [];
+			foreach ( $this->coordinates as $pos ) {
 				$ret['pos'][] = $pos->getData();
 			}
-			return array_merge($ret, $this->properties);
+			return array_merge( $ret, $this->properties );
 		}
 	}
 }

@@ -20,17 +20,15 @@ class MapServicesTest extends \MediaWikiTestCase {
 		$this->assertTrue( $defaultServiceWARNING instanceof BaseMapService );
 		$this->assertEquals( $defaultService, $firstService );
 		$this->assertEquals( $defaultService->classname, $defaultServiceWARNING->classname );
-		$this->assertEquals( $defaultService->getErrorMessages(), array() );
-		$this->assertNotEquals( $defaultServiceWARNING->getErrorMessages(), array() );
-
-
+		$this->assertEquals( $defaultService->getErrorMessages(), [] );
+		$this->assertNotEquals( $defaultServiceWARNING->getErrorMessages(), [] );
 	}
 
 	public function testExceptionOnGetServiceInstance() {
 		global $egMultiMaps_MapServices;
 
 		$MapServices = $egMultiMaps_MapServices;
-		$egMultiMaps_MapServices = array();
+		$egMultiMaps_MapServices = [];
 
 		$this->assertFalse( MapServices::getServiceInstance() instanceof BaseMapService );
 
@@ -41,11 +39,11 @@ class MapServicesTest extends \MediaWikiTestCase {
 		global $egMultiMaps_MapServices;
 
 		$MapServices = $egMultiMaps_MapServices;
-		$egMultiMaps_MapServices = array('fictive', 'Marker');
+		$egMultiMaps_MapServices = [ 'fictive', 'Marker' ];
 
 		$this->assertFalse( MapServices::getServiceInstance( 'fictive' ) instanceof BaseMapService );
 		$this->assertFalse( MapServices::getServiceInstance( 'Marker' ) instanceof BaseMapService );
-		$this->assertFalse( MapServices::getServiceInstance( 'fictivefictive') instanceof BaseMapService );
+		$this->assertFalse( MapServices::getServiceInstance( 'fictivefictive' ) instanceof BaseMapService );
 
 		$egMultiMaps_MapServices = $MapServices;
 	}

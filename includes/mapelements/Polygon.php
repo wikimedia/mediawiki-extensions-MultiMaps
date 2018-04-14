@@ -7,7 +7,7 @@ namespace MultiMaps;
  * @file Polygon.php
  * @ingroup MultiMaps
  * @author Pavel Astakhov <pastakhov@yandex.ru>
- * @licence GNU General Public Licence 2.0 or later
+ * @license GPL-2.0-or-later
  * @property boolean $fill
  * @property string $fillcolor
  * @property string $fillopacity
@@ -17,12 +17,12 @@ class Polygon extends Line {
 	/**
 	 * @var array Values for set fill to true
 	 */
-	protected static $fill_true = array('yes', '1', 'true');
+	protected static $fill_true = [ 'yes', '1', 'true' ];
 
 	/**
 	 * @var array Values for set fill to false
 	 */
-	protected static $fill_false = array('no', '0', 'false');
+	protected static $fill_false = [ 'no', '0', 'false' ];
 
 	/**
 	 * Constructor
@@ -31,9 +31,9 @@ class Polygon extends Line {
 		parent::__construct();
 
 		$this->availableProperties = array_merge(
-				$this->availableProperties,
-				array( 'fillcolor', 'fillopacity', 'fill' )
-				);
+			$this->availableProperties,
+			[ 'fillcolor', 'fillopacity', 'fill' ]
+		);
 	}
 
 	/**
@@ -41,42 +41,40 @@ class Polygon extends Line {
 	 * return string Element name
 	 */
 	public function getElementName() {
-		return 'Polygon'; //TODO i18n?
+		return 'Polygon'; // TODO i18n?
 	}
 
 	/**
 	 * Set element property by name
 	 * @param string $name
 	 * @param mixed $value
-	 * @return boolean
+	 * @return bool
 	 */
-	public function setProperty($name, $value) {
-		$name = strtolower($name);
-		$value = trim($value);
+	public function setProperty( $name, $value ) {
+		$name = strtolower( $name );
+		$value = trim( $value );
 
-		switch ($name) {
+		switch ( $name ) {
 			case 'fill':
-				if( $value === true ||  array_search($value, self::$fill_true) !== false ) {
+				if ( $value === true || array_search( $value, self::$fill_true ) !== false ) {
 					$this->properties['fill'] = true;
 					return true;
-				} elseif ( $value == false || array_search($value, self::$fill_false) !== false ) {
+				} elseif ( $value == false || array_search( $value, self::$fill_false ) !== false ) {
 					$this->properties['fill'] = false;
-					$this->unsetProperty('fillcolor');
-					$this->unsetProperty('fillopacity');
+					$this->unsetProperty( 'fillcolor' );
+					$this->unsetProperty( 'fillopacity' );
 					return true;
 				} else {
-					$this->errormessages[] = \wfMessage( 'multimaps-element-illegal-value', $name, $value, '"'.implode('", "', self::getPropertyValidValues($name)).'"' )->escaped();
+					$this->errormessages[] = \wfMessage( 'multimaps-element-illegal-value', $name, $value, '"'.implode( '", "', self::getPropertyValidValues( $name ) ).'"' )->escaped();
 					return false;
 				}
 				break;
 			case 'fillcolor':
 			case 'fillopacity':
 				$this->fill = true;
-				return parent::setProperty($name, $value);
-				break;
+				return parent::setProperty( $name, $value );
 			default:
-				return parent::setProperty($name, $value);
-				break;
+				return parent::setProperty( $name, $value );
 		}
 	}
 
@@ -86,13 +84,12 @@ class Polygon extends Line {
 	 * @param string $name
 	 * @return array
 	 */
-	public static function getPropertyValidValues($name) {
-		$name = strtolower($name);
+	public static function getPropertyValidValues( $name ) {
+		$name = strtolower( $name );
 
-		switch ($name) {
+		switch ( $name ) {
 			case 'fill':
 				return array_merge( self::$fill_true, self::$fill_false );
-				break;
 		}
 	}
 

@@ -23,11 +23,11 @@ class GeocodersTest extends \PHPUnit\Framework\TestCase {
 
 	public function testReturnFalseOnUnknownService() {
 		$this->assertFalse(
-				$this->object->getCoordinates('', '')
-				);
+			$this->object->getCoordinates( '', '' )
+		);
 		$this->assertFalse(
-				$this->object->getCoordinates('', 'blablabla')
-				);
+			$this->object->getCoordinates( '', 'blablabla' )
+		);
 	}
 
 }

@@ -17,7 +17,7 @@ class PointTest extends \PHPUnit\Framework\TestCase {
 	 * This method is called before a test is executed.
 	 */
 	protected function setUp() {
-		$this->object = new Point(123, 321);
+		$this->object = new Point( 123, 321 );
 		parent::setUp();
 	}
 
@@ -62,12 +62,12 @@ class PointTest extends \PHPUnit\Framework\TestCase {
 	 * @covers MultiMaps\Point::getData
 	 */
 	public function testMove() {
-		$this->object->move(12345, -67890);
+		$this->object->move( 12345, -67890 );
 
 		$this->assertEquals(
-				$this->object->getData(),
-				array('lat' => 123.11108317216, 'lon' => 322.11643133104)
-				);
+			$this->object->getData(),
+			[ 'lat' => 123.11108317216, 'lon' => 322.11643133104 ]
+		);
 	}
 
 	/**
@@ -88,11 +88,11 @@ class PointTest extends \PHPUnit\Framework\TestCase {
 	public function testIsValidParse() {
 		$this->assertTrue( $this->object->isValid() );
 
-		$this->object->parse("123456");
+		$this->object->parse( "123456" );
 
 		$this->assertFalse( $this->object->isValid() );
 
-		$this->object->parse("123,456");
+		$this->object->parse( "123,456" );
 
 		$this->assertTrue( $this->object->isValid() );
 	}
@@ -102,9 +102,9 @@ class PointTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testGetData() {
 		$this->assertEquals(
-				$this->object->getData(),
-				array('lat' => 123, 'lon' => 321)
-				);
+			$this->object->getData(),
+			[ 'lat' => 123, 'lon' => 321 ]
+		);
 	}
 
 }
