@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nikosgranturismogt"
+		]
+	},
+	"multimaps-loading-map": "Φόρτωση χάρτη...",
+	"multimaps-method-error-unknown-action": "$1: Άγνωστη ενέργεια",
+	"multimaps-method-error-unexpected-result": "$1: Ένα απροσδόκητο αποτέλεσμα μιας λειτουργίας"
+}
