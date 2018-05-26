@@ -17,7 +17,7 @@ class MapServices {
 	 * If the map service is not specified or is not available, returns the default service
 	 * On error returns string with error message
 	 * @global array $egMultiMaps_MapServices
-	 * @param string $servicename
+	 * @param string|null $servicename
 	 * @return MultiMaps\BaseMapService return class extends \MultiMaps\BaseService or string with error message
 	 */
 	public static function getServiceInstance( $servicename = null ) {

@@ -88,7 +88,7 @@ class Point {
 	/**
 	 * Parse geographic coordinates
 	 * @param string $string geographic coordinates
-	 * @param string $service Name of map service
+	 * @param string|null $service Name of map service
 	 * @return bool
 	 */
 	public function parse( $string, $service = null ) {
