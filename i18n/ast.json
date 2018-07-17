@@ -23,7 +23,7 @@
 	"multimaps-marker-incorrect-shadow-anchor": "Dióse un ancla incorreuta \"$1\" pa la solombra del iconu \"$2\".",
 	"multimaps-passed-unavailable-service": "Nun s'alcontró'l nome del serviciu \"$1\" na llista de servicios disponibles ($2). Úsose'l serviciu predetermináu \"$3\"",
 	"multimaps-square-wrong-number-points": "les coordenaes del cuadráu tienen de contener namái dos puntos, pero {{PLURAL:$1|diose un puntu|dieronse $1 puntos}}",
-	"multimaps-unable-create-element": "Nun pue crease l'elementu del mapa \"$1\"",
+	"multimaps-unable-create-element": "Nun pudo crease l'elementu «$1» del mapa",
 	"multimaps-unable-parse-coordinates": "nun puen analizase les coordenaes xeográfiques \"$1\"",
 	"multimaps-unable-parse-parameter": "nun pudo analizase'l parámetru \"$1\" col valor \"$2\"",
 	"multimaps-unable-parse-radius": "el radiu del círculu tien de ser un valor numbéricu, pero especificó \"$1\"",
