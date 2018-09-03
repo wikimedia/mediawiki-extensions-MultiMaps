@@ -25,7 +25,7 @@ class Geocoders {
 	}
 
 	private static function performRequest( $url, $urlArgs ) {
-		return \Http::get( $url.wfArrayToCgi( $urlArgs ) );
+		return \Http::get( $url . wfArrayToCgi( $urlArgs ) );
 	}
 
 	private static function getCoordinatesUseGoogle( $address ) {

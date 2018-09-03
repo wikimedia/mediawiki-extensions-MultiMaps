@@ -50,7 +50,7 @@ class PolygonTest extends \PHPUnit\Framework\TestCase {
 
 		$this->assertEquals(
 			$this->object->getErrorMessages(),
-			[ \wfMessage( 'multimaps-element-illegal-value', 'fill', $illegalfillvalue, '"'.implode( '", "', $this->object->getPropertyValidValues( 'fill' ) ).'"' )->escaped() ]
+			[ \wfMessage( 'multimaps-element-illegal-value', 'fill', $illegalfillvalue, '"' . implode( '", "', $this->object->getPropertyValidValues( 'fill' ) ) . '"' )->escaped() ]
 		);
 	}
 
