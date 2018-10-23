@@ -1,6 +1,6 @@
 /**
  * JavaScript for Leaflet in the MultiMaps extension.
- * @see http://www.mediawiki.org/wiki/Extension:MultiMaps
+ * @see https://www.mediawiki.org/wiki/Extension:MultiMaps
  *
  * @author Pavel Astakhov < pastakhov@yandex.ru >
  */
