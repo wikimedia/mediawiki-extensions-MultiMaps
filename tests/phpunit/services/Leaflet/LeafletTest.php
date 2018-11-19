@@ -17,6 +17,11 @@ class LeafletTest extends \MediaWikiTestCase {
 	 * This method is called before a test is executed.
 	 */
 	protected function setUp() {
+		// See https://wiki.php.net/rfc/precise_float_value
+		// Once we require PHP 7.1+, we should remove this and adjust expected values instead.
+		if ( version_compare( PHP_VERSION, '7.1', '>=' ) ) {
+			$this->setIniSetting( 'serialize_precision', 14 );
+		}
 		$this->object = new Leaflet();
 		parent::setUp();
 	}
