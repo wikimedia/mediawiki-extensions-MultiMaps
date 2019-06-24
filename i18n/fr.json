@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Gomoko",
-			"Manohisoa"
+			"Manohisoa",
+			"Wladek92"
 		]
 	},
 	"multimaps-desc": "Permet aux utilisateurs d’afficher des cartes et des données localisées en utilisant divers services cartographiques",
@@ -10,7 +11,7 @@
 	"multimaps-mapservices-must-not-empty-array": "La variable \"$1\" ne doit pas être un tableau vide",
 	"multimaps-undefined-service-for-layout": "Paramètre de service non défini pour la couche « $1 » dans $egMultiMaps_MapServices",
 	"multimaps-wrong-service-for-layout": "Pour la couche « $1 », service « $2 » défini, mais il n’existe pas dans $egMultiMaps_MapServices",
-	"multimaps-layout-defined-for-layout": "Pour la couche « $1 », une autre couche « $2 » définie dans $egMultiMaps_MapServices",
+	"multimaps-layout-defined-for-layout": "Pour l'affichage « $1 », a défini un autre affichage « $2 » au lieu d'un service de $egMultiMaps_MapServices",
 	"multimaps-leaflet-undefined-parameters-for-layer": "Les paramètres « source » et « attribution » doivent être fournis pour la couche « $1 » dans $egMultiMaps_MapServices",
 	"multimaps-had-following-errors": "Les erreurs suivantes ont été détectées lors de l’analyse des paramètres passés:",
 	"multimaps-element-illegal-value": "une valeur illégale $2\" a été spécifiée pour le paramètre \"$1\". Les valeurs valides sont: $3",
