@@ -113,7 +113,7 @@ class MapServices {
 			foreach ( $egMultiMaps_MapServices as $key => $value ) {
 				if ( is_int( $key ) ) {
 					self::$servicesCache[$lang->lc( $value )] = $value;
-				} elseif( is_array( $value ) ) {
+				} elseif ( is_array( $value ) ) {
 					self::$servicesCache[$lang->lc( $key )] = $value + [ 'originName' => $key ];
 				}
 			}

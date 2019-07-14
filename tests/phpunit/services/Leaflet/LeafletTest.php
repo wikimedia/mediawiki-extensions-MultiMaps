@@ -35,7 +35,7 @@ class LeafletTest extends \MediaWikiTestCase {
 
 	public function testInvalidTileLayer() {
 		$this->assertEquals(
-			\FormatJson::encode( $this->object->getMapData( ['20,20', 'service=in.valid' ] ) ),
+			\FormatJson::encode( $this->object->getMapData( [ '20,20', 'service=in.valid' ] ) ),
 			'{"markers":[{"pos":[{"lat":20,"lon":20}]}],"zoom":14,"center":{"lat":20,"lon":20}}'
 		);
 	}
