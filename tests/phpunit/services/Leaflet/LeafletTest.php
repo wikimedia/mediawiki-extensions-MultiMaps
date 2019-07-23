@@ -17,6 +17,11 @@ class LeafletTest extends \MediaWikiTestCase {
 	 * This method is called before a test is executed.
 	 */
 	protected function setUp() {
+		// See https://wiki.php.net/rfc/precise_float_value
+		// Once we require PHP 7.1+, we should remove this and adjust expected values instead.
+		if ( version_compare( PHP_VERSION, '7.1', '>=' ) ) {
+			$this->setIniSetting( 'serialize_precision', 14 );
+		}
 		$this->object = new Leaflet();
 		parent::setUp();
 	}
@@ -25,6 +30,13 @@ class LeafletTest extends \MediaWikiTestCase {
 		$this->assertEquals(
 			\FormatJson::encode( $this->object->getMapData( [ '0,0', 'service=leaflet' ] ) ),
 			'{"markers":[{"pos":[{"lat":0,"lon":0}]}],"zoom":14,"center":{"lat":0,"lon":0}}'
+		);
+	}
+
+	public function testInvalidTileLayer() {
+		$this->assertEquals(
+			\FormatJson::encode( $this->object->getMapData( [ '20,20', 'service=in.valid' ] ) ),
+			'{"markers":[{"pos":[{"lat":20,"lon":20}]}],"zoom":14,"center":{"lat":20,"lon":20}}'
 		);
 	}
 
@@ -48,7 +60,7 @@ class LeafletTest extends \MediaWikiTestCase {
 			[
 				'markers' => [
 					[
-						'pos' => [ [ 'lat' => '55.755786','lon' => '37.617633' ] ],
+						'pos' => [ [ 'lat' => '55.755786', 'lon' => '37.617633' ] ],
 						'text' => "<p>This is text\n</p>",
 					],
 				],
@@ -64,7 +76,7 @@ class LeafletTest extends \MediaWikiTestCase {
 			[
 				'markers' => [
 					[
-						'pos' => [ [ 'lat' => '55.755786','lon' => '37.617633' ] ],
+						'pos' => [ [ 'lat' => '55.755786', 'lon' => '37.617633' ] ],
 						'title' => "<p>This is title\n</p>",
 					],
 				],
@@ -80,7 +92,7 @@ class LeafletTest extends \MediaWikiTestCase {
 			[
 				'markers' => [
 					[
-						'pos' => [ [ 'lat' => '55.755786','lon' => '37.617633' ] ],
+						'pos' => [ [ 'lat' => '55.755786', 'lon' => '37.617633' ] ],
 						'title' => "<p>This is title\n</p>",
 						'text' => "<p>This is text\n</p>",
 					],
@@ -97,7 +109,7 @@ class LeafletTest extends \MediaWikiTestCase {
 			[
 				'markers' => [
 					[
-						'pos' => [ [ 'lat' => '55.755786','lon' => '37.617633' ] ],
+						'pos' => [ [ 'lat' => '55.755786', 'lon' => '37.617633' ] ],
 						'text' => "<p>This is text\n</p>",
 					],
 				],
@@ -113,7 +125,7 @@ class LeafletTest extends \MediaWikiTestCase {
 			[
 				'markers' => [
 					[
-						'pos' => [ [ 'lat' => '55.755786','lon' => '37.617633' ] ],
+						'pos' => [ [ 'lat' => '55.755786', 'lon' => '37.617633' ] ],
 						'title' => "<p>This is title\n</p>",
 					],
 				],
@@ -129,7 +141,7 @@ class LeafletTest extends \MediaWikiTestCase {
 			[
 				'markers' => [
 					[
-						'pos' => [ [ 'lat' => '55.755786','lon' => '37.617633' ] ],
+						'pos' => [ [ 'lat' => '55.755786', 'lon' => '37.617633' ] ],
 						'title' => "<p>This is title\n</p>",
 						'text' => "<p>This is text\n</p>",
 					],
@@ -424,7 +436,7 @@ class LeafletTest extends \MediaWikiTestCase {
 		$badvalue = 'thisisabadvalue';
 
 		$this->assertEquals(
-			\FormatJson::encode( $this->object->getMapData( [ '55.755786, 37.617633', "$badparam=$badvalue",'service=leaflet' ] ) ),
+			\FormatJson::encode( $this->object->getMapData( [ '55.755786, 37.617633', "$badparam=$badvalue", 'service=leaflet' ] ) ),
 			'{"markers":[{"pos":[{"lat":55.755786,"lon":37.617633}]}],"zoom":14,"center":{"lat":55.755786,"lon":37.617633}}'
 		);
 
@@ -442,7 +454,7 @@ class LeafletTest extends \MediaWikiTestCase {
 			[
 				'markers' => [
 					[
-						'pos' => [ [ 'lat' => 52.429222,'lon' => 13.359375 ] ],
+						'pos' => [ [ 'lat' => 52.429222, 'lon' => 13.359375 ] ],
 						'title' => "<p>Capital of Germany\n</p>",
 						'text' => "<p>Crazy people here!\n</p>",
 					],
@@ -539,7 +551,7 @@ class LeafletTest extends \MediaWikiTestCase {
 			var_export( [
 				'markers' => [
 					[
-						'pos' => [ [ 'lat' => 52.429222,'lon' => 13.359375 ] ],
+						'pos' => [ [ 'lat' => 52.429222, 'lon' => 13.359375 ] ],
 						'title' => $wgParser->parse( 'Capital of [[Germany]]', $title, $options )->getText( [ 'unwrap' => true ] ),
 						'text' => $wgParser->parse( 'Crazy [[people|germans]] here!', $title, $options )->getText( [ 'unwrap' => true ] ),
 					],

@@ -1,6 +1,10 @@
 <?php
 namespace MultiMaps;
 
+use FormatJson;
+use Html;
+use Parser;
+
 /**
  * Base class for collection of services
  *
@@ -160,30 +164,30 @@ abstract class BaseMapService {
 	public function render() {
 		static $mapid = 0;
 
-		$output = \Html::rawElement(
+		$output = Html::rawElement(
 			'div',
 			[
 				'id' => 'multimaps_map' . $mapid++,
 				'style' => 'width:' . htmlspecialchars( $this->width ) . '; height:' . htmlspecialchars( $this->height ) . '; background-color: #cccccc; overflow: hidden;',
 				'class' => 'multimaps-map' . ( $this->classname != '' ? " multimaps-map-$this->classname" : '' ),
 			],
-			\Html::element( 'p', [], \wfMessage( 'multimaps-loading-map' )->escaped() ) .
-			\Html::rawElement(
+			Html::element( 'p', [], wfMessage( 'multimaps-loading-map' )->escaped() ) .
+			Html::rawElement(
 				'div',
 				[ 'class' => 'multimaps-mapdata', 'style' => 'display: none;' ],
-				\FormatJson::encode( $this->getMapData() )
+				FormatJson::encode( $this->getMapData() )
 			)
 		);
 
 		$errors = $this->getErrorMessages();
 		if ( count( $errors ) > 0 ) {
 			$output .= "\n" .
-				\Html::rawElement(
+				Html::rawElement(
 					'div',
 					[ 'class' => 'multimaps-errors' ],
-					\wfMessage( 'multimaps-had-following-errors' )->escaped() .
+					wfMessage( 'multimaps-had-following-errors' )->escaped() .
 					'<br />' .
-					\implode( '<br />', $this->getErrorMessages() )
+					implode( '<br />', $this->getErrorMessages() )
 				);
 		}
 
@@ -197,6 +201,8 @@ abstract class BaseMapService {
 	 * @return array
 	 */
 	public function getMapData( array $param = [] ) {
+		global $egMultiMaps_DefaultZoom;
+
 		if ( count( $param ) != 0 ) {
 			$this->parse( $param );
 		}
@@ -209,7 +215,7 @@ abstract class BaseMapService {
 				if ( $bounds->isValid() ) {
 					if ( $bounds->ne == $bounds->sw ) {
 						if ( is_null( $this->zoom ) ) {
-							$calculatedProperties['zoom'] = $GLOBALS['egMultiMaps_DefaultZoom'];
+							$calculatedProperties['zoom'] = $egMultiMaps_DefaultZoom;
 						}
 						$calculatedProperties['center'] = $bounds->getCenter()->getData();
 					} elseif ( $bounds->isValid() ) {
@@ -267,7 +273,7 @@ abstract class BaseMapService {
 					// TODO exception
 				} else {
 					if ( array_search( $name, $this->ignoreProperties ) === false ) {
-						$this->errormessages[] = \wfMessage( 'multimaps-unknown-parameter', $matches[1] )->escaped();
+						$this->errormessages[] = wfMessage( 'multimaps-unknown-parameter', $matches[1] )->escaped();
 					}
 				}
 				continue;
@@ -282,11 +288,11 @@ abstract class BaseMapService {
 	 * Add new map element to map
 	 * @param string $name
 	 * @param string $value
-	 * @return bool
+	 * @return bool|null
 	 */
 	public function addMapElement( $name, $value ) {
-		if ( trim( $value == '' ) ) {
-			return;
+		if ( trim( $value ) === '' ) {
+			return null;
 		}
 		$name = strtolower( $name );
 
@@ -309,6 +315,7 @@ abstract class BaseMapService {
 			default:
 				break;
 		}
+		return null;
 	}
 
 	/**
@@ -317,8 +324,10 @@ abstract class BaseMapService {
 	 * @return bool
 	 */
 	public function addElementMarker( $value ) {
+		global $egMultiMaps_SeparatorItems;
+
 		$return = true;
-		$stringsmarker = explode( $GLOBALS['egMultiMaps_SeparatorItems'], $value );
+		$stringsmarker = explode( $egMultiMaps_SeparatorItems, $value );
 		foreach ( $stringsmarker as $markervalue ) {
 			if ( trim( $markervalue ) == '' ) {
 				continue;
@@ -343,8 +352,10 @@ abstract class BaseMapService {
 	 * @return bool
 	 */
 	public function addElementLine( $value ) {
+		global $egMultiMaps_SeparatorItems;
+
 		$return = true;
-		$stringsline = explode( $GLOBALS['egMultiMaps_SeparatorItems'], $value );
+		$stringsline = explode( $egMultiMaps_SeparatorItems, $value );
 		foreach ( $stringsline as $linevalue ) {
 			if ( trim( $linevalue ) == '' ) {
 				continue;
@@ -369,8 +380,10 @@ abstract class BaseMapService {
 	 * @return bool
 	 */
 	public function addElementPolygon( $value ) {
+		global $egMultiMaps_SeparatorItems;
+
 		$return = true;
-		$stringspolygon = explode( $GLOBALS['egMultiMaps_SeparatorItems'], $value );
+		$stringspolygon = explode( $egMultiMaps_SeparatorItems, $value );
 		foreach ( $stringspolygon as $polygonvalue ) {
 			if ( trim( $polygonvalue ) == '' ) {
 				continue;
@@ -395,8 +408,10 @@ abstract class BaseMapService {
 	 * @return bool
 	 */
 	public function addElementRectangle( $value ) {
+		global $egMultiMaps_SeparatorItems;
+
 		$return = true;
-		$stringsrectangle = explode( $GLOBALS['egMultiMaps_SeparatorItems'], $value );
+		$stringsrectangle = explode( $egMultiMaps_SeparatorItems, $value );
 		foreach ( $stringsrectangle as $rectanglevalue ) {
 			if ( trim( $rectanglevalue ) == '' ) {
 				continue;
@@ -421,8 +436,10 @@ abstract class BaseMapService {
 	 * @return bool
 	 */
 	public function addElementCircle( $value ) {
+		global $egMultiMaps_SeparatorItems;
+
 		$return = true;
-		$stringscircle = explode( $GLOBALS['egMultiMaps_SeparatorItems'], $value );
+		$stringscircle = explode( $egMultiMaps_SeparatorItems, $value );
 		foreach ( $stringscircle as $circlevalue ) {
 			if ( trim( $circlevalue ) == '' ) {
 				continue;
@@ -458,11 +475,11 @@ abstract class BaseMapService {
 
 		switch ( $name ) {
 			case 'center':
-				$center = \MultiMaps\GeoCoordinate::getLatLonFromString( $value );
+				$center = GeoCoordinate::getLatLonFromString( $value );
 				if ( $center ) {
 					$this->properties['center'] = $center;
 				} else {
-					$this->errormessages[] = \wfMessage( 'multimaps-unable-parse-parameter', $name, $value )->escaped();
+					$this->errormessages[] = wfMessage( 'multimaps-unable-parse-parameter', $name, $value )->escaped();
 				}
 				return true;
 				break;
@@ -529,9 +546,9 @@ abstract class BaseMapService {
 
 	/**
 	 * Add dependencies (resourceModules, headerItem) to Parser output
-	 * @param \Parser $parser
+	 * @param Parser $parser
 	 */
-	public function addDependencies( \Parser &$parser ) {
+	public function addDependencies( Parser &$parser ) {
 		$output = $parser->getOutput();
 		foreach ( $this->resourceModules as $modules ) {
 			$output->addModules( $modules );
@@ -546,9 +563,11 @@ abstract class BaseMapService {
 	 * Initializes the object again
 	 */
 	public function reset() {
+		global $egMultiMaps_Width, $egMultiMaps_Height;
+
 		$this->elementsBounds = new Bounds();
-		$this->width = $GLOBALS['egMultiMaps_Width'];
-		$this->height = $GLOBALS['egMultiMaps_Height'];
+		$this->width = $egMultiMaps_Width;
+		$this->height = $egMultiMaps_Height;
 		$this->properties = [];
 
 		$this->markers = [];
