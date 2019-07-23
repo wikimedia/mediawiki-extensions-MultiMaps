@@ -30,7 +30,7 @@ class MapServicesTest extends \MediaWikiTestCase {
 		$MapServices = $egMultiMaps_MapServices;
 		$egMultiMaps_MapServices = [];
 
-		$this->assertFalse( MapServices::getServiceInstance() instanceof BaseMapService );
+		$this->assertTrue( MapServices::getServiceInstance() instanceof Leaflet );
 
 		$egMultiMaps_MapServices = $MapServices;
 	}
@@ -41,9 +41,9 @@ class MapServicesTest extends \MediaWikiTestCase {
 		$MapServices = $egMultiMaps_MapServices;
 		$egMultiMaps_MapServices = [ 'fictive', 'Marker' ];
 
-		$this->assertFalse( MapServices::getServiceInstance( 'fictive' ) instanceof BaseMapService );
-		$this->assertFalse( MapServices::getServiceInstance( 'Marker' ) instanceof BaseMapService );
-		$this->assertFalse( MapServices::getServiceInstance( 'fictivefictive' ) instanceof BaseMapService );
+		$this->assertTrue( MapServices::getServiceInstance( 'fictive' ) instanceof Leaflet );
+		$this->assertTrue( MapServices::getServiceInstance( 'Marker' ) instanceof Leaflet );
+		$this->assertTrue( MapServices::getServiceInstance( 'fictivefictive' ) instanceof Leaflet );
 
 		$egMultiMaps_MapServices = $MapServices;
 	}

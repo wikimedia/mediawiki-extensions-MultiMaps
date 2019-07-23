@@ -33,6 +33,13 @@ class LeafletTest extends \MediaWikiTestCase {
 		);
 	}
 
+	public function testInvalidTileLayer() {
+		$this->assertEquals(
+			\FormatJson::encode( $this->object->getMapData( [ '20,20', 'service=in.valid' ] ) ),
+			'{"markers":[{"pos":[{"lat":20,"lon":20}]}],"zoom":14,"center":{"lat":20,"lon":20}}'
+		);
+	}
+
 	public function testParseOneMarker() {
 		$this->assertEquals(
 			\FormatJson::encode( $this->object->getMapData( [ '55.755786, 37.617633', 'service=leaflet' ] ) ),
@@ -53,7 +60,7 @@ class LeafletTest extends \MediaWikiTestCase {
 			[
 				'markers' => [
 					[
-						'pos' => [ [ 'lat' => '55.755786','lon' => '37.617633' ] ],
+						'pos' => [ [ 'lat' => '55.755786', 'lon' => '37.617633' ] ],
 						'text' => "<p>This is text\n</p>",
 					],
 				],
@@ -69,7 +76,7 @@ class LeafletTest extends \MediaWikiTestCase {
 			[
 				'markers' => [
 					[
-						'pos' => [ [ 'lat' => '55.755786','lon' => '37.617633' ] ],
+						'pos' => [ [ 'lat' => '55.755786', 'lon' => '37.617633' ] ],
 						'title' => "<p>This is title\n</p>",
 					],
 				],
@@ -85,7 +92,7 @@ class LeafletTest extends \MediaWikiTestCase {
 			[
 				'markers' => [
 					[
-						'pos' => [ [ 'lat' => '55.755786','lon' => '37.617633' ] ],
+						'pos' => [ [ 'lat' => '55.755786', 'lon' => '37.617633' ] ],
 						'title' => "<p>This is title\n</p>",
 						'text' => "<p>This is text\n</p>",
 					],
@@ -102,7 +109,7 @@ class LeafletTest extends \MediaWikiTestCase {
 			[
 				'markers' => [
 					[
-						'pos' => [ [ 'lat' => '55.755786','lon' => '37.617633' ] ],
+						'pos' => [ [ 'lat' => '55.755786', 'lon' => '37.617633' ] ],
 						'text' => "<p>This is text\n</p>",
 					],
 				],
@@ -118,7 +125,7 @@ class LeafletTest extends \MediaWikiTestCase {
 			[
 				'markers' => [
 					[
-						'pos' => [ [ 'lat' => '55.755786','lon' => '37.617633' ] ],
+						'pos' => [ [ 'lat' => '55.755786', 'lon' => '37.617633' ] ],
 						'title' => "<p>This is title\n</p>",
 					],
 				],
@@ -134,7 +141,7 @@ class LeafletTest extends \MediaWikiTestCase {
 			[
 				'markers' => [
 					[
-						'pos' => [ [ 'lat' => '55.755786','lon' => '37.617633' ] ],
+						'pos' => [ [ 'lat' => '55.755786', 'lon' => '37.617633' ] ],
 						'title' => "<p>This is title\n</p>",
 						'text' => "<p>This is text\n</p>",
 					],
@@ -429,7 +436,7 @@ class LeafletTest extends \MediaWikiTestCase {
 		$badvalue = 'thisisabadvalue';
 
 		$this->assertEquals(
-			\FormatJson::encode( $this->object->getMapData( [ '55.755786, 37.617633', "$badparam=$badvalue",'service=leaflet' ] ) ),
+			\FormatJson::encode( $this->object->getMapData( [ '55.755786, 37.617633', "$badparam=$badvalue", 'service=leaflet' ] ) ),
 			'{"markers":[{"pos":[{"lat":55.755786,"lon":37.617633}]}],"zoom":14,"center":{"lat":55.755786,"lon":37.617633}}'
 		);
 
@@ -447,7 +454,7 @@ class LeafletTest extends \MediaWikiTestCase {
 			[
 				'markers' => [
 					[
-						'pos' => [ [ 'lat' => 52.429222,'lon' => 13.359375 ] ],
+						'pos' => [ [ 'lat' => 52.429222, 'lon' => 13.359375 ] ],
 						'title' => "<p>Capital of Germany\n</p>",
 						'text' => "<p>Crazy people here!\n</p>",
 					],
@@ -544,7 +551,7 @@ class LeafletTest extends \MediaWikiTestCase {
 			var_export( [
 				'markers' => [
 					[
-						'pos' => [ [ 'lat' => 52.429222,'lon' => 13.359375 ] ],
+						'pos' => [ [ 'lat' => 52.429222, 'lon' => 13.359375 ] ],
 						'title' => $wgParser->parse( 'Capital of [[Germany]]', $title, $options )->getText( [ 'unwrap' => true ] ),
 						'text' => $wgParser->parse( 'Crazy [[people|germans]] here!', $title, $options )->getText( [ 'unwrap' => true ] ),
 					],

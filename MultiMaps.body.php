@@ -1,4 +1,8 @@
 <?php
+
+use MultiMaps\BaseMapService;
+use MultiMaps\MapServices;
+
 /**
  * Main classes of MultiMaps extension.
  *
@@ -28,10 +32,10 @@ class MultiMaps {
 				break;
 			}
 		}
-		$service = \MultiMaps\MapServices::getServiceInstance( $nameService );
 
-		if ( !( $service instanceof \MultiMaps\BaseMapService ) ) {
-				return "<span class=\"error\"> $service </span>";
+		$service = MapServices::getServiceInstance( $nameService );
+		if ( !$service instanceof BaseMapService ) {
+				return '<span class="error">' . implode( '<br>', $service ) . '</span>';
 		}
 
 		$service->parse( $params, false );
