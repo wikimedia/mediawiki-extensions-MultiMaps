@@ -1,4 +1,8 @@
 <?php
+
+use MultiMaps\BaseMapService;
+use MultiMaps\MapServices;
+
 /**
  * Main classes of MultiMaps extension.
  *
@@ -28,10 +32,10 @@ class MultiMaps {
 				break;
 			}
 		}
-		$service = \MultiMaps\MapServices::getServiceInstance( $nameService );
 
-		if ( !( $service instanceof \MultiMaps\BaseMapService ) ) {
-				return "<span class=\"error\"> $service </span>";
+		$service = MapServices::getServiceInstance( $nameService );
+		if ( !$service instanceof BaseMapService ) {
+				return '<span class="error">' . implode( '<br>', $service ) . '</span>';
 		}
 
 		$service->parse( $params, false );
@@ -48,7 +52,10 @@ class MultiMaps {
 	public static function recursive_array_search( $needle, $haystack ) {
 		foreach ( $haystack as $key => $value ) {
 			$current_key = $key;
-			if ( $needle === $value or ( is_array( $value ) && self::recursive_array_search( $needle, $value ) !== false ) ) {
+			if (
+				$needle === $value ||
+				( is_array( $value ) && self::recursive_array_search( $needle, $value ) !== false )
+			) {
 				return $current_key;
 			}
 		}

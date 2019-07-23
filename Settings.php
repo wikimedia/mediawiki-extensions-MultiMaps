@@ -27,6 +27,11 @@ $egMultiMaps_MapServices = [
 	'Leaflet',
 	'Google',
 	'Yandex',
+	'Wikimedia' => [
+		'service' => 'Leaflet',
+		'attribution' => '<a href="https://wikimediafoundation.org/wiki/Maps_Terms_of_Use">Wikimedia maps</a> | Map data &copy; <a href="osm.org/copyright">OpenStreetMap contributors</a>',
+		'source' => 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png',
+	]
 ];
 
 // Integer. The default zoom of a map. This value will only be used when the

@@ -12,52 +12,118 @@ namespace MultiMaps;
 
 class MapServices {
 
+	private static $servicesCache = [];
+
 	/**
 	 * Returns the instance of a map service class.
 	 * If the map service is not specified or is not available, returns the default service
 	 * On error returns string with error message
 	 * @global array $egMultiMaps_MapServices
-	 * @param string $servicename
-	 * @return MultiMaps\BaseMapService return class extends \MultiMaps\BaseService or string with error message
+	 * @param string|null $serviceName
+	 * @return BaseMapService|array Returns class extends \MultiMaps\BaseService or array of error messages
 	 */
-	public static function getServiceInstance( $servicename = null ) {
-		global $egMultiMaps_MapServices;
-
-		if ( is_array( $egMultiMaps_MapServices ) === false || count( $egMultiMaps_MapServices ) == 0 ) {
-			return \wfMessage( 'multimaps-mapservices-must-not-empty-array', '$egMultiMaps_MapServices' )->escaped();
+	public static function getServiceInstance( $serviceName = null ) {
+		$services = self::getServicesList();
+		if ( is_string( $services ) ) {
+			return (array)$services;
 		}
 
-		$errormessage = '';
-		if ( is_string( $servicename ) ) {
-			$classkey = array_search( strtolower( $servicename ), array_map( 'strtolower', $egMultiMaps_MapServices ) );
-			if ( $classkey === false ) { // a user-specified service can not be found
-				$classname = $egMultiMaps_MapServices[0];
-				$errormessage = \wfMessage( 'multimaps-passed-unavailable-service', $servicename, implode( ', ', $egMultiMaps_MapServices ), $classname )->escaped();
+		$errorMessages = [];
+		$lang = wfGetLangObj( true );
+		if ( $serviceName ) {
+			$lcServiceName = $lang->lc( $serviceName );
+			if ( isset( $services[$lcServiceName] ) ) {
+				$srv = $services[$lcServiceName];
 			} else {
-				$classname = $egMultiMaps_MapServices[$classkey];
+				$srv = self::getDefaultService( $services );
+				$errorMessages[] = wfMessage(
+					'multimaps-passed-unavailable-service',
+					$serviceName,
+					implode( ', ', array_keys( $services ) ),
+					is_string( $srv ) ? $srv : $srv['originName']
+				)->escaped();
 			}
 		} else {
-			$classname = $egMultiMaps_MapServices[0];
+			$srv = self::getDefaultService( $services );
 		}
 
-		$newclassname = "MultiMaps\\$classname";
-		if ( !class_exists( $newclassname ) ) {
-			if ( $errormessage != '' ) {
-				$errormessage .= '<br />';
+		if ( is_array( $srv ) ) {
+			if ( !isset( $srv['service'] ) ) {
+				$errorMessages[] = wfMessage(
+					'multimaps-undefined-service-for-layout',
+					$serviceName
+				)->escaped();
+				return $errorMessages;
 			}
-			return $errormessage . \wfMessage( 'multimaps-unknown-class-for-service', $newclassname )->escaped();
+
+			$lcServiceName = $lang->lc( $srv['service'] );
+			if ( !isset( $services[$lcServiceName] ) ) {
+				$errorMessages[] = wfMessage(
+					'multimaps-wrong-service-for-layout',
+					$serviceName,
+					$srv['service']
+				)->escaped();
+				return $errorMessages;
+			}
+			if ( is_array( $services[$lcServiceName] ) ) {
+				$errorMessages[] = wfMessage(
+					'multimaps-layout-defined-for-layout',
+					$serviceName,
+					$srv['service']
+				)->escaped();
+				return $errorMessages;
+			}
+			$className = $services[$lcServiceName];
+			$layerKey = $srv['originName'];
+		} else {
+			$className = $srv;
+			$layerKey = null;
 		}
 
-		$returnservice = new $newclassname();
-		if ( !( $returnservice instanceof BaseMapService ) ) {
-			return \wfMessage( 'multimaps-error-incorrect-class-for-service', $newclassname )->escaped();
+		$newClassName = "MultiMaps\\$className";
+		if ( !class_exists( $newClassName ) ) {
+			$errorMessages[] = wfMessage( 'multimaps-unknown-class-for-service', $newClassName )->escaped();
+			return $errorMessages;
 		}
 
-		if ( $errormessage != '' ) {
-			$returnservice->pushErrorMessage( $errormessage );
+		$returnService = new $newClassName( $layerKey );
+		if ( !( $returnService instanceof BaseMapService ) ) {
+			$errorMessages[] = wfMessage( 'multimaps-error-incorrect-class-for-service', $newClassName )->escaped();
+			return $errorMessages;
 		}
 
-		return $returnservice;
+		if ( $errorMessages ) {
+			foreach ( $errorMessages as $msg ) {
+				$returnService->pushErrorMessage( $msg );
+			}
+		}
+
+		return $returnService;
+	}
+
+	private static function getServicesList() {
+		global $egMultiMaps_MapServices;
+
+		if ( !self::$servicesCache ) {
+			if ( !is_array( $egMultiMaps_MapServices ) || count( $egMultiMaps_MapServices ) == 0 ) {
+				return wfMessage( 'multimaps-mapservices-must-not-empty-array', '$egMultiMaps_MapServices' )->escaped();
+			}
+
+			$lang = wfGetLangObj( true );
+			foreach ( $egMultiMaps_MapServices as $key => $value ) {
+				if ( is_int( $key ) ) {
+					self::$servicesCache[$lang->lc( $value )] = $value;
+				} elseif ( is_array( $value ) ) {
+					self::$servicesCache[$lang->lc( $key )] = $value + [ 'originName' => $key ];
+				}
+			}
+		}
+
+		return self::$servicesCache;
+	}
+
+	private static function getDefaultService( $services ) {
+		return array_shift( $services );
 	}
 
 }

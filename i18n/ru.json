@@ -3,7 +3,8 @@
 		"authors": [
 			"Kaganer",
 			"Okras",
-			"Pastakhov"
+			"Pastakhov",
+			"Diralik"
 		]
 	},
 	"multimaps-desc": "Позволяет пользователям отображать карты и координатные данные, используя несколько картографических сервисов",
@@ -26,8 +27,8 @@
 	"multimaps-passed-unavailable-service": "Имя службы «$1» не найдено в списке доступных служб ($2). Была использована служба по умолчанию «$3»",
 	"multimaps-square-wrong-number-points": "координаты квадрата должны состоять только из двух точек, однако сейчас {{PLURAL:$1|указана одна точка|указано $1 точки|указано $1 точек}}",
 	"multimaps-unable-create-element": "Элемент карты « $1 » не может быть создан",
-	"multimaps-unable-parse-coordinates": "не удается выполнить разбор географических координат « $1 »",
-	"multimaps-unable-parse-parameter": "не удается выполнить разбор параметра « $1 » значение « $2 »",
+	"multimaps-unable-parse-coordinates": "не удаётся выполнить разбор географических координат « $1 »",
+	"multimaps-unable-parse-parameter": "не удаётся выполнить разбор параметра « $1 » значение « $2 »",
 	"multimaps-unable-parse-radius": "радиус круга должен быть числовым значением, но указанно « $1 »",
 	"multimaps-unknown-class-for-service": "Класс « $1 », который определен для службы, не может быть найден.",
 	"multimaps-unknown-parameter": "Неизвестный параметр: « $1 »",

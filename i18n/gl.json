@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Toliño"
+			"Toliño",
+			"Elisardojm"
 		]
 	},
-	"multimaps-desc": "Permite aos usuarios mostrar mapas e coordenadas mediante varios servizos cartográficos",
+	"multimaps-desc": "Permite aos usuarios amosar mapas e coordenadas mediante varios servizos cartográficos",
 	"multimaps-loading-map": "Cargando o mapa...",
 	"multimaps-mapservices-must-not-empty-array": "A variable \"$1\" non pode ser unha táboa baleira",
 	"multimaps-had-following-errors": "Durante o proceso de análise, os elementos analizados produciron os seguintes erros:",

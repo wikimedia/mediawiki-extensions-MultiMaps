@@ -65,7 +65,7 @@ class Polygon extends Line {
 					$this->unsetProperty( 'fillopacity' );
 					return true;
 				} else {
-					$this->errormessages[] = \wfMessage( 'multimaps-element-illegal-value', $name, $value, '"'.implode( '", "', self::getPropertyValidValues( $name ) ).'"' )->escaped();
+					$this->errormessages[] = \wfMessage( 'multimaps-element-illegal-value', $name, $value, '"' . implode( '", "', self::getPropertyValidValues( $name ) ) . '"' )->escaped();
 					return false;
 				}
 				break;

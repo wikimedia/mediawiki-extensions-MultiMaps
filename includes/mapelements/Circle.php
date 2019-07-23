@@ -30,7 +30,7 @@ class Circle extends Polygon {
 	 * Filling property 'coordinates'
 	 * @global string $egMultiMaps_CoordinatesSeparator
 	 * @param string $coordinates
-	 * @param string $service Name of map service
+	 * @param string|null $service Name of map service
 	 * @return bool
 	 */
 	protected function parseCoordinates( $coordinates, $service = null ) {
