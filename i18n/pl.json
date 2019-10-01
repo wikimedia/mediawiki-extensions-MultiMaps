@@ -11,5 +11,6 @@
 	"multimaps-element-parameters-not-processed": "następujące ustawienia nie zostały przetworzone: $1",
 	"multimaps-circle-radius-not-defined": "dla okręgu powinien być określony promień",
 	"multimaps-unknown-parameter": "Nieznany parametr: „$1”",
+	"multimaps-method-error-unknown-action": "$1: Nieznana akcja",
 	"multimaps-method-error-unexpected-result": "$1: Nieoczekiwany wynik funkcji"
 }
