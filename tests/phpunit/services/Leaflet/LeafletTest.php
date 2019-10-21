@@ -502,7 +502,7 @@ class LeafletTest extends \MediaWikiTestCase {
 	public function testParseGeocoderMarker() {
 		global $egMultiMaps_AllowGeocoderTests;
 		if ( !$egMultiMaps_AllowGeocoderTests ) {
-			return;
+			$this->markTestSkipped( 'Requires $egMultiMaps_AllowGeocoderTests' );
 		}
 		$this->assertRegExp(
 			'{"markers":\[{"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+}\]}\],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[0-9\.]+}}}',
@@ -513,7 +513,7 @@ class LeafletTest extends \MediaWikiTestCase {
 	public function testParseGeocoderRectangle() {
 		global $egMultiMaps_AllowGeocoderTests;
 		if ( !$egMultiMaps_AllowGeocoderTests ) {
-			return;
+			$this->markTestSkipped( 'Requires $egMultiMaps_AllowGeocoderTests' );
 		}
 		$this->assertRegExp(
 			'{"rectangles":\[{"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+},{"lat":[0-9\.]+,"lon":[0-9\.]+}\]}\],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[0-9\.]+}}}',
@@ -524,7 +524,7 @@ class LeafletTest extends \MediaWikiTestCase {
 	public function testParseGeocoderRectangles() {
 		global $egMultiMaps_AllowGeocoderTests;
 		if ( !$egMultiMaps_AllowGeocoderTests ) {
-			return;
+			$this->markTestSkipped( 'Requires $egMultiMaps_AllowGeocoderTests' );
 		}
 		$this->assertRegExp(
 			'{"rectangles":\[{"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+},{"lat":[0-9\.]+,"lon":[0-9\.]+}\]},{"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+},{"lat":[-0-9\.]+,"lon":[-0-9\.]+}]}],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[-0-9\.]+}}}',
@@ -535,7 +535,7 @@ class LeafletTest extends \MediaWikiTestCase {
 	public function testParseGeocoderCircle() {
 		global $egMultiMaps_AllowGeocoderTests;
 		if ( !$egMultiMaps_AllowGeocoderTests ) {
-			return;
+			$this->markTestSkipped( 'Requires $egMultiMaps_AllowGeocoderTests' );
 		}
 		$this->assertRegExp(
 			'{"circles":\[{"radius":\[[0-9\.]+\],"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+}\]}\],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[0-9\.]+}}}',
@@ -546,7 +546,7 @@ class LeafletTest extends \MediaWikiTestCase {
 	public function testParseGeocoderObjectPolygon() {
 		global $egMultiMaps_AllowGeocoderTests;
 		if ( !$egMultiMaps_AllowGeocoderTests ) {
-			return;
+			$this->markTestSkipped( 'Requires $egMultiMaps_AllowGeocoderTests' );
 		}
 		$this->assertRegExp(
 			'{"polygons":\[\{"pos":\[(\{"lat":[0-9\.]+,"lon":[0-9\.]+\},?)+\]\}\],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[0-9\.]+}}}',

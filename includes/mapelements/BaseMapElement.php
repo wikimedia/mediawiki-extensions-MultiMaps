@@ -1,6 +1,8 @@
 <?php
 namespace MultiMaps;
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * Base class for collection of map elements
  *
@@ -101,11 +103,8 @@ abstract class BaseMapElement {
 		}
 
 		if ( $name == 'title' || $name == 'text' ) {
-			$parser = clone $GLOBALS['wgParser'];
-			$title = $parser->getTitle();
-			if ( $title === null ) {
-				$title = new \Title();
-			}
+			$parser = MediaWikiServices::getInstance()->getParser();
+			$title = new \Title();
 			$value = trim( $value );
 			if ( defined( 'LINGO_VERSION' ) === true ) { // Do not allow Lingo extension to process value
 				$value .= "\n__NOGLOSSARY__";
