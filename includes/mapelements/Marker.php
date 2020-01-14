@@ -59,7 +59,7 @@ class Marker extends BaseMapElement {
 				$v = $GLOBALS['wgServer'] . $egMultiMaps_IconPath . $v;
 			} else {
 				$title = \Title::newFromText( $v, NS_FILE );
-				if ( !is_null( $title ) && $title->exists() ) {
+				if ( $title !== null && $title->exists() ) {
 					$imagePage = new \ImagePage( $title );
 					$v = $imagePage->getDisplayedFile()->getURL();
 				} else {
@@ -107,7 +107,7 @@ class Marker extends BaseMapElement {
 				$v = $GLOBALS['wgServer'] . $egMultiMaps_IconPath . $v;
 			} else {
 				$title = \Title::newFromText( $v, NS_FILE );
-				if ( !is_null( $title ) && $title->exists() ) {
+				if ( $title !== null && $title->exists() ) {
 					$imagePage = new \ImagePage( $title );
 					$v = $imagePage->getDisplayedFile()->getURL();
 				} else {

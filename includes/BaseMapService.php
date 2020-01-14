@@ -209,17 +209,17 @@ abstract class BaseMapService {
 
 		$calculatedProperties = [];
 
-		if ( is_null( $this->bounds ) ) {
-			if ( is_null( $this->center ) ) {
+		if ( $this->bounds === null ) {
+			if ( $this->center === null ) {
 				$bounds = $this->elementsBounds;
 				if ( $bounds->isValid() ) {
 					if ( $bounds->ne == $bounds->sw ) {
-						if ( is_null( $this->zoom ) ) {
+						if ( $this->zoom === null ) {
 							$calculatedProperties['zoom'] = $egMultiMaps_DefaultZoom;
 						}
 						$calculatedProperties['center'] = $bounds->getCenter()->getData();
 					} elseif ( $bounds->isValid() ) {
-						if ( is_null( $this->zoom ) ) {
+						if ( $this->zoom === null ) {
 							$calculatedProperties['bounds'] = $bounds->getData();
 						} else {
 							$calculatedProperties['center'] = $bounds->getCenter()->getData();

@@ -206,7 +206,7 @@ abstract class BaseMapElement {
 			return $return;
 		}
 		foreach ( $this->availableProperties as $name ) {
-			if ( is_null( $this->getProperty( $name ) ) ) {
+			if ( $this->getProperty( $name ) === null ) {
 				if ( preg_match( '/^\s*$/s', $value ) == false ) { // Ignore empty values
 					if ( !$this->setProperty( $name, $value ) ) {
 						$return = false;

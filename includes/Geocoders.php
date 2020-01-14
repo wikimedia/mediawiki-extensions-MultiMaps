@@ -45,10 +45,10 @@ class Geocoders {
 					$location = $geometry->location;
 					$lat = $location->lat;
 					$lon = $location->lng;
-					if ( !is_null( $lat ) && !is_null( $lon ) ) {
+					if ( $lat !== null && $lon !== null ) {
 						$return = [ 'lat' => $lat, 'lon' => $lon ];
 						$bounds = $geometry->bounds;
-						if ( !is_null( $bounds ) ) {
+						if ( $bounds !== null ) {
 							$bounds_ne = new Point( $bounds->northeast->lat, $bounds->northeast->lng );
 							$bounds_sw = new Point( $bounds->southwest->lat, $bounds->southwest->lng );
 							if ( $bounds_ne->isValid() && $bounds_sw->isValid() ) {
@@ -84,7 +84,7 @@ class Geocoders {
 					if ( $point->isValid() ) {
 						$return = $point->pos;
 						$envelope = $geoObject->boundedBy->Envelope;
-						if ( !is_null( $envelope ) ) {
+						if ( $envelope !== null ) {
 							list( $lon, $lat ) = explode( ' ', $envelope->upperCorner );
 							$bounds_ne = new Point( $lat, $lon );
 							list( $lon, $lat ) = explode( ' ', $envelope->lowerCorner );
@@ -122,10 +122,10 @@ class Geocoders {
 				$data = $data[0];
 				$lat = $data->lat;
 				$lon = $data->lon;
-				if ( !is_null( $lat ) && !is_null( $lon ) ) {
+				if ( $lat !== null && $lon !== null ) {
 					$return = [ 'lat' => $lat, 'lon' => $lon ];
 					$bounds = $data->boundingbox;
-					if ( !is_null( $bounds ) ) {
+					if ( $bounds !== null ) {
 						$bounds_ne = new Point( $bounds[1], $bounds[3] );
 						$bounds_sw = new Point( $bounds[0], $bounds[2] );
 						if ( $bounds_ne->isValid() && $bounds_sw->isValid() ) {

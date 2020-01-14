@@ -28,7 +28,7 @@ class Bounds {
 	protected $southWest = false;
 
 	function __construct( $coordinates = null ) {
-		if ( !is_null( $coordinates ) ) {
+		if ( $coordinates !== null ) {
 			$this->extend( $coordinates );
 		}
 	}
