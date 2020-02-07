@@ -172,8 +172,8 @@ class GeoCoordinateTest extends \PHPUnit\Framework\TestCase {
 	 * @covers MultiMaps\GeoCoordinate::getLatLonFromString
 	 */
 	public function testGetLatLonFromString15() {
-		$this->assertSame(
-			false, MultiMaps\GeoCoordinate::getLatLonFromString( "Z10.12°,  1.123°" )
+		$this->assertFalse(
+			MultiMaps\GeoCoordinate::getLatLonFromString( "Z10.12°,  1.123°" )
 		);
 	}
 
@@ -183,8 +183,8 @@ class GeoCoordinateTest extends \PHPUnit\Framework\TestCase {
 	 * @covers MultiMaps\GeoCoordinate::getLatLonFromString
 	 */
 	public function testGetLatLonFromString16() {
-		$this->assertSame(
-			false, MultiMaps\GeoCoordinate::getLatLonFromString( "10.12°, X1.123°" )
+		$this->assertFalse(
+			MultiMaps\GeoCoordinate::getLatLonFromString( "10.12°, X1.123°" )
 		);
 	}
 
@@ -194,8 +194,8 @@ class GeoCoordinateTest extends \PHPUnit\Framework\TestCase {
 	 * @covers MultiMaps\GeoCoordinate::getLatLonFromString
 	 */
 	public function testGetLatLonFromString17() {
-		$this->assertSame(
-			false, MultiMaps\GeoCoordinate::getLatLonFromString( "Tralala" )
+		$this->assertFalse(
+			MultiMaps\GeoCoordinate::getLatLonFromString( "Tralala" )
 		);
 	}
 
