@@ -48,7 +48,7 @@ class Leaflet extends BaseMapService {
 
 		if ( $layerKey ) {
 			$leafletLayer = $egMultiMaps_MapServices[$layerKey];
-			if ( isset( $leafletLayer['source'], $leafletLayer['attribution'] ) ) {
+			if ( isset( $leafletLayer['source'] ) && isset( $leafletLayer['attribution'] ) ) {
 				$this->properties['tileLayer'] = $leafletLayer['source'];
 				$this->properties['attribution'] = $leafletLayer['attribution'];
 				return;
