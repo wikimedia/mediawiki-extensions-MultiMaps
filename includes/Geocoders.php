@@ -39,7 +39,7 @@ class Geocoders {
 
 		if ( $response !== false ) {
 			$data = \FormatJson::decode( $response );
-			if ( is_null( $data ) === false ) {
+			if ( $data !== null ) {
 				if ( $data->status == 'OK' ) {
 					$geometry = $data->results[0]->geometry;
 					$location = $geometry->location;
@@ -75,7 +75,7 @@ class Geocoders {
 
 		if ( $response !== false ) {
 			$data = \FormatJson::decode( $response );
-			if ( is_null( $data ) === false ) {
+			if ( $data !== null ) {
 				$geoObjectCollection = $data->response->GeoObjectCollection;
 				if ( $geoObjectCollection->metaDataProperty->GeocoderResponseMetaData->found > 0 ) {
 					$geoObject = $geoObjectCollection->featureMember[0]->GeoObject;
