@@ -545,7 +545,7 @@ class LeafletTest extends \MediaWikiTestCase {
 	}
 
 	public function testParseWikitext() {
-		$title = new \Title();
+		$title = \Title::makeTitle( NS_SPECIAL, 'Badtitle/Dummy' );
 		$options = new \ParserOptions();
 		$parser = MediaWikiServices::getInstance()->getParser();
 		$this->assertEquals(
