@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Esketti",
 			"Kippenvlees1",
-			"Siebrand",
-			"Esketti"
+			"Siebrand"
 		]
 	},
 	"multimaps-desc": "Gebruikers toestaan om kaarten en coördinaten weer te geven met behulp van meerdere kaartdiensten",

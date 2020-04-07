@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Shirayuki",
-			"pastakhov",
 			"Nemo bis",
-			"Umherirrender"
+			"Shirayuki",
+			"Umherirrender",
+			"pastakhov"
 		]
 	},
 	"multimaps-desc": "{{desc|name=Multi Maps|url=https://www.mediawiki.org/wiki/Extension:MultiMaps}}",
