@@ -157,8 +157,8 @@ class GeoCoordinate {
 
 	/**
 	 * Sets the geographical coordinates in new position according to a given offset on the north and east, in meters
-	 * @param float $lat Latitude of coordinates
-	 * @param float $lon Longitude of coordinates
+	 * @param float &$lat Latitude of coordinates
+	 * @param float &$lon Longitude of coordinates
 	 * @param float $nord To the north (meters)
 	 * @param float $east To the East (meters)
 	 */

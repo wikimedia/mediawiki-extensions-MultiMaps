@@ -546,7 +546,7 @@ abstract class BaseMapService {
 
 	/**
 	 * Add dependencies (resourceModules, headerItem) to Parser output
-	 * @param Parser $parser
+	 * @param Parser &$parser
 	 */
 	public function addDependencies( Parser &$parser ) {
 		$output = $parser->getOutput();

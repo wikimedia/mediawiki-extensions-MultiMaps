@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * @author Pavel Astakhov <pastakhov@yandex.ru>
  */
