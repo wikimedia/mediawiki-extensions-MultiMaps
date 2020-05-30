@@ -34,7 +34,7 @@ $egMultiMapsScriptPath = ( $wgExtensionAssetsPath === false ? $wgScriptPath . '/
 
 // Allow translations for this extension
 $wgMessagesDirs['MultiMaps'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['MultiMapsMagic'] =	$dir . '/MultiMaps.i18n.magic.php';
+$wgExtensionMessagesFiles['MultiMapsMagic'] = $dir . '/MultiMaps.i18n.magic.php';
 
 // Include the settings file.
 require_once $dir . '/Settings.php';
@@ -52,14 +52,14 @@ $wgHooks['ParserFirstCallInit'][] = function ( Parser &$parser ) {
 // TODO: $wgAutoloadClasses = array_merge( $wgAutoloadClasses, include 'MultiMaps.classes.php' );
 $wgAutoloadClasses['MultiMaps'] = $dir . '/MultiMaps.body.php';
 
-$wgAutoloadClasses['MultiMaps\\BaseMapService'] =	$dir . '/includes/BaseMapService.php';
+$wgAutoloadClasses['MultiMaps\\BaseMapService'] = $dir . '/includes/BaseMapService.php';
 $wgAutoloadClasses['MultiMaps\\Bounds'] = $dir . '/includes/Bounds.php';
 $wgAutoloadClasses['MultiMaps\\Geocoders'] = $dir . '/includes/Geocoders.php';
-$wgAutoloadClasses['MultiMaps\\GeoCoordinate'] =	$dir . '/includes/GeoCoordinate.php';
+$wgAutoloadClasses['MultiMaps\\GeoCoordinate'] = $dir . '/includes/GeoCoordinate.php';
 $wgAutoloadClasses['MultiMaps\\MapServices'] = $dir . '/includes/MapServices.php';
 $wgAutoloadClasses['MultiMaps\\Point'] = $dir . '/includes/Point.php';
 
-$wgAutoloadClasses['MultiMaps\\BaseMapElement'] =	$dir . '/includes/mapelements/BaseMapElement.php';
+$wgAutoloadClasses['MultiMaps\\BaseMapElement'] = $dir . '/includes/mapelements/BaseMapElement.php';
 $wgAutoloadClasses['MultiMaps\\Marker'] = $dir . '/includes/mapelements/Marker.php';
 $wgAutoloadClasses['MultiMaps\\Line'] = $dir . '/includes/mapelements/Line.php';
 $wgAutoloadClasses['MultiMaps\\Polygon'] = $dir . '/includes/mapelements/Polygon.php';
