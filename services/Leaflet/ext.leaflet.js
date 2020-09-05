@@ -1,18 +1,20 @@
 /**
  * JavaScript for Leaflet in the MultiMaps extension.
+ *
  * @see https://www.mediawiki.org/wiki/Extension:MultiMaps
  *
  * @author Pavel Astakhov < pastakhov@yandex.ru >
  */
 
-/*global L, mediaWiki */
+/* global L */
 mediaWiki.MultiMapsLeaflet = {
 	/**
 	 * Convert properties given from multimaps extension to options of map element
+	 *
 	 * @param {Object} properties Contains the fields attribution, lat, lon, tileLayer, title, text and icon
 	 * @return {Object} options of map element
 	 */
-	convertPropertiesToOptions: function( properties ) {
+	convertPropertiesToOptions: function ( properties ) {
 		var options = {}, text = false;
 
 		if ( properties.icon !== undefined ) {
@@ -74,10 +76,11 @@ mediaWiki.MultiMapsLeaflet = {
 	/**
 	 * Creates a new marker with the provided data,
 	 * adds it to the map, and returns it.
+	 *
 	 * @param {Object} map
 	 * @param {Object} properties Contains the fields attribution, lat, lon, tileLayer, title, text and icon
 	 */
-	addMarker: function( map, properties ) {
+	addMarker: function ( map, properties ) {
 		var marker, value = this.convertPropertiesToOptions( properties );
 
 		marker = L.marker( [ properties.pos[ 0 ].lat, properties.pos[ 0 ].lon ], value.options )
@@ -87,7 +90,7 @@ mediaWiki.MultiMapsLeaflet = {
 		}
 	},
 
-	addLine: function( map, properties ) {
+	addLine: function ( map, properties ) {
 		var x, polyline, latlngs = [],
 			value = this.convertPropertiesToOptions( properties );
 
@@ -102,7 +105,7 @@ mediaWiki.MultiMapsLeaflet = {
 		}
 	},
 
-	addPolygon: function( map, properties ) {
+	addPolygon: function ( map, properties ) {
 		var x, polygon, latlngs = [],
 			value = this.convertPropertiesToOptions( properties );
 
@@ -117,7 +120,7 @@ mediaWiki.MultiMapsLeaflet = {
 		}
 	},
 
-	addCircle: function( map, properties ) {
+	addCircle: function ( map, properties ) {
 		var circle, value = this.convertPropertiesToOptions( properties );
 
 		circle = L.circle( [ properties.pos[ 0 ].lat, properties.pos[ 0 ].lon ], properties.radius[ 0 ], value.options )
@@ -127,7 +130,7 @@ mediaWiki.MultiMapsLeaflet = {
 		}
 	},
 
-	addRectangle: function( map, properties ) {
+	addRectangle: function ( map, properties ) {
 		var bounds, rectangle, value = this.convertPropertiesToOptions( properties );
 
 		bounds = [
@@ -142,7 +145,7 @@ mediaWiki.MultiMapsLeaflet = {
 		}
 	},
 
-	setup: function( element, options ) {
+	setup: function ( element, options ) {
 		var map, i, mapOptions = {};
 
 		if ( options.minzoom !== false ) {
@@ -157,8 +160,8 @@ mediaWiki.MultiMapsLeaflet = {
 
 		// add a tile layer
 		L.tileLayer( options.tileLayer, {
-				attribution: options.attribution
-			} )
+			attribution: options.attribution
+		} )
 			.addTo( map );
 
 		// Add the markers.
@@ -212,15 +215,15 @@ mediaWiki.MultiMapsLeaflet = {
 	}
 };
 
-( function( $, mw ) {
+( function ( $, mw ) {
 
-	$( document ).ready( function() {
-		mw.loader.using( 'ext.MultiMaps', function() {
-			$( '.multimaps-map-leaflet' ).each( function() {
+	$( document ).ready( function () {
+		mw.loader.using( 'ext.MultiMaps', function () {
+			$( '.multimaps-map-leaflet' ).each( function () {
 				var $this = $( this );
 				mw.MultiMapsLeaflet.setup( $this.get( 0 ), JSON.parse( $this.find( 'div' ).text() ) );
 			} );
 		} );
 	} );
 
-} )( jQuery, mediaWiki );
+}( jQuery, mediaWiki ) );
