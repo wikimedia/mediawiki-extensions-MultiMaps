@@ -24,7 +24,7 @@ abstract class BaseMapElement {
 
 	/**
 	 * @todo Description
-	 * @var boolean
+	 * @var bool
 	 */
 	protected $isValid;
 
