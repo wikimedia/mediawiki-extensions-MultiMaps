@@ -12,6 +12,9 @@ class LeafletTest extends \MediaWikiTestCase {
 	 */
 	protected $object;
 
+	/** @var int|null */
+	private $serializePrecision;
+
 	/**
 	 * Sets up the fixture, for example, opens a network connection.
 	 * This method is called before a test is executed.
@@ -20,10 +23,19 @@ class LeafletTest extends \MediaWikiTestCase {
 		// See https://wiki.php.net/rfc/precise_float_value
 		// Once we require PHP 7.1+, we should remove this and adjust expected values instead.
 		if ( version_compare( PHP_VERSION, '7.1', '>=' ) ) {
-			$this->setIniSetting( 'serialize_precision', 14 );
+			// T205958
+			$this->serializePrecision = ini_get( 'serialize_precision' );
+			ini_set( 'serialize_precision', 14 );
 		}
 		$this->object = new Leaflet();
 		parent::setUp();
+	}
+
+	protected function tearDown() {
+		if ( version_compare( PHP_VERSION, '7.1', '>=' ) ) {
+			ini_set( 'serialize_precision', $this->serializePrecision );
+		}
+		parent::tearDown();
 	}
 
 	public function testParseMarkerInZerro() {
