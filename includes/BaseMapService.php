@@ -482,7 +482,6 @@ abstract class BaseMapService {
 					$this->errormessages[] = wfMessage( 'multimaps-unable-parse-parameter', $name, $value )->escaped();
 				}
 				return true;
-				break;
 			case 'icon':
 				$marker = new Marker();
 				if ( $marker->setProperty( 'icon', $value ) ) {

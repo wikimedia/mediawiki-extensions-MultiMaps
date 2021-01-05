@@ -76,7 +76,6 @@ abstract class BaseMapElement {
 		switch ( $name ) {
 			case 'pos':
 				return $this->coordinates;
-				break;
 			default:
 				if ( isset( $this->properties[$name] ) ) {
 					return $this->properties[$name];
