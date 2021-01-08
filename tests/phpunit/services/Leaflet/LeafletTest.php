@@ -546,7 +546,7 @@ class LeafletTest extends \MediaWikiTestCase {
 
 	public function testParseWikitext() {
 		$title = \Title::makeTitle( NS_SPECIAL, 'Badtitle/Dummy' );
-		$options = new \ParserOptions();
+		$options = \ParserOptions::newFromAnon();
 		$parser = MediaWikiServices::getInstance()->getParser();
 		$this->assertEquals(
 			var_export( $this->object->getMapData( [ '52.429222,13.359375~Capital of [[Germany]]~Crazy [[people|germans]] here!', 'service=leaflet' ] ), true ),

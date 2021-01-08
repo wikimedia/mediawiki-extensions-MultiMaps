@@ -108,7 +108,7 @@ abstract class BaseMapElement {
 			if ( defined( 'LINGO_VERSION' ) === true ) { // Do not allow Lingo extension to process value
 				$value .= "\n__NOGLOSSARY__";
 			}
-			$options = new \ParserOptions();
+			$options = \ParserOptions::newFromAnon();
 			$this->properties[$name] = $parser->parse( $value, $title, $options )->getText( [ 'unwrap' => true ] );
 		} elseif ( is_string( $value ) ) {
 			$value = trim( $value );
