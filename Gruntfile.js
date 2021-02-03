@@ -11,7 +11,8 @@ module.exports = function ( grunt ) {
 			},
 			all: [
 				'**/*.{js,json}',
-				'!services/Leaflet/leaflet/leaflet.js', // upstream libs
+				// upstream libs
+				'!services/Leaflet/leaflet/leaflet.js',
 				'!node_modules/**',
 				'!vendor/**'
 			]
