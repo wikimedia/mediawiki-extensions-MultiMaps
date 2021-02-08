@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"Eduardoaddad"
 		]
 	},
 	"multimaps-desc": "Permite que os usuários apresentem mapas e coordenadas usando vários serviços cartográficos",
