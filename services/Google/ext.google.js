@@ -231,7 +231,7 @@ mediaWiki.MultiMapsGoogle = {
 
 ( function ( $, mw ) {
 
-	$( document ).ready( function () {
+	$( function () {
 		mw.loader.using( 'ext.MultiMaps', function () {
 			$( '.multimaps-map-google' ).each( function () {
 				var $this = $( this );

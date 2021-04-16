@@ -217,7 +217,7 @@ mediaWiki.MultiMapsLeaflet = {
 
 ( function ( $, mw ) {
 
-	$( document ).ready( function () {
+	$( function () {
 		mw.loader.using( 'ext.MultiMaps', function () {
 			$( '.multimaps-map-leaflet' ).each( function () {
 				var $this = $( this );
