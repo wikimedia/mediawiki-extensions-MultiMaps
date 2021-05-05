@@ -43,7 +43,7 @@ require_once $dir . '/Settings.php';
 /**
  * @codeCoverageIgnore
  */
-$wgHooks['ParserFirstCallInit'][] = function ( Parser &$parser ) {
+$wgHooks['ParserFirstCallInit'][] = static function ( Parser &$parser ) {
 	$parser->setFunctionHook( 'multimaps', 'MultiMaps::renderParserFunction_showmap' );
 	return true;
 };
@@ -101,7 +101,7 @@ $wgResourceModules['ext.MultiMaps.Yandex'] = [
  * Add files to phpunit test
  * @codeCoverageIgnore
  */
-$wgHooks['UnitTestsList'][] = function ( &$files ) {
+$wgHooks['UnitTestsList'][] = static function ( &$files ) {
 	$files[] = __DIR__ . '/tests/phpunit/includes/BoundsTest.php';
 	$files[] = __DIR__ . '/tests/phpunit/includes/GeoCoordinateTest.php';
 	$files[] = __DIR__ . '/tests/phpunit/includes/GeocodersTest.php';
