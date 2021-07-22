@@ -18,7 +18,7 @@ class LeafletTest extends \MediaWikiTestCase {
 	 * Sets up the fixture, for example, opens a network connection.
 	 * This method is called before a test is executed.
 	 */
-	protected function setUp() : void {
+	protected function setUp(): void {
 		// See https://wiki.php.net/rfc/precise_float_value
 		// Once we require PHP 7.1+, we should remove this and adjust expected values instead.
 		if ( version_compare( PHP_VERSION, '7.1', '>=' ) ) {
