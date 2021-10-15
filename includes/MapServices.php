@@ -1,6 +1,8 @@
 <?php
 namespace MultiMaps;
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * This class allows you to work with a collection of defined services
  *
@@ -29,7 +31,7 @@ class MapServices {
 		}
 
 		$errorMessages = [];
-		$lang = wfGetLangObj( true );
+		$lang = MediaWikiServices::getInstance()->getContentLanguage();
 		if ( $serviceName ) {
 			$lcServiceName = $lang->lc( $serviceName );
 			if ( isset( $services[$lcServiceName] ) ) {
@@ -109,7 +111,7 @@ class MapServices {
 				return wfMessage( 'multimaps-mapservices-must-not-empty-array', '$egMultiMaps_MapServices' )->escaped();
 			}
 
-			$lang = wfGetLangObj( true );
+			$lang = MediaWikiServices::getInstance()->getContentLanguage();
 			foreach ( $egMultiMaps_MapServices as $key => $value ) {
 				if ( is_int( $key ) ) {
 					self::$servicesCache[$lang->lc( $value )] = $value;
