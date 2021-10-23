@@ -26,8 +26,8 @@ class RectangleTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testGetElementName() {
 		$this->assertEquals(
-				$this->object->getElementName(),
-				'Rectangle'
+				'Rectangle',
+				$this->object->getElementName()
 				);
 	}
 
@@ -36,8 +36,8 @@ class RectangleTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testParseCoordinates() {
 		$this->assertEquals(
-				$this->object->getElementName(),
-				'Rectangle'
+				'Rectangle',
+				$this->object->getElementName()
 				);
 	}
 }

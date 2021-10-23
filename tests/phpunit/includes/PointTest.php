@@ -29,14 +29,14 @@ class PointTest extends \PHPUnit\Framework\TestCase {
 	 * @covers MultiMaps\Point::__set
 	 */
 	public function test__set__get() {
-		$this->assertEquals( $this->object->lat, 123 );
-		$this->assertEquals( $this->object->lon, 321 );
+		$this->assertEquals( 123, $this->object->lat );
+		$this->assertEquals( 321, $this->object->lon );
 
 		$this->object->lat = "789";
 		$this->object->lon = 987;
 
-		$this->assertEquals( $this->object->lat, 789 );
-		$this->assertEquals( $this->object->lon, 987 );
+		$this->assertEquals( 789, $this->object->lat );
+		$this->assertEquals( 987, $this->object->lon );
 		$this->assertTrue( $this->object->isValid() );
 
 		$this->object->hello = "wassup!!!";

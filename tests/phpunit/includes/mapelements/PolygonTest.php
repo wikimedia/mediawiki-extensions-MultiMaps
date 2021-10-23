@@ -27,8 +27,8 @@ class PolygonTest extends \PHPUnit\Framework\TestCase {
 	public function testGetElementName() {
 		// Remove the following lines when you implement this test.
 		$this->assertEquals(
-			$this->object->getElementName(),
-			'Polygon'
+			'Polygon',
+			$this->object->getElementName()
 		);
 	}
 
