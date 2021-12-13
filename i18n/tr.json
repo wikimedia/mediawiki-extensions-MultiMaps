@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"BaRaN6161 TURK"
+			"BaRaN6161 TURK",
+			"MuratTheTurkish"
 		]
 	},
 	"multimaps-desc": "Kullanıcıların birden fazla harita hizmeti kullanarak haritaları görüntülemesine ve verileri koordine etmesine olanak tanır",
@@ -35,5 +36,5 @@
 	"multimaps-unknown-parameter": "Bilinmeyen parametre: \"$1\"",
 	"multimaps-error-incorrect-class-for-service": "Hizmet için tanımlanan \"$1\" sınıfı kullanılamaz.",
 	"multimaps-method-error-unknown-action": "$1: Bilinmeyen işlem",
-	"multimaps-method-error-unexpected-result": "$1: Bir fonksiyonun beklenmedik bir sonucu"
+	"multimaps-method-error-unexpected-result": "$1: Bir işlevin beklenmedik bir sonucu"
 }
