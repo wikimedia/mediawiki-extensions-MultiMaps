@@ -3,13 +3,15 @@
 		"authors": [
 			"Fitoschido",
 			"Macofe",
-			"Salvador alc"
+			"Salvador alc",
+			"DiegoAmbrocio"
 		]
 	},
 	"multimaps-loading-map": "Cargando el mapa…",
 	"multimaps-mapservices-must-not-empty-array": "La variable «$1» no debe ser una matriz vacía",
 	"multimaps-had-following-errors": "Ocurrieron los errores siguientes al analizar los parámetros:",
 	"multimaps-element-parameters-not-processed": "no se procesaron los parámetros siguientes: $1",
+	"multimaps-circle-radius-not-defined": "para el círculo se debe definir el radio",
 	"multimaps-marker-incorrect-icon-url": "Se proporcionó un URL incorrecto \"$1\" para el icono del marcador.",
 	"multimaps-marker-incorrect-icon-anchor": "Se proporcionó un ancla incorrecta \"$1\" para el icono del marcador \"$2\".",
 	"multimaps-marker-incorrect-shadow-url": "Se proporcionó un URL incorrecto «$1» para la sombra del icono.",
