@@ -4,6 +4,7 @@
 			"Gomoko",
 			"Manohisoa",
 			"Thibaut120094",
+			"Verdy p",
 			"Wladek92"
 		]
 	},
@@ -18,7 +19,7 @@
 	"multimaps-element-illegal-value": "une valeur illégale $2\" a été spécifiée pour le paramètre \"$1\". Les valeurs valides sont: $3",
 	"multimaps-element-more-parameters": "Davantage de paramètres qu’attendu ont été passés pour cet élément de carte \"$1\":",
 	"multimaps-element-parameters-not-processed": "les paramètres suivants n’ont pas été traités: $1",
-	"multimaps-circle-radius-not-defined": "pour le cercle, le rayon doit être défini",
+	"multimaps-circle-radius-not-defined": "pour le cercle, son rayon doit être défini",
 	"multimaps-circle-wrong-number-parameters": "pour le cercle, seuls deux paramètres devraient être définis, les coordonnées du centre et le rayon. Mais {{PLURAL:$1|un seul paramètre a été spécifié|$1 paramètres ont été spécifiés}}",
 	"multimaps-marker-incorrect-icon": "Un nom de fichier \"$1\" incorrect a été fourni pour l’icône du marqueur",
 	"multimaps-marker-incorrect-icon-url": "Une adresse URL incorrecte \" $1 \" a été attribuée à l'icône de marqueur.",
