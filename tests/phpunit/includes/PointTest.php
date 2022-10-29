@@ -64,10 +64,9 @@ class PointTest extends \PHPUnit\Framework\TestCase {
 	public function testMove() {
 		$this->object->move( 12345, -67890 );
 
-		$this->assertEquals(
-			$this->object->getData(),
-			[ 'lat' => 123.11108317216, 'lon' => 322.11643133104 ]
-		);
+		$coord = $this->object->getData();
+		$this->assertEqualsWithDelta( 123.11108317216, $coord['lat'], 0.00000000001 );
+		$this->assertEqualsWithDelta( 322.11643133104, $coord['lon'], 0.00000000001 );
 	}
 
 	/**
