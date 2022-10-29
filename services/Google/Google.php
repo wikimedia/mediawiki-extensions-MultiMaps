@@ -31,7 +31,7 @@ class Google extends BaseMapService {
 		if ( $egMultiMapsGoogleApiKey ) {
 			$urlArgs['key'] = $egMultiMapsGoogleApiKey;
 		}
-		$this->headerItem .= Html::linkedScript( '//maps.googleapis.com/maps/api/js?' . wfArrayToCgi( $urlArgs ) ) . "\n";
+		$this->headerItem .= Html::linkedScript( 'https://maps.googleapis.com/maps/api/js?' . wfArrayToCgi( $urlArgs ) ) . "\n";
 	}
 
 }

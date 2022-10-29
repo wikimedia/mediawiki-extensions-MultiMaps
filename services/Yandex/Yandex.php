@@ -29,7 +29,7 @@ class Yandex extends BaseMapService {
 		$urlArgs = [];
 		$urlArgs['load'] = 'package.standard,package.geoObjects';
 		$urlArgs['lang'] = 'ru-RU';
-		$this->headerItem .= Html::linkedScript( '//api-maps.yandex.ru/2.0-stable/?' . wfArrayToCgi( $urlArgs ) ) . "\n";
+		$this->headerItem .= Html::linkedScript( 'https://api-maps.yandex.ru/2.0-stable/?' . wfArrayToCgi( $urlArgs ) ) . "\n";
 	}
 
 }

@@ -29,7 +29,7 @@ $egMultiMaps_MapServices = [
 	'Yandex',
 	'Wikimedia' => [
 		'service' => 'Leaflet',
-		'attribution' => '<a href="https://wikimediafoundation.org/wiki/Maps_Terms_of_Use">Wikimedia maps</a> | Map data &copy; <a href="osm.org/copyright">OpenStreetMap contributors</a>',
+		'attribution' => '<a href="https://foundation.wikimedia.org/wiki/Maps_Terms_of_Use">Wikimedia maps</a> | Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>',
 		'source' => 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png',
 	]
 ];

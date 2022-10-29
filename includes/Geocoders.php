@@ -114,7 +114,7 @@ class Geocoders {
 		if ( $param_polygon ) {
 			$urlArgs['polygon'] = '1';
 		}
-		$response = self::performRequest( 'http://open.mapquestapi.com/nominatim/v1/search.php?', $urlArgs );
+		$response = self::performRequest( 'https://open.mapquestapi.com/nominatim/v1/search.php?', $urlArgs );
 
 		if ( $response !== false ) {
 			$data = \FormatJson::decode( $response );
