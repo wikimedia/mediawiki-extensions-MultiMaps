@@ -101,8 +101,8 @@ class PointTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testGetData() {
 		$this->assertEquals(
-			$this->object->getData(),
-			[ 'lat' => 123, 'lon' => 321 ]
+			[ 'lat' => 123, 'lon' => 321 ],
+			$this->object->getData()
 		);
 	}
 
