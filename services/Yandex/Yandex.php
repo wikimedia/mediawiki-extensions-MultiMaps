@@ -23,7 +23,7 @@ class Yandex extends BaseMapService {
 
 	function __construct() {
 		parent::__construct();
-		$this->classname = "yandex";
+		$this->classname = 'yandex';
 		$this->resourceModules[] = 'ext.MultiMaps.Yandex';
 
 		$urlArgs = [];

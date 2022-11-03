@@ -23,7 +23,7 @@ class Google extends BaseMapService {
 
 	function __construct() {
 		parent::__construct();
-		$this->classname = "google";
+		$this->classname = 'google';
 		$this->resourceModules[] = 'ext.MultiMaps.Google';
 
 		$urlArgs = [];

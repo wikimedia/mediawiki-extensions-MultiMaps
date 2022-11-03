@@ -19,7 +19,7 @@ class GeoCoordinateTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testGetLatLonFromString() {
 		$this->assertEquals(
-			[ "lat" => 55.755831, "lon" => 37.617673 ], MultiMaps\GeoCoordinate::getLatLonFromString( "55.755831°, 37.617673°" )
+			[ 'lat' => 55.755831, 'lon' => 37.617673 ], MultiMaps\GeoCoordinate::getLatLonFromString( '55.755831°, 37.617673°' )
 		);
 	}
 
@@ -30,7 +30,7 @@ class GeoCoordinateTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testGetLatLonFromString2() {
 		$this->assertEquals(
-			[ "lat" => 55.755831, "lon" => 37.617673 ], MultiMaps\GeoCoordinate::getLatLonFromString( "N55.755831°, E37.617673°" )
+			[ 'lat' => 55.755831, 'lon' => 37.617673 ], MultiMaps\GeoCoordinate::getLatLonFromString( 'N55.755831°, E37.617673°' )
 		);
 	}
 
@@ -41,7 +41,7 @@ class GeoCoordinateTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testGetLatLonFromString3() {
 		$this->assertEquals(
-			[ "lat" => 55.755831, "lon" => 37.617673 ], MultiMaps\GeoCoordinate::getLatLonFromString( "55°45.34986'N, 37°37.06038'E" )
+			[ 'lat' => 55.755831, 'lon' => 37.617673 ], MultiMaps\GeoCoordinate::getLatLonFromString( '55°45.34986\'N, 37°37.06038\'E' )
 		);
 	}
 
@@ -52,7 +52,7 @@ class GeoCoordinateTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testGetLatLonFromString4() {
 		$this->assertEquals(
-			[ "lat" => 55.755831, "lon" => 37.617673 ], MultiMaps\GeoCoordinate::getLatLonFromString( "55°45'20.9916\"N, 37°37'3.6228\"E" )
+			[ 'lat' => 55.755831, 'lon' => 37.617673 ], MultiMaps\GeoCoordinate::getLatLonFromString( '55°45\'20.9916"N, 37°37\'3.6228"E' )
 		);
 	}
 
@@ -63,7 +63,7 @@ class GeoCoordinateTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testGetLatLonFromString5() {
 		$this->assertEquals(
-			[ "lat" => 55.755831, "lon" => 37.617673 ], MultiMaps\GeoCoordinate::getLatLonFromString( " 37°37'3.6228\"E, 55°45'20.9916\" " )
+			[ 'lat' => 55.755831, 'lon' => 37.617673 ], MultiMaps\GeoCoordinate::getLatLonFromString( ' 37°37\'3.6228"E, 55°45\'20.9916" ' )
 		);
 	}
 
@@ -74,7 +74,7 @@ class GeoCoordinateTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testGetLatLonFromString6() {
 		$this->assertEquals(
-			[ "lat" => 55.755831, "lon" => 37.617673 ], MultiMaps\GeoCoordinate::getLatLonFromString( " 37°37'3.6228\", 55°45'20.9916\" N " )
+			[ 'lat' => 55.755831, 'lon' => 37.617673 ], MultiMaps\GeoCoordinate::getLatLonFromString( ' 37°37\'3.6228", 55°45\'20.9916" N ' )
 		);
 	}
 
@@ -85,7 +85,7 @@ class GeoCoordinateTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testGetLatLonFromString7() {
 		$this->assertEquals(
-			[ "lat" => 55.755831, "lon" => 37.617673 ], MultiMaps\GeoCoordinate::getLatLonFromString( "55°45'20.9916\"N, 37°37'3.6228\"" )
+			[ 'lat' => 55.755831, 'lon' => 37.617673 ], MultiMaps\GeoCoordinate::getLatLonFromString( '55°45\'20.9916"N, 37°37\'3.6228"' )
 		);
 	}
 
@@ -96,7 +96,7 @@ class GeoCoordinateTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testGetLatLonFromString8() {
 		$this->assertEquals(
-			[ "lat" => 55.755831, "lon" => 37.617673 ], MultiMaps\GeoCoordinate::getLatLonFromString( "55°45'20.9916\", E37°37'3.6228\"" )
+			[ 'lat' => 55.755831, 'lon' => 37.617673 ], MultiMaps\GeoCoordinate::getLatLonFromString( '55°45\'20.9916", E37°37\'3.6228"' )
 		);
 	}
 
@@ -107,7 +107,7 @@ class GeoCoordinateTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testGetLatLonFromString9() {
 		$this->assertEquals(
-			[ "lat" => 10, "lon" => -10 ], MultiMaps\GeoCoordinate::getLatLonFromString( " 10  , - 10 " )
+			[ 'lat' => 10, 'lon' => -10 ], MultiMaps\GeoCoordinate::getLatLonFromString( ' 10  , - 10 ' )
 		);
 	}
 
@@ -118,7 +118,7 @@ class GeoCoordinateTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testGetLatLonFromString10() {
 		$this->assertEquals(
-			[ "lat" => -10, "lon" => -10 ], MultiMaps\GeoCoordinate::getLatLonFromString( "-10°,s10 °  " )
+			[ 'lat' => -10, 'lon' => -10 ], MultiMaps\GeoCoordinate::getLatLonFromString( '-10°,s10 °  ' )
 		);
 	}
 
@@ -129,7 +129,7 @@ class GeoCoordinateTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testGetLatLonFromString11() {
 		$this->assertEquals(
-			[ "lat" => -10.123456, "lon" => -1.123 ], MultiMaps\GeoCoordinate::getLatLonFromString( "s10.123456°,  -1.123°   " )
+			[ 'lat' => -10.123456, 'lon' => -1.123 ], MultiMaps\GeoCoordinate::getLatLonFromString( 's10.123456°,  -1.123°   ' )
 		);
 	}
 
@@ -140,7 +140,7 @@ class GeoCoordinateTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testGetLatLonFromString12() {
 		$this->assertEquals(
-			[ "lat" => 10.123456, "lon" => -1.123 ], MultiMaps\GeoCoordinate::getLatLonFromString( "10.123456° N,  1.123° W  " )
+			[ 'lat' => 10.123456, 'lon' => -1.123 ], MultiMaps\GeoCoordinate::getLatLonFromString( '10.123456° N,  1.123° W  ' )
 		);
 	}
 
@@ -151,7 +151,7 @@ class GeoCoordinateTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testGetLatLonFromString13() {
 		$this->assertEquals(
-			[ "lat" => -1.123, "lon" => -10.12 ], MultiMaps\GeoCoordinate::getLatLonFromString( "10.12° W,  1.123° s  " )
+			[ 'lat' => -1.123, 'lon' => -10.12 ], MultiMaps\GeoCoordinate::getLatLonFromString( '10.12° W,  1.123° s  ' )
 		);
 	}
 
@@ -162,7 +162,7 @@ class GeoCoordinateTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testGetLatLonFromString14() {
 		$this->assertEquals(
-			[ "lat" => 1.123, "lon" => -10.12 ], MultiMaps\GeoCoordinate::getLatLonFromString( "10.12° w,  1.123°" )
+			[ 'lat' => 1.123, 'lon' => -10.12 ], MultiMaps\GeoCoordinate::getLatLonFromString( '10.12° w,  1.123°' )
 		);
 	}
 
@@ -173,7 +173,7 @@ class GeoCoordinateTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testGetLatLonFromString15() {
 		$this->assertFalse(
-			MultiMaps\GeoCoordinate::getLatLonFromString( "Z10.12°,  1.123°" )
+			MultiMaps\GeoCoordinate::getLatLonFromString( 'Z10.12°,  1.123°' )
 		);
 	}
 
@@ -184,7 +184,7 @@ class GeoCoordinateTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testGetLatLonFromString16() {
 		$this->assertFalse(
-			MultiMaps\GeoCoordinate::getLatLonFromString( "10.12°, X1.123°" )
+			MultiMaps\GeoCoordinate::getLatLonFromString( '10.12°, X1.123°' )
 		);
 	}
 
@@ -195,7 +195,7 @@ class GeoCoordinateTest extends \PHPUnit\Framework\TestCase {
 	 */
 	public function testGetLatLonFromString17() {
 		$this->assertFalse(
-			MultiMaps\GeoCoordinate::getLatLonFromString( "Tralala" )
+			MultiMaps\GeoCoordinate::getLatLonFromString( 'Tralala' )
 		);
 	}
 

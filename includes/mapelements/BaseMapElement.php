@@ -190,7 +190,7 @@ abstract class BaseMapElement {
 		$matches = [];
 		$properties = implode( '|', $this->availableProperties );
 		foreach ( $param as $key => $paramvalue ) {
-			if ( preg_match( "/^\s*($properties)\s*=(.+)$/si", $paramvalue, $matches ) ) {
+			if ( preg_match( "/^\\s*($properties)\\s*=(.+)$/si", $paramvalue, $matches ) ) {
 				if ( !$this->setProperty( $matches[1], $matches[2] ) ) {
 					$return = false;
 				}

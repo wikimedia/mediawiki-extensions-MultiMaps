@@ -74,7 +74,7 @@ $wgResourceModules['ext.MultiMaps'] = [
 ];
 
 // Leaflet service
-$wgAutoloadClasses["MultiMaps\Leaflet"] = $dir . '/services/Leaflet/Leaflet.php';
+$wgAutoloadClasses['MultiMaps\\Leaflet'] = $dir . '/services/Leaflet/Leaflet.php';
 $wgResourceModules['ext.MultiMaps.Leaflet'] = [
 	'scripts' => [ 'ext.leaflet.js' ],
 	'localBasePath' => $dir . '/services/Leaflet',
@@ -82,7 +82,7 @@ $wgResourceModules['ext.MultiMaps.Leaflet'] = [
 ];
 
 // Google service
-$wgAutoloadClasses["MultiMaps\Google"] = $dir . '/services/Google/Google.php';
+$wgAutoloadClasses['MultiMaps\\Google'] = $dir . '/services/Google/Google.php';
 $wgResourceModules['ext.MultiMaps.Google'] = [
 	'scripts' => [ 'ext.google.js' ],
 	'localBasePath' => $dir . '/services/Google',
@@ -90,7 +90,7 @@ $wgResourceModules['ext.MultiMaps.Google'] = [
 ];
 
 // Yandex service
-$wgAutoloadClasses["MultiMaps\Yandex"] = $dir . '/services/Yandex/Yandex.php';
+$wgAutoloadClasses['MultiMaps\\Yandex'] = $dir . '/services/Yandex/Yandex.php';
 $wgResourceModules['ext.MultiMaps.Yandex'] = [
 	'scripts' => [ 'ext.yandex.js' ],
 	'localBasePath' => $dir . '/services/Yandex',

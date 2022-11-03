@@ -32,25 +32,25 @@ class PointTest extends \PHPUnit\Framework\TestCase {
 		$this->assertEquals( 123, $this->object->lat );
 		$this->assertEquals( 321, $this->object->lon );
 
-		$this->object->lat = "789";
+		$this->object->lat = '789';
 		$this->object->lon = 987;
 
 		$this->assertEquals( 789, $this->object->lat );
 		$this->assertEquals( 987, $this->object->lon );
 		$this->assertTrue( $this->object->isValid() );
 
-		$this->object->hello = "wassup!!!";
+		$this->object->hello = 'wassup!!!';
 		$this->assertNull( $this->object->hello );
 		$this->assertTrue( $this->object->isValid() );
 
-		$this->object->lat = "hello";
+		$this->object->lat = 'hello';
 		$this->assertFalse( $this->object->lat );
 		$this->assertFalse( $this->object->isValid() );
 
-		$this->object->lat = "789";
+		$this->object->lat = '789';
 		$this->assertTrue( $this->object->isValid() );
 
-		$this->object->lon = "hello";
+		$this->object->lon = 'hello';
 		$this->assertFalse( $this->object->lon );
 		$this->assertFalse( $this->object->isValid() );
 
@@ -87,11 +87,11 @@ class PointTest extends \PHPUnit\Framework\TestCase {
 	public function testIsValidParse() {
 		$this->assertTrue( $this->object->isValid() );
 
-		$this->object->parse( "123456" );
+		$this->object->parse( '123456' );
 
 		$this->assertFalse( $this->object->isValid() );
 
-		$this->object->parse( "123,456" );
+		$this->object->parse( '123,456' );
 
 		$this->assertTrue( $this->object->isValid() );
 	}

@@ -29,7 +29,7 @@ class Leaflet extends BaseMapService {
 
 		parent::__construct();
 
-		$this->classname = "leaflet";
+		$this->classname = 'leaflet';
 		$this->resourceModules[] = 'ext.MultiMaps.Leaflet';
 
 		$this->setLayerByKey( $layerKey );
