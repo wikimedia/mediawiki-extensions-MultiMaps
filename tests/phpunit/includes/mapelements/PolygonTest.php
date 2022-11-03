@@ -32,6 +32,9 @@ class PolygonTest extends \PHPUnit\Framework\TestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\Polygon::setProperty
+	 */
 	public function testSetProperty() {
 		$this->assertNull( $this->object->fill );
 

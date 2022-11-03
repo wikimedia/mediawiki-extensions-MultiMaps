@@ -28,6 +28,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		parent::setUp();
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseMarkerInZerro() {
 		$this->assertEquals(
 			\FormatJson::encode( $this->object->getMapData( [ '0,0', 'service=leaflet' ] ) ),
@@ -35,6 +38,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testInvalidTileLayer() {
 		$this->assertEquals(
 			\FormatJson::encode( $this->object->getMapData( [ '20,20', 'service=in.valid' ] ) ),
@@ -42,6 +48,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseOneMarker() {
 		$this->assertEquals(
 			\FormatJson::encode( $this->object->getMapData( [ '55.755786, 37.617633', 'service=leaflet' ] ) ),
@@ -49,6 +58,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseMarkers() {
 		$this->assertEquals(
 			\FormatJson::encode( $this->object->getMapData( [ '52.429222,13.359375; 53.383328,3.339843; 52.5897,2.548828; 52.855864,3.515625; 53.330872,1.757812', 'service=leaflet' ] ) ),
@@ -56,6 +68,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseOneMarkerTextOnly() {
 		$this->assertEquals(
 			$this->object->getMapData( [ '55.755786, 37.617633~~This is text', 'service=leaflet' ] ),
@@ -72,6 +87,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseOneMarkerTitleOnly() {
 		$this->assertEquals(
 			$this->object->getMapData( [ '55.755786, 37.617633~This is title ~', 'service=leaflet' ] ),
@@ -88,6 +106,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseOneMarkerTitleText() {
 		$this->assertEquals(
 			$this->object->getMapData( [ '55.755786, 37.617633~This is title ~ This is text ', 'service=leaflet' ] ),
@@ -105,6 +126,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseOneMarkerNamedTextOnly() {
 		$this->assertEquals(
 			$this->object->getMapData( [ '55.755786, 37.617633~Text = This is text', 'service=leaflet' ] ),
@@ -121,6 +145,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseOneMarkerNamedTitleOnly() {
 		$this->assertEquals(
 			$this->object->getMapData( [ '55.755786, 37.617633~ title=This is title ~', 'service=leaflet' ] ),
@@ -137,6 +164,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseOneMarkerNamedTextAndTile() {
 		$this->assertEquals(
 			$this->object->getMapData( [ '55.755786, 37.617633~tExT = This is text ~This is title ', 'service=leaflet' ] ),
@@ -154,6 +184,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseOneLine() {
 		$this->assertEquals(
 			\FormatJson::encode( $this->object->getMapData( [ ' ', 'lines = 53.225768 , 23.466796 : 53.956085,29.179687', 'service=leaflet' ] ) ),
@@ -161,6 +194,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseLines() {
 		$this->assertEquals(
 			\FormatJson::encode( $this->object->getMapData( [ ' ', 'lines=53.225768,23.466796:53.956085,29.179687:56.46249,31.113281:59.310767,30.673828:60.84491,27.333984:60.930432,21.269531:59.175928,16.611328:56.218923,16.259765:54.110942,19.599609:53.225768,23.466796', 'service=leaflet' ] ) ),
@@ -168,6 +204,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseOnePolygon() {
 		$this->assertEquals(
 			\FormatJson::encode( $this->object->getMapData( [ ' ', 'polygons=  62.103882,   5.097656 :   58.309488,5.71289 : 58.950008,10.898437', 'service=leaflet' ] ) ),
@@ -175,6 +214,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParsePolygons() {
 		$this->assertEquals(
 			\FormatJson::encode( $this->object->getMapData( [ 'polygons=62.103882,5.097656:58.309488,5.71289:58.950008,10.898437:61.689872,12.832031:63.352129,11.865234:64.129783,13.974609:65.58572,14.326171:68.560383,18.28125:68.528234,20.126953:69.224996,20.566406:69.224996,21.708984:68.624543,23.466796:69.005675,25.40039:69.960439,26.630859:70.140364,28.564453:69.256149,28.828125:69.839621,31.201171:70.757965,29.882812:71.102542,25.576171:70.728979,22.675781:69.990534,18.105468:67.842416,13.095703:68.334375,15.908203:63.704722,9.492187:63.782486,8.613281', 'service=leaflet' ] ) ),
@@ -182,6 +224,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseOneRectangle() {
 		$this->assertEquals(
 			\FormatJson::encode( $this->object->getMapData( [ ' ', ' ', ' ', 'rectangles  =51.835777  ,33.83789 : 46.377254 ,23.378906 ', 'service=leaflet' ] ) ),
@@ -189,6 +234,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseRectangles() {
 		$this->assertEquals(
 			\FormatJson::encode( $this->object->getMapData( [ ' ', 'rectangles  =51.835777  ,33.83789 : 46.377254 ,23.378906 ', 'rectangle= 2", 10°10\'12": 40°, 40°', 'service=leaflet' ] ) ),
@@ -196,6 +244,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseFalseRectangle() {
 		$badrectanglecoord = '10°10°10", 10°10\'12"';
 		$this->assertEquals(
@@ -237,6 +288,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseOneCircle() {
 		$this->assertEquals(
 			\FormatJson::encode( $this->object->getMapData( [ 'circle=57.421294,23.90625 : 326844.605182;', 'service=leaflet' ] ) ),
@@ -244,6 +298,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseCircles() {
 		$this->assertEquals(
 			\FormatJson::encode( $this->object->getMapData( [ 'circle=57.421294,23.90625 : 326844.605;', 'circles=40,40:400000', 'service=leaflet' ] ) ),
@@ -251,6 +308,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseFalseCircle() {
 		$badradius = 'one km';
 		$badcoord = '10°10°12", 10°10\'12"';
@@ -306,6 +366,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseAllElements() {
 		$this->assertEquals(
 			\FormatJson::encode( $this->object->getMapData( [
@@ -331,6 +394,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		$this->assertEquals( $this->object->getErrorMessages(),	[] );
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseAllElementsWithProperties() {
 		$this->assertEquals(
 			var_export( $this->object->getMapData( [
@@ -433,6 +499,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		$this->assertEquals( $this->object->getErrorMessages(),	[] );
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testMessageUnknownParameter() {
 		$badparam = 'thisisabadparameter';
 		$badvalue = 'thisisabadvalue';
@@ -448,6 +517,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testMessageElementMoreParameters() {
 		$marker = new Marker();
 
@@ -475,6 +547,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testMessageMarkerIncorrectIcon() {
 		$badicon = 'this is a bad icon';
 
@@ -489,6 +564,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseGeocoderMarker() {
 		global $egMultiMaps_AllowGeocoderTests;
 		if ( !$egMultiMaps_AllowGeocoderTests ) {
@@ -500,6 +578,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseGeocoderRectangle() {
 		global $egMultiMaps_AllowGeocoderTests;
 		if ( !$egMultiMaps_AllowGeocoderTests ) {
@@ -511,6 +592,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseGeocoderRectangles() {
 		global $egMultiMaps_AllowGeocoderTests;
 		if ( !$egMultiMaps_AllowGeocoderTests ) {
@@ -522,6 +606,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseGeocoderCircle() {
 		global $egMultiMaps_AllowGeocoderTests;
 		if ( !$egMultiMaps_AllowGeocoderTests ) {
@@ -533,6 +620,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseGeocoderObjectPolygon() {
 		global $egMultiMaps_AllowGeocoderTests;
 		if ( !$egMultiMaps_AllowGeocoderTests ) {
@@ -544,6 +634,9 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	/**
+	 * @covers MultiMaps\BaseMapService::getMapData
+	 */
 	public function testParseWikitext() {
 		$title = \Title::makeTitle( NS_SPECIAL, 'Badtitle/Dummy' );
 		$options = \ParserOptions::newFromAnon();

@@ -7,7 +7,7 @@ namespace MultiMaps;
 class MapServicesTest extends \MediaWikiIntegrationTestCase {
 
 	/**
-	 *
+	 * @covers MultiMaps\MapServices::getServiceInstance
 	 */
 	public function testGetServiceInstance() {
 		global $egMultiMaps_MapServices;
@@ -24,6 +24,9 @@ class MapServicesTest extends \MediaWikiIntegrationTestCase {
 		$this->assertNotEquals( $defaultServiceWARNING->getErrorMessages(), [] );
 	}
 
+	/**
+	 * @covers MultiMaps\MapServices::getServiceInstance
+	 */
 	public function testExceptionOnGetServiceInstance() {
 		global $egMultiMaps_MapServices;
 
@@ -35,6 +38,9 @@ class MapServicesTest extends \MediaWikiIntegrationTestCase {
 		$egMultiMaps_MapServices = $MapServices;
 	}
 
+	/**
+	 * @covers MultiMaps\MapServices::getServiceInstance
+	 */
 	public function testErrorsOnGetServiceInstance() {
 		global $egMultiMaps_MapServices;
 

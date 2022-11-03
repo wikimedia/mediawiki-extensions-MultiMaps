@@ -21,6 +21,9 @@ class GeocodersTest extends \PHPUnit\Framework\TestCase {
 		parent::setUp();
 	}
 
+	/**
+	 * @covers MultiMaps\Geocoders::getCoordinates
+	 */
 	public function testReturnFalseOnUnknownService() {
 		$this->assertFalse(
 			$this->object->getCoordinates( '', '' )
