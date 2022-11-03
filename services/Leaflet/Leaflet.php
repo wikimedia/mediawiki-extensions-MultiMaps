@@ -59,6 +59,6 @@ class Leaflet extends BaseMapService {
 
 		// Default layer
 		$this->properties['tileLayer'] = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-		$this->properties['attribution'] = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+		$this->properties['attribution'] = '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 	}
 }
