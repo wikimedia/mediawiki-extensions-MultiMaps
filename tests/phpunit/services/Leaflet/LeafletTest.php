@@ -238,6 +238,7 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 	 * @covers MultiMaps\BaseMapService::getMapData
 	 */
 	public function testParseRectangles() {
+		$this->markTestSkipped( 'All HTTP requests are banned in tests. See T265628.' );
 		$this->assertEquals(
 			\FormatJson::encode( $this->object->getMapData( [ ' ', 'rectangles  =51.835777  ,33.83789 : 46.377254 ,23.378906 ', 'rectangle= 2", 10°10\'12": 40°, 40°', 'service=leaflet' ] ) ),
 			'{"rectangles":[{"pos":[{"lat":51.835777,"lon":33.83789},{"lat":46.377254,"lon":23.378906}]}],"bounds":{"ne":{"lat":51.835777,"lon":33.83789},"sw":{"lat":46.377254,"lon":23.378906}}}'
@@ -248,6 +249,7 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 	 * @covers MultiMaps\BaseMapService::getMapData
 	 */
 	public function testParseFalseRectangle() {
+		$this->markTestSkipped( 'All HTTP requests are banned in tests. See T265628.' );
 		$badrectanglecoord = '10°10°10", 10°10\'12"';
 		$this->assertEquals(
 			\FormatJson::encode( $this->object->getMapData( [ ' ', 'rectangles  =51.835777  ,33.83789 : 46.377254 ,23.378906 ', "rectangle=$badrectanglecoord: 40, 40", 'service=leaflet' ] ) ),
@@ -312,6 +314,7 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 	 * @covers MultiMaps\BaseMapService::getMapData
 	 */
 	public function testParseFalseCircle() {
+		$this->markTestSkipped( 'All HTTP requests are banned in tests. See T265628.' );
 		$badradius = 'one km';
 		$badcoord = '10°10°12", 10°10\'12"';
 
