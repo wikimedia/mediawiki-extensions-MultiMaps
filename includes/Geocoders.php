@@ -1,6 +1,8 @@
 <?php
 namespace MultiMaps;
 
+use MediaWiki\MediaWikiServices;
+
 /**
  *
  *
@@ -25,7 +27,7 @@ class Geocoders {
 	}
 
 	private static function performRequest( $url, $urlArgs ) {
-		return \Http::get( $url . wfArrayToCgi( $urlArgs ) );
+		return MediaWikiServices::getInstance()->getHttpRequestFactory()->get( $url . wfArrayToCgi( $urlArgs ) );
 	}
 
 	private static function getCoordinatesUseGoogle( $address ) {
@@ -37,7 +39,7 @@ class Geocoders {
 			];
 		$response = self::performRequest( 'https://maps.googleapis.com/maps/api/geocode/json?', $urlArgs );
 
-		if ( $response !== false ) {
+		if ( $response !== null ) {
 			$data = \FormatJson::decode( $response );
 			if ( $data !== null ) {
 				if ( $data->status == 'OK' ) {
@@ -73,7 +75,7 @@ class Geocoders {
 			];
 		$response = self::performRequest( 'https://geocode-maps.yandex.ru/1.x/?', $urlArgs );
 
-		if ( $response !== false ) {
+		if ( $response !== null ) {
 			$data = \FormatJson::decode( $response );
 			if ( $data !== null ) {
 				$geoObjectCollection = $data->response->GeoObjectCollection;
@@ -116,7 +118,7 @@ class Geocoders {
 		}
 		$response = self::performRequest( 'https://open.mapquestapi.com/nominatim/v1/search.php?', $urlArgs );
 
-		if ( $response !== false ) {
+		if ( $response !== null ) {
 			$data = \FormatJson::decode( $response );
 			if ( isset( $data[0] ) ) {
 				$data = $data[0];
