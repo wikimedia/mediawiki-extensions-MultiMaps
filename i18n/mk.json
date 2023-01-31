@@ -25,7 +25,7 @@
 	"multimaps-marker-incorrect-shadow-url": "Укажана е неисправната URL „$1“ за сенката на иконата.",
 	"multimaps-marker-incorrect-shadow-size": "Укажана е неисправната големина „$1“ за сенката на иконата „$2“.",
 	"multimaps-marker-incorrect-shadow-anchor": "Укажана е неисправната котва „$1“ за сенката на иконата „$2“.",
-	"multimaps-passed-unavailable-service": "Во списокот на расположиви служби ($2) не најдов таква со име „$1“. Ја употребив основно-зададената служба „$3“",
+	"multimaps-passed-unavailable-service": "Во списокот на расположливи служби ($2) не најдов таква со име „$1“. Ја употребив основно зададената служба „$3“",
 	"multimaps-square-wrong-number-points": "координатите на полето треба да содржат само две точки, но {{PLURAL:$1|укажана е само една|укажани се $1}}",
 	"multimaps-unable-create-element": "Не можам да го создадам елементот „$1“",
 	"multimaps-unable-parse-coordinates": "не можам да ги расчленам географските координати „$1“",
