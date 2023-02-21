@@ -6,7 +6,7 @@
 	},
 	"multimaps-desc": "Uporabnikom omogoča prikaz zemljevidov in usklajevanje podatkov z uporabo več kartografskih storitev",
 	"multimaps-loading-map": "Nalaganje zemljevida ...",
-	"multimaps-mapservices-must-not-empty-array": "Spremenljivka »$1« ne sme biti prazno polje",
+	"multimaps-mapservices-must-not-empty-array": "Spremenljivka »$1« ne sme biti prazna matrika",
 	"multimaps-undefined-service-for-layout": "Nedefiniran parameter storitve za postavitev »$1« v $egMultiMaps_MapServices",
 	"multimaps-wrong-service-for-layout": "Za postavitev »$1« je določena storitev »$2«, vendar v $egMultiMaps_MapServices ne obstaja",
 	"multimaps-layout-defined-for-layout": "Za postavitev »$1« je določena druga postavitev »$2« namesto storitve v $egMultiMaps_MapServices",
