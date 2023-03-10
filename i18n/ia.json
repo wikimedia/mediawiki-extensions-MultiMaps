@@ -6,7 +6,7 @@
 	},
 	"multimaps-desc": "Permitte al usatores de monstrar cartas e datos de coordinatas usante plure servicio cartographic",
 	"multimaps-loading-map": "Cargamento del carta…",
-	"multimaps-mapservices-must-not-empty-array": "Le variabile \"$1\" non debe esser un array vacue",
+	"multimaps-mapservices-must-not-empty-array": "Le variabile \"$1\" non debe esser un matrice vacue",
 	"multimaps-undefined-service-for-layout": "Parametro de servicio non definite pro le disposition \"$1\" in $egMultiMaps_MapServices",
 	"multimaps-wrong-service-for-layout": "Pro le disposition \"$1\" es definite le servicio \"$2\" ma illo non existe in $egMultiMaps_MapServices",
 	"multimaps-layout-defined-for-layout": "Pro le disposition \"$1\" es definite un altere disposition \"$2\" in loco de un servicio in $egMultiMaps_MapServices",
