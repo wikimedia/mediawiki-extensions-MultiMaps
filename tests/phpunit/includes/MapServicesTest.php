@@ -20,8 +20,8 @@ class MapServicesTest extends \MediaWikiIntegrationTestCase {
 		$this->assertTrue( $defaultServiceWARNING instanceof BaseMapService );
 		$this->assertEquals( $defaultService, $firstService );
 		$this->assertEquals( $defaultService->classname, $defaultServiceWARNING->classname );
-		$this->assertEquals( $defaultService->getErrorMessages(), [] );
-		$this->assertNotEquals( $defaultServiceWARNING->getErrorMessages(), [] );
+		$this->assertEquals( [], $defaultService->getErrorMessages() );
+		$this->assertNotEquals( [], $defaultServiceWARNING->getErrorMessages() );
 	}
 
 	/**
