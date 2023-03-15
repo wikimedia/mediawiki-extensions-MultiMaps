@@ -11,6 +11,7 @@
 	},
 	"rules": {
 		"no-restricted-properties": "warn",
-		"no-jquery/no-global-selector": "warn"
+		"no-jquery/no-global-selector": "warn",
+		"es-x/no-array-prototype-fill": "warn"
 	}
 }
