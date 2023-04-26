@@ -25,7 +25,7 @@
 	"multimaps-marker-incorrect-icon-url": "Une adresse URL incorrecte \" $1 \" a été attribuée à l'icône de marqueur.",
 	"multimaps-marker-incorrect-icon-size": "Une taille incorrecte \"$1\" a été attribuée à l'icône de marqueur \"$2\".",
 	"multimaps-marker-incorrect-icon-anchor": "Une ancre incorrecte \"$1\" a été attribuée à l'icône de marqueur \"$2\"",
-	"multimaps-marker-incorrect-shadow-file": "Un nom de fichier incorrect \"$1\" a été attribué à l'ombre des icônes.",
+	"multimaps-marker-incorrect-shadow-file": "Un nom de fichier incorrect « $1 » a été fourni pour l’ombre de l’icône.",
 	"multimaps-marker-incorrect-shadow-url": "Une URL incorrecte, « $1 », a été fournie pour l’ombre de l’icône.",
 	"multimaps-marker-incorrect-shadow-size": "Une taille incorrecte \"$1\" a été attribuée à l'ombre de l'icône \"$2\".",
 	"multimaps-marker-incorrect-shadow-anchor": "Une ancre incorrecte, « $1 », a été fournie pour l’ombre de l’icône « $2 ».",
