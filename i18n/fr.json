@@ -26,7 +26,7 @@
 	"multimaps-marker-incorrect-icon-size": "Une taille incorrecte « $1 » a été fournie pour l’icône du marqueur « $2 ».",
 	"multimaps-marker-incorrect-icon-anchor": "Une ancre incorrecte « $1 » a été fournie pour l’icône du marqueur « $2 ».",
 	"multimaps-marker-incorrect-shadow-file": "Un nom de fichier incorrect « $1 » a été fourni pour l’ombre de l’icône.",
-	"multimaps-marker-incorrect-shadow-url": "Une URL incorrecte « $1 » a été fournie pour l’ombre de l’icône.",
+	"multimaps-marker-incorrect-shadow-url": "Une URL incorrecte « $1 » a été fournie pour l’ombre de l’icône.",
 	"multimaps-marker-incorrect-shadow-size": "Une taille incorrecte « $1 » a été fournie pour l’ombre de l’icône « $2 ».",
 	"multimaps-marker-incorrect-shadow-anchor": "Une ancre incorrecte « $1 » a été fournie pour l’ombre de l’icône « $2 ».",
 	"multimaps-passed-unavailable-service": "Nom de service « $1 » non trouvé dans la liste des services disponibles ($2). Le service par défaut « $3 » est utilisé.",
