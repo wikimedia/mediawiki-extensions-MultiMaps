@@ -29,7 +29,7 @@
 	"multimaps-square-wrong-number-points": "נקודות ציון של הריבוע צריכות להכיל רק שתי נקודות, אבל {{PLURAL:$1|צוינה נקודה אחת|צוינו $1 נקודות}}",
 	"multimaps-unable-create-element": "לא ניתן ליצור את רכיב המפה \"$1\"",
 	"multimaps-unable-parse-coordinates": "אין אפשרות לפענח את נקודות הציון הגאוגרפיות \"$1\"",
-	"multimaps-unable-parse-parameter": "לא ניתן לפענח את הפרמטר \"$1\" הערך הוא \"$2\"",
+	"multimaps-unable-parse-parameter": "לא ניתן לפענח את הפרמטר \"$1\", הערך הוא \"$2\"",
 	"multimaps-unable-parse-radius": "רדיוס המעגל חייב להיות ערך מספרי, אך צוין \"$1\"",
 	"multimaps-unknown-class-for-service": "לא ניתן למצוא את המחלקה \"$1\" המוגדרת עבור השירות.",
 	"multimaps-unknown-parameter": "פרמטר לא ידוע: \"$1\"",
