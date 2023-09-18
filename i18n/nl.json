@@ -15,7 +15,7 @@
 	"multimaps-element-more-parameters": "Voor het kaartelement \"$1\" zijn meer parameters opgegeven dan verwacht:",
 	"multimaps-element-parameters-not-processed": "de volgende parameters zijn niet verwerkt: $1",
 	"multimaps-circle-radius-not-defined": "voor cirkels moet een straal worden opgegeven",
-	"multimaps-circle-wrong-number-parameters": "voor cirkels moeten twee parameters worden opgegeven; de coördinaten van het middelpunt en de straal. Hier {{PLURAL:$1|is één parameter|zijn $1 parameters}} opgegeven",
+	"multimaps-circle-wrong-number-parameters": "voor cirkels moeten twee parameters worden opgegeven: de coördinaten van het middelpunt en de straal. Hier {{PLURAL:$1|is echter één parameter|zijn echter $1 parameters}} opgegeven",
 	"multimaps-marker-incorrect-icon": "voor de pictogrammarkering is een onjuiste bestandsnaam \"$1\" opgegeven",
 	"multimaps-marker-incorrect-icon-url": "Er is een onjuiste URL \"$1\" opgegeven voor het markeringspictogram.",
 	"multimaps-marker-incorrect-icon-size": "Er is een onjuiste grootte \"$1\" opgegeven voor het markeringspictogram \"$2\".",

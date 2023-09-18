@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nibi-zhimaaganish"
+		]
+	},
+	"multimaps-element-illegal-value": "Biindig minik \"$1\", bagidin apiitenim \"$2\" gii idan. Odaapin apiitenimed ayaa: $3",
+	"multimaps-unable-parse-parameter": "gaawiiin biindig daashkikaa minik \"$1\", apiitenim ayaa \"$2\""
+}

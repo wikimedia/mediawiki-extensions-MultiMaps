@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Alesaru"
+		]
+	},
+	"multimaps-had-following-errors": "La analizarea parametrilor trecuți, au apărut următoarele erori:",
+	"multimaps-element-illegal-value": "pentru parameterul \"$1\", a fost specificată valoarea ilegală \"$2\" . Valorile valabile sunt: $3",
+	"multimaps-element-more-parameters": "Pentru acest element de hartă „ $1 ”, au fost trecuți mai mulți parametri decât se aștepta:",
+	"multimaps-circle-radius-not-defined": "pentru cerc trebuie definită raza",
+	"multimaps-circle-wrong-number-parameters": "pentru cerc trebuie definiți doar doi parametri — coordonatele centrului și razei. Dar {{PLURAL:$1| un parametru a fost| Parametrii $1 au fost specificati}}",
+	"multimaps-square-wrong-number-points": "coordonatele pătratului ar trebui să conțină doar două puncte, dar {{PLURAL:$1| un punct a fost| $1 puncte au fost specificate}}",
+	"multimaps-unable-parse-parameter": "Nu se poate analiza parametrul $1, valoarea este $2",
+	"multimaps-unable-parse-radius": "raza cercului trebuie să fie o valoare numerică, dar a fost specificat „ $1 ”."
+}

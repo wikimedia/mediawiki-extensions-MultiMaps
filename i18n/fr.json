@@ -3,6 +3,7 @@
 		"authors": [
 			"Gomoko",
 			"Manohisoa",
+			"Obscaeris",
 			"Thibaut120094",
 			"Verdy p",
 			"Wladek92"
@@ -33,7 +34,7 @@
 	"multimaps-square-wrong-number-points": "les coordonnées de la zone rectangulaire ne doivent contenir que deux points, mais {{PLURAL:$1|un seul point a été spécifié|$1 point ont été spécifiés}}",
 	"multimaps-unable-create-element": "L’élément de carte « $1 » ne peut pas être créé",
 	"multimaps-unable-parse-coordinates": "impossible d’analyser les coordonnées géographiques « $1 »",
-	"multimaps-unable-parse-parameter": "impossible d’analyser le paramètre « $1 », la valeur est « $2 »",
+	"multimaps-unable-parse-parameter": "impossible d’analyser le paramètre « $1 », sa valeur est « $2 »",
 	"multimaps-unable-parse-radius": "le rayon du cercle doit être une valeur numérique, mais « $1 » a été spécifié",
 	"multimaps-unknown-class-for-service": "La classe « $1 » définie pour le service est introuvable.",
 	"multimaps-unknown-parameter": "Paramètre inconnu : « $1 »",

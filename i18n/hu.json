@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hanna Tardos"
+		]
+	},
+	"multimaps-circle-radius-not-defined": "a körhöz meg kell adni a sugarat",
+	"multimaps-unable-parse-radius": "A kör sugarának számszerű értéknek kell lennie, de \"$1\" adott"
+}
