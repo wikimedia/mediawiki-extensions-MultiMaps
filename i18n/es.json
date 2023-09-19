@@ -4,12 +4,13 @@
 			"DiegoAmbrocio",
 			"Fitoschido",
 			"Macofe",
+			"MarcoAurelio",
 			"Salvador alc"
 		]
 	},
 	"multimaps-loading-map": "Cargando el mapa…",
 	"multimaps-mapservices-must-not-empty-array": "La variable «$1» no debe ser una matriz vacía",
-	"multimaps-had-following-errors": "Ocurrieron los errores siguientes al analizar los parámetros:",
+	"multimaps-had-following-errors": "Se han producido los siguientes errores al analizar los parámetros:",
 	"multimaps-element-parameters-not-processed": "no se procesaron los parámetros siguientes: $1",
 	"multimaps-circle-radius-not-defined": "para el círculo se debe definir el radio",
 	"multimaps-marker-incorrect-icon-url": "Se proporcionó un URL incorrecto \"$1\" para el icono del marcador.",
