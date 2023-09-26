@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"LittlePaw365",
 			"Liuxinyu970226",
 			"Yfdyh000",
 			"乌拉跨氪"
@@ -28,7 +29,7 @@
 	"multimaps-unable-create-element": "无法创建地图元素“$1”",
 	"multimaps-unable-parse-coordinates": "无法解析地理坐标“$1”",
 	"multimaps-unable-parse-parameter": "无法解析值为$2的参数$1",
-	"multimaps-unable-parse-radius": "圆的半径必须是一个数值，但却指定了“$1”",
+	"multimaps-unable-parse-radius": "圆的半径必须是数字值，但指定的是“$1”",
 	"multimaps-unknown-class-for-service": "找不到为服务定义的级别“$1”。",
 	"multimaps-unknown-parameter": "未知参数：“$1”",
 	"multimaps-error-incorrect-class-for-service": "为服务定义的级别“$1”不能被使用。",
