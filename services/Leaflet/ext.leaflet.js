@@ -7,7 +7,7 @@
  */
 
 /* global L */
-mediaWiki.MultiMapsLeaflet = {
+mw.MultiMapsLeaflet = {
 	/**
 	 * Convert properties given from multimaps extension to options of map element
 	 *
@@ -167,35 +167,35 @@ mediaWiki.MultiMapsLeaflet = {
 		// Add the markers.
 		if ( options.markers !== undefined ) {
 			for ( i = 0; i < options.markers.length; i++ ) {
-				this.addMarker( map, mediaWiki.MultiMaps.fillByGlobalOptions( options, 'marker', options.markers[ i ] ) );
+				this.addMarker( map, mw.MultiMaps.fillByGlobalOptions( options, 'marker', options.markers[ i ] ) );
 			}
 		}
 
 		// Add lines
 		if ( options.lines !== undefined ) {
 			for ( i = 0; i < options.lines.length; i++ ) {
-				this.addLine( map, mediaWiki.MultiMaps.fillByGlobalOptions( options, 'line', options.lines[ i ] ) );
+				this.addLine( map, mw.MultiMaps.fillByGlobalOptions( options, 'line', options.lines[ i ] ) );
 			}
 		}
 
 		// Add polygons
 		if ( options.polygons !== undefined ) {
 			for ( i = 0; i < options.polygons.length; i++ ) {
-				this.addPolygon( map, mediaWiki.MultiMaps.fillByGlobalOptions( options, 'polygon', options.polygons[ i ] ) );
+				this.addPolygon( map, mw.MultiMaps.fillByGlobalOptions( options, 'polygon', options.polygons[ i ] ) );
 			}
 		}
 
 		// Add circles
 		if ( options.circles !== undefined ) {
 			for ( i = 0; i < options.circles.length; i++ ) {
-				this.addCircle( map, mediaWiki.MultiMaps.fillByGlobalOptions( options, 'circle', options.circles[ i ] ) );
+				this.addCircle( map, mw.MultiMaps.fillByGlobalOptions( options, 'circle', options.circles[ i ] ) );
 			}
 		}
 
 		// Add rectangles
 		if ( options.rectangles !== undefined ) {
 			for ( i = 0; i < options.rectangles.length; i++ ) {
-				this.addRectangle( map, mediaWiki.MultiMaps.fillByGlobalOptions( options, 'rectangle', options.rectangles[ i ] ) );
+				this.addRectangle( map, mw.MultiMaps.fillByGlobalOptions( options, 'rectangle', options.rectangles[ i ] ) );
 			}
 		}
 
@@ -215,7 +215,7 @@ mediaWiki.MultiMapsLeaflet = {
 	}
 };
 
-( function ( $, mw ) {
+( function () {
 
 	$( function () {
 		mw.loader.using( 'ext.MultiMaps', function () {
@@ -226,4 +226,4 @@ mediaWiki.MultiMapsLeaflet = {
 		} );
 	} );
 
-}( jQuery, mediaWiki ) );
+}() );

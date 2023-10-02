@@ -6,7 +6,7 @@
  * @author Pavel Astakhov < pastakhov@yandex.ru >
  */
 
-mediaWiki.MultiMaps = {
+mw.MultiMaps = {
 	fillByGlobalOptions: function ( globalOptions, elementname, elementoptions ) {
 		if ( globalOptions.title && !elementoptions.title ) {
 			elementoptions.title = globalOptions.title;
