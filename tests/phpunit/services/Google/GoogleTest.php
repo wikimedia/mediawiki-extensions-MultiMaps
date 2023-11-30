@@ -29,7 +29,7 @@ class GoogleTest extends \PHPUnit\Framework\TestCase {
 	 * @covers MultiMaps\BaseMapService::getMapData
 	 */
 	public function testParseGeocoderMarker() {
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'{"markers":[{"pos":[{"lat":[0-9\.]+,"lon":[0-9\.]+}]}],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[0-9\.]+}}}',
 			\FormatJson::encode( $this->object->getMapData( [ 'Moscow', 'service=google' ] ) )
 		);
@@ -39,7 +39,7 @@ class GoogleTest extends \PHPUnit\Framework\TestCase {
 	 * @covers MultiMaps\BaseMapService::getMapData
 	 */
 	public function testParseGeocoderRectangle() {
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'{"rectangles":\[{"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+},{"lat":[0-9\.]+,"lon":[0-9\.]+}\]}\],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[0-9\.]+}}}',
 			\FormatJson::encode( $this->object->getMapData( [ 'rectangle=Moscow', 'service=google' ] ) )
 		);
@@ -49,7 +49,7 @@ class GoogleTest extends \PHPUnit\Framework\TestCase {
 	 * @covers MultiMaps\BaseMapService::getMapData
 	 */
 	public function testParseGeocoderRectangles() {
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'{"rectangles":\[{"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+},{"lat":[0-9\.]+,"lon":[0-9\.]+}\]},{"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+},{"lat":[-0-9\.]+,"lon":[-0-9\.]+}]}],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[-0-9\.]+}}}',
 			\FormatJson::encode( $this->object->getMapData( [ 'rectangle=Moscow;London', 'service=google' ] ) )
 		);
@@ -59,7 +59,7 @@ class GoogleTest extends \PHPUnit\Framework\TestCase {
 	 * @covers MultiMaps\BaseMapService::getMapData
 	 */
 	public function testParseGeocoderCircle() {
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'{"circles":\[{"radius":\[[0-9\.]+\],"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+}\]}\],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[0-9\.]+}}}',
 			\FormatJson::encode( $this->object->getMapData( [ 'circle=Moscow', 'service=google' ] ) )
 		);

@@ -574,7 +574,7 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		if ( !$egMultiMaps_AllowGeocoderTests ) {
 			$this->markTestSkipped( 'Requires $egMultiMaps_AllowGeocoderTests' );
 		}
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			\FormatJson::encode( $this->object->getMapData( [ 'Moscow', 'service=leaflet' ] ) ),
 			'{"markers":\[{"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+}\]}\],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[0-9\.]+}}}'
 		);
@@ -588,7 +588,7 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		if ( !$egMultiMaps_AllowGeocoderTests ) {
 			$this->markTestSkipped( 'Requires $egMultiMaps_AllowGeocoderTests' );
 		}
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'{"rectangles":\[{"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+},{"lat":[0-9\.]+,"lon":[0-9\.]+}\]}\],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[0-9\.]+}}}',
 			\FormatJson::encode( $this->object->getMapData( [ 'rectangle=Moscow', 'service=leaflet' ] ) )
 		);
@@ -602,7 +602,7 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		if ( !$egMultiMaps_AllowGeocoderTests ) {
 			$this->markTestSkipped( 'Requires $egMultiMaps_AllowGeocoderTests' );
 		}
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'{"rectangles":\[{"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+},{"lat":[0-9\.]+,"lon":[0-9\.]+}\]},{"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+},{"lat":[-0-9\.]+,"lon":[-0-9\.]+}]}],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[-0-9\.]+}}}',
 			\FormatJson::encode( $this->object->getMapData( [ 'rectangle=Moscow;London', 'service=leaflet' ] ) )
 		);
@@ -616,7 +616,7 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		if ( !$egMultiMaps_AllowGeocoderTests ) {
 			$this->markTestSkipped( 'Requires $egMultiMaps_AllowGeocoderTests' );
 		}
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'{"circles":\[{"radius":\[[0-9\.]+\],"pos":\[{"lat":[0-9\.]+,"lon":[0-9\.]+}\]}\],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[0-9\.]+}}}',
 			\FormatJson::encode( $this->object->getMapData( [ 'circle=Moscow', 'service=leaflet' ] ) )
 		);
@@ -630,7 +630,7 @@ class LeafletTest extends \MediaWikiIntegrationTestCase {
 		if ( !$egMultiMaps_AllowGeocoderTests ) {
 			$this->markTestSkipped( 'Requires $egMultiMaps_AllowGeocoderTests' );
 		}
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'{"polygons":\[\{"pos":\[(\{"lat":[0-9\.]+,"lon":[0-9\.]+\},?)+\]\}\],"bounds":{"ne":{"lat":[0-9\.]+,"lon":[0-9\.]+},"sw":{"lat":[0-9\.]+,"lon":[0-9\.]+}}}',
 			\FormatJson::encode( $this->object->getMapData( [ 'polygon=Astana', 'service=leaflet' ] ) )
 		);
