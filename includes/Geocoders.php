@@ -81,15 +81,15 @@ class Geocoders {
 				$geoObjectCollection = $data->response->GeoObjectCollection;
 				if ( $geoObjectCollection->metaDataProperty->GeocoderResponseMetaData->found > 0 ) {
 					$geoObject = $geoObjectCollection->featureMember[0]->GeoObject;
-					list( $lon, $lat ) = explode( ' ', $geoObject->Point->pos );
+					[ $lon, $lat ] = explode( ' ', $geoObject->Point->pos );
 					$point = new Point( $lat, $lon );
 					if ( $point->isValid() ) {
 						$return = $point->pos;
 						$envelope = $geoObject->boundedBy->Envelope;
 						if ( $envelope !== null ) {
-							list( $lon, $lat ) = explode( ' ', $envelope->upperCorner );
+							[ $lon, $lat ] = explode( ' ', $envelope->upperCorner );
 							$bounds_ne = new Point( $lat, $lon );
-							list( $lon, $lat ) = explode( ' ', $envelope->lowerCorner );
+							[ $lon, $lat ] = explode( ' ', $envelope->lowerCorner );
 							$bounds_sw = new Point( $lat, $lon );
 							if ( $bounds_ne->isValid() && $bounds_sw->isValid() ) {
 								$b = new Bounds( [ $bounds_ne, $bounds_sw ] );
