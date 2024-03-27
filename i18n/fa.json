@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Armin1392"
+			"Armin1392",
+			"Ebraminio"
 		]
 	},
 	"multimaps-desc": "اجازه به کاربران برای نمایش نقشه‌ها و اطلاعات مختصات با استفاده از چندین سرویس‌های نقشه‌برداری",
@@ -29,7 +30,7 @@
 	"multimaps-unable-parse-radius": "شعاع دایره باید یک مقدار عددی باشد، اما \"$1\" تعیین شده",
 	"multimaps-unknown-class-for-service": "کلاس \"$1\" که برای سرویس تعریف شده است، نمی‌تواند پیدا شود.",
 	"multimaps-unknown-parameter": "پارامتر ناشناخته: \"$1\"",
-	"multimaps-error-incorrect-class-for-service": "کلاس \"$1\" که برای سرویس تعریف شده‌است، نمی‌تواند استفاده شود.",
+	"multimaps-error-incorrect-class-for-service": "کلاس \"$1\" که برای سرویس تعریف شده است، نمی‌تواند استفاده شود.",
 	"multimaps-method-error-unknown-action": "$1: عمل ناشناخته",
 	"multimaps-method-error-unexpected-result": "$1: نتیجهٔ یک عملیات غیرمنتظره"
 }
