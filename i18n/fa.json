@@ -24,7 +24,7 @@
 	"multimaps-marker-incorrect-shadow-anchor": "انکر نادرست \"$1\" برای علامت پنهان \"$2\" ارائه شده بود.",
 	"multimaps-passed-unavailable-service": "نام سرویس \" $1 \" در فهرست سرویس‌های در دسترس ( $2 ) پیدا نشد. سرویس پیش فرض استفاده شدهٔ \" $3 \"",
 	"multimaps-square-wrong-number-points": "مختصات مربع باید شامل فقط دو نقطه باشد، اما {{PLURAL:$1|یک نقطه|$1 نقاط}} تعیین شده",
-	"multimaps-unable-create-element": "بخش نقشهٔ \"$1\" نمی تواند ایجاد شود",
+	"multimaps-unable-create-element": "بخش نقشهٔ \"$1\" نمی‌تواند ایجاد شود",
 	"multimaps-unable-parse-coordinates": "قادر به تجزیهٔ‌ مختصات جغرافیایی \"$1\" نیست",
 	"multimaps-unable-parse-parameter": "قادر به تجزیهٔ پارامتر \"$1\" که مقدارش \"$2\" است، نیست",
 	"multimaps-unable-parse-radius": "شعاع دایره باید یک مقدار عددی باشد، اما \"$1\" تعیین شده",
