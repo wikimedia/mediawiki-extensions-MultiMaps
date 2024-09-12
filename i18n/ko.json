@@ -3,12 +3,16 @@
 		"authors": [
 			"Priviet",
 			"Ykhwong",
-			"아라"
+			"아라",
+			"Suleiman the Magnificent Television"
 		]
 	},
 	"multimaps-desc": "사용자가 다중 매핑 서비스를 사용하는 좌표 데이터와 지도를 표시하도록 하기",
 	"multimaps-loading-map": "지도를 불러오는 중...",
 	"multimaps-mapservices-must-not-empty-array": "\"$1\" 변수가 빈 배열이 아니어야 합니다",
+	"multimaps-undefined-service-for-layout": "레이아웃 \"$1\"에 대한 정의되지 않은 서비스 매개변수 $egMultiMaps_MapServices",
+	"multimaps-wrong-service-for-layout": "$egMultiMaps_MapServices에 존재하지 않는 \"$2\" 서비스가 레이아웃 \"$1\"에 정의되어 있습니다",
+	"multimaps-layout-defined-for-layout": "$egMultiMaps_MapServices에서 서비스 대신 레이아웃 \"$1\"에 레이아웃 \"$2\"가 정의되어 있습니다",
 	"multimaps-had-following-errors": "구문 분석하는 동안 전달된 변수가 다음 오류를 일으켰습니다:",
 	"multimaps-element-illegal-value": "\"$1\" 변수가 잘못된 \"$2\" 값을 지정했습니다. 올바른 값은: $3",
 	"multimaps-element-more-parameters": "이 지도 요소 \"$1\"가 예상보다 더 많은 매개변수를 전달했습니다:",
