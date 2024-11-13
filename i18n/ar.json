@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"ترجمان05",
-			"ديفيد"
+			"ديفيد",
+			"Meno25"
 		]
 	},
 	"multimaps-desc": "يسمح للمستخدمين بعرض الخرائط وبيانات الإحداثيات باستخدام عدة خدمات رسم خرائط",
@@ -13,10 +14,10 @@
 	"multimaps-layout-defined-for-layout": "بالنسبة للتصميم \"$1\"، حدد اللتصميم الآخر \"$2\" بدلا من الخدمة في $egMultiMaps_MapServices",
 	"multimaps-leaflet-undefined-parameters-for-layer": "يجب توفير الوسيط \"source\" و\"attribution\" لطبقة \"$1\" $egMultiMaps_MapServices",
 	"multimaps-had-following-errors": "عند تحليل الوسائط التي تم تمريرها احتوت على الأخطاء التالية:",
-	"multimaps-element-illegal-value": "بالنسبة للوسيط \"$1\" تم تحديد قيمة غير قانونية \"$2\"; القيم الصالحة هي: $3",
-	"multimaps-element-more-parameters": "بالنسبة لعنصر الخريطة هذا \"$1\" مرر وسائط أكثر منن المتوقع:",
+	"multimaps-element-illegal-value": "للفاروم \"$1\" ، تم تحديد القيمة غير القانونية \"$2\" . القيم المفعولة هي: $3",
+	"multimaps-element-more-parameters": "لهذا العنصر الخريط \"$1\" تم تمرير المزيد من المعلمات من المتوقع:",
 	"multimaps-element-parameters-not-processed": "الوسائط التالية لم تتم معالجتها: $1",
-	"multimaps-circle-radius-not-defined": "للدائرة يجب تحديد نصف القطر",
+	"multimaps-circle-radius-not-defined": "بالنسبة للدورة، يجب تحديد نصف قطر",
 	"multimaps-circle-wrong-number-parameters": "للدائرة يجب تعريفها فقط وسيطين: إحداثيات المركز ونصف القطر، ولكن تم تحديد وسيط واحد {{PLURAL:$1|وسيط واحد|$1 وسائط}}",
 	"multimaps-marker-incorrect-icon": "تم توفير اسم ملف غير صحيح \"$1\" لأيقونة العلامة.",
 	"multimaps-marker-incorrect-icon-url": "تم توفير مسار غير صحيح \"$1\" لأيقونة العلامة.",
@@ -30,8 +31,8 @@
 	"multimaps-square-wrong-number-points": "يجب أن تحتوي إحداثيات الساحة على نقطتين فقط ، ولكن تم تحديد {{PLURAL:$1|نقطة واحدة|$1 نقاط}}",
 	"multimaps-unable-create-element": "لا يمكن إنشاء عنصر الخريطة \"$1\"",
 	"multimaps-unable-parse-coordinates": "غير قادر على تحليل الإحداثيات الجغرافية \"$1\"",
-	"multimaps-unable-parse-parameter": "غير قادر على تحليل الوسيط \"$1\" القيمة \"$2\"",
-	"multimaps-unable-parse-radius": "يجب أن يكون نصف قطر الدائرة قيمة رقمية، ولكن تم تحديد \"$1\"",
+	"multimaps-unable-parse-parameter": "غير قادر على تحليل المعلم \"$1\"، القيمة \"$2\"",
+	"multimaps-unable-parse-radius": "يجب أن يكون نصف قطر الدائرة قيمة رقمية، ولكن \"$1\" تم تحديده",
 	"multimaps-unknown-class-for-service": "لا يمكن العثور على الفئة \"$1\" التي تم تعريفها للخدمة.",
 	"multimaps-unknown-parameter": "وسيط غير معروف: \"$1\"",
 	"multimaps-error-incorrect-class-for-service": "لا يمكن العثور على الفئة \"$1\" التي تم تعريفها للخدمة.",
