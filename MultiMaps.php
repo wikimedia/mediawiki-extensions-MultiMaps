@@ -96,21 +96,3 @@ $wgResourceModules['ext.MultiMaps.Yandex'] = [
 	'localBasePath' => $dir . '/services/Yandex',
 	'remoteExtPath' => 'MultiMaps/services/Yandex',
 ];
-
-/**
- * Add files to phpunit test
- * @codeCoverageIgnore
- */
-$wgHooks['UnitTestsList'][] = static function ( &$files ) {
-	$files[] = __DIR__ . '/tests/phpunit/includes/BoundsTest.php';
-	$files[] = __DIR__ . '/tests/phpunit/includes/GeoCoordinateTest.php';
-	$files[] = __DIR__ . '/tests/phpunit/includes/GeocodersTest.php';
-	$files[] = __DIR__ . '/tests/phpunit/includes/MapServicesTest.php';
-	$files[] = __DIR__ . '/tests/phpunit/includes/PointTest.php';
-	$files[] = __DIR__ . '/tests/phpunit/includes/mapelements/PolygonTest.php';
-	$files[] = __DIR__ . '/tests/phpunit/includes/mapelements/RectangleTest.php';
-	$files[] = __DIR__ . '/tests/phpunit/services/Google/GoogleTest.php';
-	$files[] = __DIR__ . '/tests/phpunit/services/Leaflet/LeafletTest.php';
-	$files[] = __DIR__ . '/tests/phpunit/services/Yandex/YandexTest.php';
-	return true;
-};
