@@ -15,10 +15,10 @@ mw.MultiMapsLeaflet = {
 	 * @return {Object} options of map element
 	 */
 	convertPropertiesToOptions: function ( properties ) {
-		var options = {}, text = false;
+		let options = {}, text = false;
 
 		if ( properties.icon !== undefined ) {
-			var iconOptions = {
+			const iconOptions = {
 				iconUrl: properties.icon
 			};
 			if ( properties.size !== undefined ) {
@@ -81,7 +81,7 @@ mw.MultiMapsLeaflet = {
 	 * @param {Object} properties Contains the fields attribution, lat, lon, tileLayer, title, text and icon
 	 */
 	addMarker: function ( map, properties ) {
-		var marker, value = this.convertPropertiesToOptions( properties );
+		let marker, value = this.convertPropertiesToOptions( properties );
 
 		marker = L.marker( [ properties.pos[ 0 ].lat, properties.pos[ 0 ].lon ], value.options )
 			.addTo( map );
@@ -91,7 +91,7 @@ mw.MultiMapsLeaflet = {
 	},
 
 	addLine: function ( map, properties ) {
-		var x, polyline, latlngs = [],
+		let x, polyline, latlngs = [],
 			value = this.convertPropertiesToOptions( properties );
 
 		for ( x = 0; x < properties.pos.length; x++ ) {
@@ -106,7 +106,7 @@ mw.MultiMapsLeaflet = {
 	},
 
 	addPolygon: function ( map, properties ) {
-		var x, polygon, latlngs = [],
+		let x, polygon, latlngs = [],
 			value = this.convertPropertiesToOptions( properties );
 
 		for ( x = 0; x < properties.pos.length; x++ ) {
@@ -121,7 +121,7 @@ mw.MultiMapsLeaflet = {
 	},
 
 	addCircle: function ( map, properties ) {
-		var circle, value = this.convertPropertiesToOptions( properties );
+		let circle, value = this.convertPropertiesToOptions( properties );
 
 		circle = L.circle( [ properties.pos[ 0 ].lat, properties.pos[ 0 ].lon ], properties.radius[ 0 ], value.options )
 			.addTo( map );
@@ -131,7 +131,7 @@ mw.MultiMapsLeaflet = {
 	},
 
 	addRectangle: function ( map, properties ) {
-		var bounds, rectangle, value = this.convertPropertiesToOptions( properties );
+		let bounds, rectangle, value = this.convertPropertiesToOptions( properties );
 
 		bounds = [
 			[ properties.pos[ 0 ].lat, properties.pos[ 0 ].lon ],
@@ -146,7 +146,7 @@ mw.MultiMapsLeaflet = {
 	},
 
 	setup: function ( element, options ) {
-		var map, i, mapOptions = {};
+		let map, i, mapOptions = {};
 
 		if ( options.minzoom !== false ) {
 			mapOptions.minZoom = options.minzoom;
@@ -217,10 +217,10 @@ mw.MultiMapsLeaflet = {
 
 ( function () {
 
-	$( function () {
-		mw.loader.using( 'ext.MultiMaps', function () {
+	$( () => {
+		mw.loader.using( 'ext.MultiMaps', () => {
 			$( '.multimaps-map-leaflet' ).each( function () {
-				var $this = $( this );
+				const $this = $( this );
 				mw.MultiMapsLeaflet.setup( $this.get( 0 ), JSON.parse( $this.find( 'div' ).text() ) );
 			} );
 		} );

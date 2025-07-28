@@ -15,10 +15,10 @@ mw.MultiMapsGoogle = {
 	 * @return {Object} options of map element
 	 */
 	convertPropertiesToOptions: function ( properties ) {
-		var options = {}, text = false;
+		let options = {}, text = false;
 
 		if ( properties.icon !== undefined ) {
-			var iconOptions = { url: properties.icon };
+			const iconOptions = { url: properties.icon };
 			if ( properties.size !== undefined ) {
 				iconOptions.scaledSize = new google.maps.Size( properties.size[ 0 ], properties.size[ 1 ] );
 			}
@@ -27,7 +27,7 @@ mw.MultiMapsGoogle = {
 			}
 			options.icon = iconOptions;
 			if ( properties.shadow !== undefined ) {
-				var shadowOptions = { url: properties.shadow };
+				const shadowOptions = { url: properties.shadow };
 				if ( properties.shSize !== undefined ) {
 					shadowOptions.scaledSize = new google.maps.Size( properties.shSize[ 0 ], properties.shSize[ 1 ] );
 				}
@@ -77,7 +77,7 @@ mw.MultiMapsGoogle = {
 	 * @param {Object} properties Contains the fields lat, lon, title, text and icon
 	 */
 	addMarker: function ( map, properties ) {
-		var marker, infowindow, value = this.convertPropertiesToOptions( properties );
+		let marker, infowindow, value = this.convertPropertiesToOptions( properties );
 
 		value.options.position = new google.maps.LatLng( properties.pos[ 0 ].lat, properties.pos[ 0 ].lon );
 		value.options.map = map;
@@ -86,14 +86,14 @@ mw.MultiMapsGoogle = {
 
 		if ( value.text ) {
 			infowindow = new google.maps.InfoWindow( { content: value.text } );
-			google.maps.event.addListener( marker, 'click', function () {
+			google.maps.event.addListener( marker, 'click', () => {
 				infowindow.open( marker.get( 'map' ), marker );
 			} );
 		}
 	},
 
 	addLine: function ( map, properties ) {
-		var x, polyline, infowindow, latlngs = [], value = this.convertPropertiesToOptions( properties );
+		let x, polyline, infowindow, latlngs = [], value = this.convertPropertiesToOptions( properties );
 
 		for ( x = 0; x < properties.pos.length; x++ ) {
 			latlngs.push( new google.maps.LatLng( properties.pos[ x ].lat, properties.pos[ x ].lon ) );
@@ -104,14 +104,14 @@ mw.MultiMapsGoogle = {
 		polyline = new google.maps.Polyline( value.options );
 		if ( value.text ) {
 			infowindow = new google.maps.InfoWindow( { content: value.text } );
-			google.maps.event.addListener( polyline, 'click', function () {
+			google.maps.event.addListener( polyline, 'click', () => {
 				infowindow.open( polyline.get( 'map' ), polyline );
 			} );
 		}
 	},
 
 	addPolygon: function ( map, properties ) {
-		var latlngs, x, polygon, infowindow, value = this.convertPropertiesToOptions( properties );
+		let latlngs, x, polygon, infowindow, value = this.convertPropertiesToOptions( properties );
 
 		latlngs = [];
 		for ( x = 0; x < properties.pos.length; x++ ) {
@@ -123,14 +123,14 @@ mw.MultiMapsGoogle = {
 		polygon = new google.maps.Polygon( value.options );
 		if ( value.text ) {
 			infowindow = new google.maps.InfoWindow( { content: value.text } );
-			google.maps.event.addListener( polygon, 'click', function () {
+			google.maps.event.addListener( polygon, 'click', () => {
 				infowindow.open( polygon.get( 'map' ), polygon );
 			} );
 		}
 	},
 
 	addCircle: function ( map, properties ) {
-		var circle, infowindow, value = this.convertPropertiesToOptions( properties );
+		let circle, infowindow, value = this.convertPropertiesToOptions( properties );
 
 		value.options.center = new google.maps.LatLng( properties.pos[ 0 ].lat, properties.pos[ 0 ].lon );
 		value.options.radius = properties.radius[ 0 ];
@@ -138,14 +138,14 @@ mw.MultiMapsGoogle = {
 		circle = new google.maps.Circle( value.options );
 		if ( value.text ) {
 			infowindow = new google.maps.InfoWindow( { content: value.text } );
-			google.maps.event.addListener( circle, 'click', function () {
+			google.maps.event.addListener( circle, 'click', () => {
 				infowindow.open( circle.get( 'map' ), circle );
 			} );
 		}
 	},
 
 	addRectangle: function ( map, properties ) {
-		var bounds, rectangle, infowindow, value = this.convertPropertiesToOptions( properties );
+		let bounds, rectangle, infowindow, value = this.convertPropertiesToOptions( properties );
 
 		bounds = new google.maps.LatLngBounds();
 		bounds.extend( new google.maps.LatLng( properties.pos[ 0 ].lat, properties.pos[ 0 ].lon ) );
@@ -156,14 +156,14 @@ mw.MultiMapsGoogle = {
 		rectangle = new google.maps.Rectangle( value.options );
 		if ( value.text ) {
 			infowindow = new google.maps.InfoWindow( { content: value.text } );
-			google.maps.event.addListener( rectangle, 'click', function () {
+			google.maps.event.addListener( rectangle, 'click', () => {
 				infowindow.open( rectangle.get( 'map' ), rectangle );
 			} );
 		}
 	},
 
 	setup: function ( element, options ) {
-		var map, i, mapOptions = {
+		let map, i, mapOptions = {
 			center: new google.maps.LatLng( 0, 0 ),
 			zoom: 1,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -231,10 +231,10 @@ mw.MultiMapsGoogle = {
 
 ( function () {
 
-	$( function () {
-		mw.loader.using( 'ext.MultiMaps', function () {
+	$( () => {
+		mw.loader.using( 'ext.MultiMaps', () => {
 			$( '.multimaps-map-google' ).each( function () {
-				var $this = $( this );
+				const $this = $( this );
 				mw.MultiMapsGoogle.setup( $this.get( 0 ), JSON.parse( $this.find( 'div' ).text() ) );
 			} );
 		} );

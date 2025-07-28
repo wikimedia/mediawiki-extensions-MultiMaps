@@ -15,7 +15,7 @@ mw.MultiMapsYandex = {
 	 * @return {Object} options of map element
 	 */
 	convertPropertiesToOptions: function ( properties ) {
-		var prop = {}, options = {};
+		const prop = {}, options = {};
 
 		if ( properties.icon !== undefined ) {
 			options.iconImageHref = properties.icon;
@@ -76,14 +76,14 @@ mw.MultiMapsYandex = {
 	 * @param {Object} properties Contains the fields lat, lon, title, text and icon
 	 */
 	addMarker: function ( map, properties ) {
-		var marker, value = this.convertPropertiesToOptions( properties );
+		let marker, value = this.convertPropertiesToOptions( properties );
 
 		marker = new ymaps.Placemark( [ properties.pos[ 0 ].lat, properties.pos[ 0 ].lon ], value.properties, value.options );
 		map.geoObjects.add( marker );
 	},
 
 	addLine: function ( map, properties ) {
-		var x, polyline, latlngs = [], value = this.convertPropertiesToOptions( properties );
+		let x, polyline, latlngs = [], value = this.convertPropertiesToOptions( properties );
 
 		for ( x = 0; x < properties.pos.length; x++ ) {
 			latlngs.push( [ properties.pos[ x ].lat, properties.pos[ x ].lon ] );
@@ -94,7 +94,7 @@ mw.MultiMapsYandex = {
 	},
 
 	addPolygon: function ( map, properties ) {
-		var x, polygon, latlngs = [], value = this.convertPropertiesToOptions( properties );
+		let x, polygon, latlngs = [], value = this.convertPropertiesToOptions( properties );
 
 		for ( x = 0; x < properties.pos.length; x++ ) {
 			latlngs.push( [ properties.pos[ x ].lat, properties.pos[ x ].lon ] );
@@ -106,14 +106,14 @@ mw.MultiMapsYandex = {
 	},
 
 	addCircle: function ( map, properties ) {
-		var circle, value = this.convertPropertiesToOptions( properties );
+		let circle, value = this.convertPropertiesToOptions( properties );
 
 		circle = new ymaps.Circle( [ [ properties.pos[ 0 ].lat, properties.pos[ 0 ].lon ], properties.radius[ 0 ] ], value.properties, value.options );
 		map.geoObjects.add( circle );
 	},
 
 	addRectangle: function ( map, properties ) {
-		var bounds, rectangle, value = this.convertPropertiesToOptions( properties );
+		let bounds, rectangle, value = this.convertPropertiesToOptions( properties );
 
 		bounds = [ [ properties.pos[ 0 ].lat, properties.pos[ 0 ].lon ], [ properties.pos[ 1 ].lat, properties.pos[ 1 ].lon ] ];
 
@@ -122,7 +122,7 @@ mw.MultiMapsYandex = {
 	},
 
 	setup: function ( element, options ) {
-		var map, i, mapState, mapOptions = {};
+		let map, i, mapState, mapOptions = {};
 		if ( options.minzoom !== false ) {
 			mapOptions.minZoom = options.minzoom;
 		}
@@ -192,10 +192,10 @@ mw.MultiMapsYandex = {
 
 ( function () {
 
-	ymaps.ready( function () {
-		mw.loader.using( 'ext.MultiMaps', function () {
+	ymaps.ready( () => {
+		mw.loader.using( 'ext.MultiMaps', () => {
 			$( '.multimaps-map-yandex' ).each( function () {
-				var $this = $( this );
+				const $this = $( this );
 				$this.find( 'p' ).remove();
 				mw.MultiMapsYandex.setup( $this.get( 0 ), JSON.parse( $this.find( 'div' ).text() ) );
 			} );
