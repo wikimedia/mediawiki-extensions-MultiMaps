@@ -8,7 +8,7 @@
 		]
 	},
 	"multimaps-desc": "Gebruikers toestaan om kaarten en coördinaten weer te geven met behulp van meerdere kaartdiensten",
-	"multimaps-loading-map": "Bezig met het laden van de kaart...",
+	"multimaps-loading-map": "Kaart wordt geladen…",
 	"multimaps-mapservices-must-not-empty-array": "De variabele \"$1\" mag geen lege verzameling zijn",
 	"multimaps-undefined-service-for-layout": "Ongedefinieerde serviceparameter voor lay-out “$1” in $egMultiMaps_MapServices",
 	"multimaps-wrong-service-for-layout": "Voor de lay-out “$1” is de service “$2” gedefinieerd, maar deze bestaat niet in $egMultiMaps_MapServices",
