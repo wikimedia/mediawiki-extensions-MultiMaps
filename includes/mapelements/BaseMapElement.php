@@ -180,7 +180,6 @@ abstract class BaseMapElement {
 	}
 
 	/**
-	 *
 	 * @param array $param
 	 * @return bool false if there were errors during parsing
 	 */

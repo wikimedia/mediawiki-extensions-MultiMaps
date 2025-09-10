@@ -11,8 +11,6 @@ use Html;
  */
 
 /**
- *
- *
  * @file Leaflet.php
  * @ingroup Leaflet
  *

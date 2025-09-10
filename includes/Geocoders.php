@@ -4,8 +4,6 @@ namespace MultiMaps;
 use MediaWiki\MediaWikiServices;
 
 /**
- *
- *
  * @file Geocoders.php
  * @ingroup MultiMaps
  * @author Pavel Astakhov <pastakhov@yandex.ru>

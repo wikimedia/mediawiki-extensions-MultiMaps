@@ -11,8 +11,6 @@ use Html;
  */
 
 /**
- *
- *
  * @file Google.php
  * @ingroup Google
  *
