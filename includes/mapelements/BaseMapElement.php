@@ -2,6 +2,7 @@
 namespace MultiMaps;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 
 /**
  * Base class for collection of map elements
@@ -103,7 +104,7 @@ abstract class BaseMapElement {
 
 		if ( $name == 'title' || $name == 'text' ) {
 			$parser = MediaWikiServices::getInstance()->getParser();
-			$title = \Title::makeTitle( NS_SPECIAL, 'BadTitle/BaseMapElement' );
+			$title = Title::makeTitle( NS_SPECIAL, 'BadTitle/BaseMapElement' );
 			$value = trim( $value );
 			if ( defined( 'LINGO_VERSION' ) === true ) { // Do not allow Lingo extension to process value
 				$value .= "\n__NOGLOSSARY__";
