@@ -1,7 +1,7 @@
 <?php
 namespace MultiMaps;
 
-use Html;
+use MediaWiki\Html\Html;
 
 /**
  * This groupe contains all Leaflet related files of the MultiMaps extension.
