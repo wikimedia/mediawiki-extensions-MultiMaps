@@ -1,6 +1,8 @@
 <?php
 namespace MultiMaps;
 
+use MediaWiki\Title\Title;
+
 /**
  * Marker class for collection of map elements
  *
@@ -58,7 +60,7 @@ class Marker extends BaseMapElement {
 				}
 				$v = $GLOBALS['wgServer'] . $egMultiMaps_IconPath . $v;
 			} else {
-				$title = \Title::newFromText( $v, NS_FILE );
+				$title = Title::newFromText( $v, NS_FILE );
 				if ( $title !== null && $title->exists() ) {
 					$imagePage = new \ImagePage( $title );
 					$v = $imagePage->getDisplayedFile()->getURL();
@@ -106,7 +108,7 @@ class Marker extends BaseMapElement {
 				}
 				$v = $GLOBALS['wgServer'] . $egMultiMaps_IconPath . $v;
 			} else {
-				$title = \Title::newFromText( $v, NS_FILE );
+				$title = Title::newFromText( $v, NS_FILE );
 				if ( $title !== null && $title->exists() ) {
 					$imagePage = new \ImagePage( $title );
 					$v = $imagePage->getDisplayedFile()->getURL();

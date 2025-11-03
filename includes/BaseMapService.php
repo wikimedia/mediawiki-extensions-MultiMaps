@@ -2,7 +2,7 @@
 namespace MultiMaps;
 
 use FormatJson;
-use Html;
+use MediaWiki\Html\Html;
 use Parser;
 
 /**
