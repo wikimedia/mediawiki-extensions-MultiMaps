@@ -38,6 +38,6 @@
 	"multimaps-unknown-class-for-service": "서비스로 지정된 \"$1\" 클래스를 찾을 수 없습니다.",
 	"multimaps-unknown-parameter": "알 수 없는 매개변수: \"$1\"",
 	"multimaps-error-incorrect-class-for-service": "서비스로 지정된 \"$1\" 클래스를 사용할 수 없습니다.",
-	"multimaps-method-error-unknown-action": "$1: 알 수 없는 명령",
+	"multimaps-method-error-unknown-action": "$1: 알 수 없는 작업",
 	"multimaps-method-error-unexpected-result": "$1: 함수의 예기치 못한 결과"
 }
