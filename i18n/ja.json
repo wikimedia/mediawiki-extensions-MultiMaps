@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Shirayuki"
+			"Shirayuki",
+			"Tensama0415"
 		]
 	},
 	"multimaps-desc": "利用者が複数の地図サービスを使用して地図や緯度経度を表示できるようにする",
