@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ranveig"
+		]
+	},
+	"multimaps-element-illegal-value": "for parameteren «$1» vart den ugyldige verdien «$2» oppgjeven. Gyldige verdiar er: $3"
+}
